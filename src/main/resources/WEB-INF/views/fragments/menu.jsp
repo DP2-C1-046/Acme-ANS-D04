@@ -20,6 +20,8 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.david-blanco" action="https://www.fcbarcelona.es/es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.nerea-jimenez" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.rafael-segura" action="http://www.twitch.tv/"/>
 		</acme:menu-option>
 
