@@ -19,10 +19,11 @@
 <acme:menu-bar>
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.david-blanco" action="https://www.fcbarcelona.es/es/"/>
 			<acme:menu-suboption code="master.menu.anonymous.nerea-jimenez" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.rafael-segura" action="http://www.twitch.tv/"/>
+			<acme:menu-suboption code="master.menu.anonymous.rafael-david-caro" action="http://www.elmundo.es/"/>
+			<acme:menu-suboption code="master.menu.anonymous.emilio-espinosa" action="https://www.elmundotoday.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">

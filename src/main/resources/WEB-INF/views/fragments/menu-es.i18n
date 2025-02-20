@@ -11,11 +11,11 @@
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.david-blanco = 30269225Y: Blanco Mora, David
 master.menu.anonymous.nerea-jimenez = ****6108T: Jiménez Adorna, Nerea
 master.menu.anonymous.rafael-segura = 2006****: Segura Gómez, Rafael
-
+master.menu.anonymous.rafael-david-caro = 30****09*: Caro Medina, Rafael David
+master.menu.anonymous.emilio-espinosa = 779****6N: Espinosa Elías, Emilio
 
 # master.menu.administrator ###################################################
 

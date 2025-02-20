@@ -13,9 +13,6 @@ who have enrolled the Design and Testing subject of the Software Engineering cur
 University of Seville.  This project helps them start working on their new information system 
 projects.
 
-To get this project up and running, please follow the guideline in the theory/lab materials,
-taking into account that you must link the appropriate version of the Acme-Framework excluding 
-the following resources:
-
-- **/fragments/**
+The URL to the GitHub dashboard of our organization is:
+https://github.com/orgs/DP2-C1-046/projects/1  
  

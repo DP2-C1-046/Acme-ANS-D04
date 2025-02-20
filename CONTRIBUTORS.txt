@@ -8,4 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-- Rafael Corchuelo (corchu@us.es)
+- Rafael Segura Gómez (rafseggom@alum.us.es)
+- Rafael David Caro Medina (rafcarmed@alum.us.es)
+- Nerea Jiménez Adorna (nerjimado@alum.us.es)
+- Emilio Espinosa Elías (emiespeli@alum.us.es)
+- David Blanco Mora (davblamor@alum.us.es)
