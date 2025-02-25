@@ -1,0 +1,2 @@
+key,code,phoneNumber,languageSkills,status,salary,yearsOfExperience,key:airline,key:userAccount
+flightCrewMember-00,AB123456,2345678,"español ingles aleman frances",AVAILABLE,EUR 500000.00,6,airline-00,user-account-flightCrewMember-01
