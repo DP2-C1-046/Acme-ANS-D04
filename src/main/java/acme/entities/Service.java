@@ -55,6 +55,7 @@ public class Service extends AbstractEntity {
 
 	@Mandatory
 	@ValidNumber
+	@Automapped
 	private double				average_dwell_time;
 
 	@Optional
