@@ -56,12 +56,12 @@ public class Service extends AbstractEntity {
 	@Mandatory
 	@ValidNumber
 	@Automapped
-	private double				average_dwell_time;
+	private double				averageDwellTime;
 
 	@Optional
 	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
 	@Column(unique = true)
-	private String				promotion_code;
+	private String				promotionCode;
 
 	@Mandatory
 	@ValidMoney
