@@ -1,5 +1,5 @@
 /*
- * Service.java
+ * Customer.java
  *
  * Copyright (C) 2012-2025 G3-C1.046
  *
@@ -32,7 +32,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-public class Customers extends AbstractEntity {
+public class Customer extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
