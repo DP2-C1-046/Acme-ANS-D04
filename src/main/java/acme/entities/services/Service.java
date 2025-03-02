@@ -1,5 +1,5 @@
 /*
- * Service.java
+ * Passenger.java
  *
  * Copyright (C) 2012-2025 G3-C1.046
  *
@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities;
+package acme.entities.services;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
