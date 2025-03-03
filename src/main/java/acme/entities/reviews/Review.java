@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities;
+package acme.entities.reviews;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
