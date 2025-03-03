@@ -8,3 +8,5 @@ user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטי�
 user-account-customer-01,true,"UserIdentity{name: 'Rafael David', surname: 'Caro', email: 'rafacaro@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Francisco', surname: 'Lopez', email: 'francislopez@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'Luis', surname: 'Gonzalez', email: 'luisgonzalez@acme.com'}",customer3,customer3
+user-account-flightCrewMember-01,true,"UserIdentity{name: 'David', surname: 'Blanco', email: 'david@iberia.com'}",flightCrewMember1,flightCrewMember1
+
