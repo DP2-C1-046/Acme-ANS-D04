@@ -39,22 +39,22 @@ public class FlightCrewMember extends AbstractRole {
 	private String				code;
 
 	@Mandatory
-	@Automapped
 	@ValidString(pattern = "^\\+?\\d{6,15}$")
+	@Automapped
 	private String				phoneNumber;
 
 	@Mandatory
-	@Automapped
 	@ValidString
+	@Automapped
 	private String				languageSkills;
 
 	@Mandatory
 	@Automapped
-	private Status				status;
+	private CrewMemberStatus	crewMemberStatus;
 
 	@Mandatory
-	@Automapped
 	@ValidMoney
+	@Automapped
 	private Money				salary;
 
 	@Optional

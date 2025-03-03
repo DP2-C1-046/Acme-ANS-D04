@@ -28,23 +28,23 @@ public class Airline extends AbstractEntity {
 
 	//Attributes -----------------------------------
 	@Mandatory
-	@Automapped
 	@ValidString(max = 50)
+	@Automapped
 	private String				name;
 
 	@Mandatory
-	@Column(unique = true)
 	@ValidString(pattern = "^[A-Z]{3}$")
+	@Column(unique = true)
 	private String				code;
 
 	@Mandatory
-	@Automapped
 	@ValidUrl
+	@Automapped
 	private String				website;
 
 	@Mandatory
 	@Automapped
-	private Type				type;
+	private AirlineType			airlineType;
 
 	@Mandatory
 	@ValidMoment(past = true)
