@@ -9,4 +9,6 @@ user-account-customer-01,true,"UserIdentity{name: 'Rafael David', surname: 'Caro
 user-account-customer-02,true,"UserIdentity{name: 'Francisco', surname: 'Lopez', email: 'francislopez@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'Luis', surname: 'Gonzalez', email: 'luisgonzalez@acme.com'}",customer3,customer3
 user-account-flightCrewMember-01,true,"UserIdentity{name: 'David', surname: 'Blanco', email: 'david@iberia.com'}",flightCrewMember1,flightCrewMember1
-
+user-account-technician-01,true,"UserIdentity{name: 'Juan', surname: 'Rodríguez', email: 'juan@iberia.com'}",technician1,technician1
+user-account-technician-02,true,"UserIdentity{name: 'María', surname: 'Vázquez', email: 'maria@iberia.com'}",technician2,technician2
+user-account-technician-03,true,"UserIdentity{name: 'Pablo', surname: 'Llorente', email: 'pablo@iberia.com'}",technician3,technician3
