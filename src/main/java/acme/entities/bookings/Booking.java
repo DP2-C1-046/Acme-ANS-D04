@@ -1,9 +1,7 @@
 /*
-
- * Service.java
-
+ * Booking.java
  *
- * Copyright (C) 2012-2025 G3-C1.046
+ * Copyright (C) 2012-2025 G3-C1.046.
  *
  * In keeping with the traditional purpose of furthering education and research, it is
  * the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -12,22 +10,28 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities.services;
+package acme.entities.bookings;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.client.components.validation.ValidUrl;
+import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,7 +41,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-public class Service extends AbstractEntity {
+public class Booking extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -46,28 +50,56 @@ public class Service extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@ValidString(min = 1, max = 50)
-	@Automapped
-	private String				name;
-
-	@Mandatory
-	@ValidUrl
-	@Automapped
-	private String				picture;
-
-	@Mandatory
-	@ValidNumber
-	@Automapped
-	private double				averageDwellTime;
-
-	@Optional
-	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
+	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
 	@Column(unique = true)
-	private String				promotionCode;
+	private String				locatorCode;
+
+	@Mandatory
+	@ValidMoment(past = true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				purchaseMoment;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private TravelClass			travelClass;
 
 	@Mandatory
 	@ValidMoney
 	@Automapped
-	private Money				money;
+	private Money				price;
+
+	// Interpreto como el último dígito de la tarjeta de crédito
+	@Optional
+	@ValidString(min = 1, max = 1)
+	@Automapped
+	private String				lastNibble;
+
+	// Relationships ----------------------------------------------------------
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Customer			customer;
+
+	// Comento el atributo hasta que exista y pueda importar la entidad Flight
+	/*
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Flight flight;
+	 */
+
+	// Comento el atributo hasta que exista y pueda importar la entidad Passenger
+	/*
+	 * @Mandatory
+	 * 
+	 * @Valid
+	 * 
+	 * @ManyToOne
+	 * private Passenger passenger;
+	 */
 
 }

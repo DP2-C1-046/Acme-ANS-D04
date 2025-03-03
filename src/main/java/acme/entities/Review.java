@@ -1,7 +1,5 @@
 /*
-
- * Service.java
-
+ * Review.java
  *
  * Copyright (C) 2012-2025 G3-C1.046
  *
@@ -12,22 +10,20 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities.services;
+package acme.entities;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Money;
+import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidMoney;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.client.components.validation.ValidUrl;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,7 +33,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-public class Service extends AbstractEntity {
+public class Review extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -51,23 +47,27 @@ public class Service extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidUrl
+	@ValidMoment
 	@Automapped
-	private String				picture;
+	private Moment				moment;
 
 	@Mandatory
-	@ValidNumber
+	@ValidString(min = 1, max = 50)
 	@Automapped
-	private double				averageDwellTime;
+	private String				subject;
+
+	@Mandatory
+	@ValidString(min = 1)
+	@Automapped
+	private String				text;
 
 	@Optional
-	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
-	@Column(unique = true)
-	private String				promotionCode;
+	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 2)
+	@Automapped
+	private Integer				score;
 
 	@Mandatory
-	@ValidMoney
 	@Automapped
-	private Money				money;
+	private Boolean				recommended;
 
 }
