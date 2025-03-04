@@ -26,13 +26,6 @@ public class FlightAssignment extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	//	Attributes -----------------------------------------------------
-	//	 flight assignment represents the allocation of a flight crew member 
-	//	 to a specific leg of a flight.  Each assignment specifies the flight crew's duty 
-	//	 in that leg ("PILOT", "CO-PILOT", "LEAD ATTENDANT", "CABIN ATTENDANT"), 
-	//	 the moment of the last update (in the past), 
-	//	 the current status of the assignment ("CONFIRMED", "PENDING", or "CANCELLED"), 
-	//	 and some remarks (up to 255 characters), if necessary.
 	@Mandatory
 	@Automapped
 	private FlightCrewDuty		flightCrewDuty;
