@@ -3,6 +3,8 @@ package acme.entities.aircrafts;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -23,7 +25,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-
+@Table(indexes = {
+	@Index(columnList = "id")
+})
 public class Aircraft extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -54,7 +58,7 @@ public class Aircraft extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
-	private Boolean				status;
+	private AircraftStatus		status;
 
 	@Optional
 	@ValidString(min = 1, max = 255)
