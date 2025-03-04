@@ -1,15 +1,22 @@
 
-package acme.entities.airlines;
+package acme.realms;
 
-import acme.client.components.basis.AbstractEntity;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
 
-public class Manager extends AbstractEntity {
+public class AirlineManager extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -19,13 +26,18 @@ public class Manager extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
-	@Automapped
+	@Column(unique = true)
 	private String				identifierNumber;
 
 	@Mandatory
-	@ValidNumber(max = 50)  //TODO: Cambiar a derivada? Max < birth-currentYear
+	@ValidNumber(min = 0, integer = 2, fraction = 0, max = 50)  //TODO: Cambiar a derivada? Max < birth-currentYear
 	@Automapped
 	private Integer				yearsOfExperience;
+
+	@Mandatory
+	@ValidMoment(past = true)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				dateOfBirth;
 
 	@Optional
 	@ValidUrl
