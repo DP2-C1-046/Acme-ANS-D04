@@ -1,6 +1,8 @@
 
 package acme.entities.flights;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
@@ -36,31 +38,35 @@ public class Flight extends AbstractEntity {
 
 
 	@Transient
-		public getScheduledDeparture() {
-			return null;
-		}
+	public Date getScheduledDeparture() {
+		return null;
+	}
 
 	@Transient
-		public getScheduledArrival() {
-			return null;
-		}
+	public Date getScheduledArrival() {
+		return null;
+	}
 
 	@Transient
-		public getOriginCity() {
-			return null;
-		}
+	public String getOriginCity() {
+		return null;
+	}
 
 	@Transient
-		public getDestinationCity() {
-			return null;
-		}
+	public String getDestinationCity() {
+		return null;
+	}
 
-	@Transient 
-	public getNumberOfLayovers() {
+	@Transient
+	public Integer getNumberOfLayovers() {
 		return null;
 	}
 
 	// Relationships ----------------------------------------------------------
 
-	// One to One AirlineManager??
+	//	// One to One AirlineManager??
+	//	@Mandatory
+	//	@Valid
+	//	@OneToOne(optional = false)
+	//	private AirlineManager airlineManager;
 }
