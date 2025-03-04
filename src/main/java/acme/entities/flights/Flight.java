@@ -4,7 +4,6 @@ package acme.entities.flights;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
@@ -34,31 +33,30 @@ public class Flight extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	@Transient
-		public getScheduledDeparture() {
-			return null;
-		}
-
-	@Transient
-		public getScheduledArrival() {
-			return null;
-		}
-
-	@Transient
-		public getOriginCity() {
-			return null;
-		}
-
-	@Transient
-		public getDestinationCity() {
-			return null;
-		}
-
-	@Transient 
-	public getNumberOfLayovers() {
-		return null;
-	}
+	//	@Transient
+	//		public getScheduledDeparture() {
+	//			return null;
+	//		}
+	//
+	//	@Transient
+	//		public getScheduledArrival() {
+	//			return null;
+	//		}
+	//
+	//	@Transient
+	//		public getOriginCity() {
+	//			return null;
+	//		}
+	//
+	//	@Transient
+	//		public getDestinationCity() {
+	//			return null;
+	//		}
+	//
+	//	@Transient 
+	//	public getNumberOfLayovers() {
+	//		return null;
+	//	}
 
 	// Relationships ----------------------------------------------------------
 
