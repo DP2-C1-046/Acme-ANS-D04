@@ -5,15 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
-import acme.client.components.validation.Mandatory;
-import acme.realms.AirlineManager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -68,10 +64,9 @@ public class Flight extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
-
-	// One to One AirlineManager??
-	@Mandatory
-	@Valid
-	@OneToOne(optional = false)
-	private AirlineManager airlineManager;
+	//	// One to One AirlineManager??
+	//	@Mandatory
+	//	@Valid
+	//	@OneToOne(optional = false)
+	//	private AirlineManager airlineManager;
 }
