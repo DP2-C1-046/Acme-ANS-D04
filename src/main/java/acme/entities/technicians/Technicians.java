@@ -5,9 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
 
-import acme.client.components.basis.AbstractEntity;
+import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-public class Technicians extends AbstractEntity {
+public class Technicians extends AbstractRole {
 
 	// Serialisation version --------------------------------------------------
 
@@ -27,7 +28,7 @@ public class Technicians extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 	@Mandatory
-	@ValidString(pattern = "^[A-Z]{2-3}\\d{6}$")
+	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Automapped
 	private String				licenseNumber;
 
@@ -50,7 +51,7 @@ public class Technicians extends AbstractEntity {
 	@Automapped
 	Integer						yearsOfExperience;
 
-	@Mandatory
+	@Optional
 	@ValidString
 	@Automapped
 	String						certifications;
