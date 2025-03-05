@@ -32,8 +32,8 @@ public class MaintenanceRecords extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 	@Mandatory
-	@ManyToOne
-	@Automapped
+	@Valid
+	@ManyToOne(optional = false)
 	private Aircraft					aircraft;
 
 	@Mandatory
