@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities.airport;
+package acme.entities.airports;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
