@@ -1,6 +1,8 @@
 
 package acme.entities.claims;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
@@ -8,7 +10,6 @@ import javax.persistence.Table;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -40,7 +41,7 @@ public class TrackingLog extends AbstractEntity {
 	@Mandatory
 	@ValidMoment
 	@Automapped
-	private Moment				lastUpdate;
+	private Date				lastUpdate;
 
 	@Mandatory
 	@ValidString(min = 1, max = 50)
