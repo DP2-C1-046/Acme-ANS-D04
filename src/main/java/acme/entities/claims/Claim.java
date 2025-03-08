@@ -8,6 +8,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -41,20 +42,21 @@ public class Claim extends AbstractEntity {
 	@Mandatory
 	@ValidEmail
 	@Automapped
-	private String				email;
+	private String				passengerEmail;
 
 	@Mandatory
-	@ValidString(max = 50)
-	@Automapped
-	private String				name;
-
-	@Mandatory
-	@ValidString
+	@ValidString(max = 255)
 	@Automapped
 	private String				description;
 
 	@Mandatory
+	@Valid
 	@Automapped
-	private boolean				accepted;
+	private ClaimType			claimType;
+
+	@Mandatory
+	// -- Boolean does not need valid
+	@Automapped
+	private boolean				isClaimAccepted;
 
 }
