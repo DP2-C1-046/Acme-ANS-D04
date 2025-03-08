@@ -31,6 +31,8 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.entities.flights.Flight;
+import acme.entities.passengers.Passenger;
 import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
@@ -82,24 +84,14 @@ public class Booking extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Customer			customer;
 
-	// Comento el atributo hasta que exista y pueda importar la entidad Flight
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne
-	 * private Flight flight;
-	 */
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Flight				flight;
 
-	// Comento el atributo hasta que exista y pueda importar la entidad Passenger
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne
-	 * private Passenger passenger;
-	 */
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Passenger			passenger;
 
 }
