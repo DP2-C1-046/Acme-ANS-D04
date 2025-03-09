@@ -1,8 +1,8 @@
 /*
-
+ * 
  * Service.java
-
  *
+ * 
  * Copyright (C) 2012-2025 G3-C1.046
  *
  * In keeping with the traditional purpose of furthering education and research, it is
@@ -20,11 +20,9 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
@@ -56,7 +54,7 @@ public class Service extends AbstractEntity {
 	private String				picture;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 1, max = 100, integer = 3, fraction = 2)
 	@Automapped
 	private double				averageDwellTime;
 
@@ -66,8 +64,8 @@ public class Service extends AbstractEntity {
 	private String				promotionCode;
 
 	@Mandatory
-	@ValidMoney
+	@ValidNumber(min = 1, max = 100, integer = 3, fraction = 2)
 	@Automapped
-	private Money				money;
+	private double				money;
 
 }
