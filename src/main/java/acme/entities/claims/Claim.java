@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +17,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.realms.AssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,6 +36,7 @@ public class Claim extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	//¿Min o max?
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -45,9 +48,11 @@ public class Claim extends AbstractEntity {
 	private String				passengerEmail;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				description;
+
+	//¿Nombre redundante?
 
 	@Mandatory
 	@Valid
@@ -58,5 +63,11 @@ public class Claim extends AbstractEntity {
 	// -- Boolean does not need valid
 	@Automapped
 	private boolean				isClaimAccepted;
+
+	// Relationships ----------------------------------------------------------
+
+	@Mandatory
+	@ManyToOne(optional = false)
+	private AssistanceAgent		registeredBy;
 
 }
