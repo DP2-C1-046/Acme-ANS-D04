@@ -11,11 +11,12 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
 import acme.entities.airlines.Airline;
@@ -37,7 +38,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				employeeCode;
 
 	@Mandatory
-	@ValidString
+	@ValidString(max = 255)
 	@Automapped
 	private String				spokenLanguages;
 
@@ -47,14 +48,14 @@ public class AssistanceAgent extends AbstractRole {
 	private Date				employmentStartDate;
 
 	@Optional
-	@ValidString
+	@ValidString(max = 255)
 	@Automapped
 	private String				bio;
 
 	@Optional
-	@ValidNumber
+	@ValidMoney
 	@Automapped
-	private Double				salary;
+	private Money				salary;
 
 	@Optional
 	@ValidUrl
