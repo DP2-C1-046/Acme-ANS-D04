@@ -71,11 +71,11 @@ public class Booking extends AbstractEntity {
 	@Automapped
 	private Money				price;
 
-	// Interpreto como el último dígito de la tarjeta de crédito
+	// Interpreto como 4 últimos dígitos de la tarjeta de crédito, consultar
 	@Optional
-	@ValidString(min = 1, max = 1)
+	@ValidString(pattern = "^[0-9]{4}$")
 	@Automapped
-	private String				lastNibble;
+	private String				lastCardNibble;
 
 	// Relationships ----------------------------------------------------------
 
