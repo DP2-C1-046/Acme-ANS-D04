@@ -38,7 +38,7 @@ public class AssistanceAgent extends AbstractRole {
 	private String				employeeCode;
 
 	@Mandatory
-	@ValidString
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				spokenLanguages;
 
@@ -48,7 +48,7 @@ public class AssistanceAgent extends AbstractRole {
 	private Date				employmentStartDate;
 
 	@Optional
-	@ValidString
+	@ValidString(max = 255)
 	@Automapped
 	private String				bio;
 
