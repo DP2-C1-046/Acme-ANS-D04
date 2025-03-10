@@ -10,7 +10,6 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -38,8 +37,8 @@ public class MaintenanceRecords extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment
-	@Automapped
-	private Moment						moment;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date						moment;
 
 	@Mandatory
 	@Valid
