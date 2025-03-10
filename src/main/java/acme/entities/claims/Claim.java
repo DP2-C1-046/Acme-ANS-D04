@@ -67,6 +67,7 @@ public class Claim extends AbstractEntity {
 	// Relationships ----------------------------------------------------------
 
 	@Mandatory
+	@Valid
 	@ManyToOne(optional = false)
 	private AssistanceAgent		registeredBy;
 
