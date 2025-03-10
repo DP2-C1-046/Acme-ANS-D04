@@ -16,8 +16,3 @@ projects.
 The URL to the GitHub dashboard of our organization is:
 https://github.com/orgs/DP2-C1-046/projects/1  
 
-
-Guide to review in lab class:
-✏️[To review](review.md)✏️
-📋[Tablero](https://github.com/orgs/DP2-C1-046/projects/1/views/13)📋
- 
