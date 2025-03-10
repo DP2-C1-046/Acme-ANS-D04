@@ -1,6 +1,9 @@
 
-package acme.entities.flights;
+package acme.entities.legs;
 
+import java.time.Duration;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,14 +13,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.entities.airports.Airport;
+import acme.entities.flights.Flight;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,31 +57,38 @@ public class Leg extends AbstractEntity {
 	private Date				scheduledArrival;
 
 	@Mandatory
-	@ValidNumber(min = 0, integer = 2, fraction = 0)
-	@Automapped
-	private Double				duration;
-
-	@Mandatory
 	@Valid
 	@Automapped
 	private LegStatus			legStatus;
 
+
+	// Derived attributes -----------------------------------------------------
+	@Transient
+	public Double getDuration() {
+		ZonedDateTime departure = this.scheduledDeparture.toInstant().atZone(ZoneId.systemDefault());
+		ZonedDateTime arrival = this.scheduledArrival.toInstant().atZone(ZoneId.systemDefault());
+
+		Duration duration = Duration.between(departure, arrival);
+
+		return (double) duration.toHours();
+	}
+
 	// Relationships ----------------------------------------------------------
 
-	// TODO: Descomentar cuando tengamos Airport
-	//	@Mandatory
-	//	@Valid
-	//	@ManyToOne(optional=false)
-	//	private Airport departureAirport;
-
-	//	@Mandatory
-	//	@Valid
-	//	@ManyToOne(optional=false)
-	//	private Airport arrivalAirport;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Flight				flight;
+	private Airport	departureAirport;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airport	arrivalAirport;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Flight	flight;
 
 }
