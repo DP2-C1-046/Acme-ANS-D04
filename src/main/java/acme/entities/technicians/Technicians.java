@@ -40,19 +40,19 @@ public class Technicians extends AbstractRole {
 	@Mandatory
 	@ValidString(max = 50)
 	@Automapped
-	String						specialisation;
+	private String				specialisation;
 
 	@Mandatory
 	@Automapped
-	Boolean						annualHealthTest;
+	private Boolean				annualHealthTest;
 
 	@Mandatory
 	@ValidNumber
 	@Automapped
-	Integer						yearsOfExperience;
+	private Integer				yearsOfExperience;
 
 	@Optional
 	@ValidString
 	@Automapped
-	String						certifications;
+	private String				certifications;
 }
