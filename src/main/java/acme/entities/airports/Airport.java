@@ -81,7 +81,7 @@ public class Airport extends AbstractEntity {
 	//al inicio del argumento. ¿Es correcto?
 
 	@Optional
-	@ValidString(pattern = " ^+?\\d{6,15}$")
+	@ValidString(pattern = "^+?\\d{6,15}$")
 	@Automapped
 	private String				contactPhoneNumber;
 
