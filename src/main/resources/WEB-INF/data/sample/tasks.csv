@@ -1,0 +1,3 @@
+key,technician,maintenanceRecords,tasksType,description,priority,estimatedDuration
+1,1,1,MAINTENANCE,"Routine maintenance check",5,120
+
