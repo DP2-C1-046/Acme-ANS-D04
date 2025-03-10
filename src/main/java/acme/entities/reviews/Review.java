@@ -12,18 +12,24 @@
 
 package acme.entities.reviews;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.datatypes.UserIdentity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,14 +48,19 @@ public class Review extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private UserIdentity		user;
+
+	@Mandatory
 	@ValidString(min = 1, max = 50)
 	@Automapped
 	private String				name;
 
 	@Mandatory
 	@ValidMoment
-	@Automapped
-	private Moment				moment;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				moment;
 
 	@Mandatory
 	@ValidString(min = 1, max = 50)

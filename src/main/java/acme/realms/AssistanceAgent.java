@@ -11,14 +11,14 @@ import javax.persistence.TemporalType;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
-import acme.constraints.ValidAirlineManager;
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,39 +26,43 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@ValidAirlineManager
-public class AirlineManager extends AbstractRole {
-
-	// Serialisation version --------------------------------------------------
+public class AssistanceAgent extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes -------------------------------------------------------------
+	//Attributes -----------------------------------
 
-	// regexp es {2,3}, no {2-3}
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)
-	private String				identifierNumber;
+	private String				employeeCode;
 
 	@Mandatory
-	@ValidNumber(min = 0, integer = 3, fraction = 0, max = 120)  //TODO: Cambiar a derivada? Max < birth-currentYear
+	@ValidString(min = 1, max = 255)
 	@Automapped
-	private Integer				yearsOfExperience;
+	private String				spokenLanguages;
 
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				birthDate;
+	private Date				employmentStartDate;
+
+	@Optional
+	@ValidString(max = 255)
+	@Automapped
+	private String				bio;
+
+	@Optional
+	@ValidMoney
+	@Automapped
+	private Money				salary;
 
 	@Optional
 	@ValidUrl
 	@Automapped
-	private String				linkToPicture;
+	private String				linkToPhoto;
 
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	//Relationships ----------------------------------
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)

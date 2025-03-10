@@ -1,0 +1,7 @@
+key,name,iataCode,operationalScope,city,country,email,website,contactPhoneNumber
+airport-00,Aeropuerto Internacional de Sevilla-San Pablo,SVQ,INTERNATIONAL,Sevilla,España,aeropuerto-sevilla@spain.com,https://www.aena.es/es/sevilla.html?utm_source=Google&utm_medium=GMB_SVQ,null
+airport-01,Aeropuerto Adolfo Suárez Madrid-Barajas,MAD,INTERNATIONAL,Madrid,España,aeropuerto-madrid@spain.com,https://www.aena.es/es/adolfo-suarez-madrid-barajas.html?utm_source=Google&utm_medium=GMB_MAD,913211000
+airport-02,Aeropuerto Josep Tarradellas Barcelona-El Prat,BCN,INTERNATIONAL,Barcelona,España,aeropuerto-barcelona@spain.com,https://www.aena.es/es/adolfo-suarez-madrid-barajas.html?utm_source=Google&utm_medium=GMB_MAD,913211000
+airport-03,Aeropuerto de Palma de Mallorca,PMI,INTERNATIONAL,Palma de Mallorca,España,aeropuerto-palma-mallorca@spain.com,https://www.aena.es/es/palma-de-mallorca.html?utm_source=Google&utm_medium=GMB_PMI,913211000
+airport-04,Aeropuerto de Córdoba,ODB,DOMESTIC,Córdoba,España,aeropuerto-cordoba@spain.com,https://www.aena.es/es/cordoba.html?utm_source=Google&utm_medium=GMB_ODB,913211000
+airport-05,Boston Logan Aeropuerto Internacional,BOS,INTERNATIONAL,Boston,USA,aeropuerto-boston@usa.com,https://www.massport.com/logan-airport,18002356426

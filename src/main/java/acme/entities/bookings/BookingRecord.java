@@ -1,5 +1,5 @@
 /*
- * Passenger.java
+ * Booking.java
  *
  * Copyright (C) 2012-2025 G3-C1.046.
  *
@@ -10,21 +10,17 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities.passengers;
-
-import java.util.Date;
+package acme.entities.bookings;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidEmail;
-import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidString;
+import acme.entities.passengers.Passenger;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,7 +30,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-public class Passenger extends AbstractEntity {
+public class BookingRecord extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
 
@@ -42,29 +38,16 @@ public class Passenger extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Mandatory
-	@ValidString(min = 1)
-	@Automapped
-	private String				fullName;
+	// Relationships ----------------------------------------------------------
 
 	@Mandatory
-	@ValidEmail
-	@Automapped
-	private String				email;
+	@Valid
+	@ManyToOne(optional = false)
+	private Booking				booking;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
-	@Automapped
-	private String				passportNumber;
-
-	@Mandatory
-	@ValidMoment(past = true)
-	@Automapped
-	private Date				dateOfBirth;
-
-	@Optional
-	@ValidString(min = 0, max = 50)
-	@Automapped
-	private String				specialNeeds;
+	@Valid
+	@ManyToOne(optional = false)
+	private Passenger			passenger;
 
 }
