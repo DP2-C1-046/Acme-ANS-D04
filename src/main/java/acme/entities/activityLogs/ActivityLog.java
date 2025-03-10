@@ -53,7 +53,7 @@ public class ActivityLog extends AbstractEntity {
 	@Mandatory
 	@ValidNumber(min = 0, max = 10)
 	@Automapped
-	private Integer				securityLevel;
+	private Integer				severityLevel;
 
 	@Mandatory
 	@Valid
