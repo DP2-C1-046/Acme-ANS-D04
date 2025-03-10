@@ -39,19 +39,19 @@ public class Technicians extends AbstractEntity {
 	@Mandatory
 	@ValidString(max = 50)
 	@Automapped
-	String						specialisation;
+	private String				specialisation;
 
 	@Mandatory
 	@Automapped
-	Boolean						annualHealthTest;
+	private Boolean				annualHealthTest;
 
 	@Mandatory
 	@ValidNumber
 	@Automapped
-	Integer						yearsOfExperience;
+	private Integer				yearsOfExperience;
 
 	@Mandatory
 	@ValidString
 	@Automapped
-	String						certifications;
+	private String				certifications;
 }
