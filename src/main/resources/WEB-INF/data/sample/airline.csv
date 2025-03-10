@@ -1,2 +1,5 @@
 key,name,code,website,airlineType,foundationMoment,email,phoneNumber
-airline-00,Iberia,IBE,http://www.iberia.com,STANDARD,2020/09/01 10:00,info@iberia.com,12345678
+airline-00,Iberia,IBE,http://www.iberia.com,STANDARD,2020/09/01 10:00,info@iberia.com,+123456789
+airline-01,Airline One,AAA,http://www.airlineone.com,STANDARD,2015/05/01 09:00,contact@airlineone.com,+234567890
+airline-02,Airline Two,BBB,http://www.airlinetwo.com,STANDARD,2010/08/15 12:00,contact@airlinetwo.com,+345678901
+airline-03,Airline Three,CCC,http://www.airlinethree.com,LOWCOST,2018/03/10 14:00,contact@airlinethree.com,+456789012
