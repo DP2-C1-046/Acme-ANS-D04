@@ -42,7 +42,7 @@ public class AirlineManager extends AbstractRole {
 	private String				identifierNumber;
 
 	@Mandatory
-	@ValidNumber(min = 0, integer = 3, fraction = 0, max = 120)  //TODO: Cambiar a derivada? Max < birth-currentYear
+	@ValidNumber(min = 0, integer = 3, fraction = 0, max = 120)  //Cambiar a derivada? Max < birth-currentYear
 	@Automapped
 	private Integer				yearsOfExperience;
 
