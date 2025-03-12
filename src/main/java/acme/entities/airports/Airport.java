@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.entities.airport;
+package acme.entities.airports;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -81,7 +81,7 @@ public class Airport extends AbstractEntity {
 	//al inicio del argumento. ¿Es correcto?
 
 	@Optional
-	@ValidString(pattern = " ^+?\\d{6,15}$")
+	@ValidString(pattern = "^+?\\d{6,15}$")
 	@Automapped
 	private String				contactPhoneNumber;
 

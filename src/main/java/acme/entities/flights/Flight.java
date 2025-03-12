@@ -2,6 +2,7 @@
 package acme.entities.flights;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
@@ -15,6 +16,9 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
+import acme.entities.airports.Airport;
+import acme.entities.legs.LegRepository;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +41,7 @@ public class Flight extends AbstractEntity {
 	@Automapped
 	private String				tag;
 
+	// ¿Nombre correcto? ¿Deberia ser indication?
 	@Mandatory
 	// - Boolean no necesita valid
 	@Automapped
@@ -48,7 +53,7 @@ public class Flight extends AbstractEntity {
 	private Money				cost;
 
 	@Optional
-	@ValidString(min = 1, max = 255)
+	@ValidString(min = 0, max = 255)
 	@Automapped
 	private String				description;
 
@@ -57,27 +62,40 @@ public class Flight extends AbstractEntity {
 
 	@Transient
 	public Date getScheduledDeparture() {
-		return null;
+		LegRepository repository = SpringHelper.getBean(LegRepository.class);
+		List<Date> wrapper = repository.findFirstScheduledDeparture(this.getId());
+
+		return wrapper != null && !wrapper.isEmpty() ? wrapper.get(0) : null;
 	}
 
 	@Transient
 	public Date getScheduledArrival() {
-		return null;
+		LegRepository repository = SpringHelper.getBean(LegRepository.class);
+		List<Date> wrapper = repository.findLastScheduledArrival(this.getId());
+
+		return wrapper != null && !wrapper.isEmpty() ? wrapper.get(0) : null;
 	}
 
 	@Transient
 	public String getOriginCity() {
-		return null;
+		LegRepository repository = SpringHelper.getBean(LegRepository.class);
+		List<Airport> wrapper = repository.findFirstAirport(this.getId());
+		return wrapper != null && !wrapper.isEmpty() ? wrapper.get(0).getCity() : null;
 	}
 
 	@Transient
 	public String getDestinationCity() {
-		return null;
+		LegRepository repository = SpringHelper.getBean(LegRepository.class);
+		List<Airport> wrapper = repository.findLastAirport(this.getId());
+		return wrapper != null && !wrapper.isEmpty() ? wrapper.get(0).getCity() : null;
 	}
 
 	@Transient
 	public Integer getNumberOfLayovers() {
-		return null;
+		LegRepository repository = SpringHelper.getBean(LegRepository.class);
+		Integer layovers = repository.numberOfLayovers(this.getId());
+
+		return layovers != null ? layovers : 0;
 	}
 
 	// Relationships ----------------------------------------------------------
@@ -85,7 +103,7 @@ public class Flight extends AbstractEntity {
 	//	// One to One AirlineManager?? Si se descomenta, falla
 	//	@Mandatory
 	//	@Valid
-	//	@OneToOne(optional = false)
+	//	@ManyToOne(optional = false)
 	//	private AirlineManager airlineManager;
 
 }
