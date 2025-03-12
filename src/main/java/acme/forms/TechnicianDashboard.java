@@ -1,6 +1,8 @@
 
 package acme.forms;
 
+import java.util.List;
+
 import acme.client.components.basis.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,29 +15,25 @@ public class TechnicianDashboard extends AbstractForm {
 	private static final long	serialVersionUID	= 1L;
 
 	// Maintenance Records
-	private int					totalMaintenancePending;
-	private int					totalMaintenanceInProgress;
-	private int					totalMaintenanceCompleted;
+	private Integer				totalMaintenancePending;
+	private Integer				totalMaintenanceInProgress;
+	private Integer				totalMaintenanceCompleted;
 
 	// Nearest Inspection Due Date
 	private String				nearestInspectionDueDate;
 
-	// Top Aircrafts with Most Maintenance Tasks
-	private String				topAircraft1;
-	private String				topAircraft2;
-	private String				topAircraft3;
-	private String				topAircraft4;
-	private String				topAircraft5;
+	// Top 5 Aircrafts with Most Maintenance Tasks
+	private List<String>		top5AircraftMostMaintenanceTasks;
 
 	// Maintenance Cost Statistics (Last Year)
 	private double				avgMaintenanceCost;
-	private double				minMaintenanceCost;
-	private double				maxMaintenanceCost;
+	private Integer				minMaintenanceCost;
+	private Integer				maxMaintenanceCost;
 	private double				stdDevMaintenanceCost;
 
 	// Task Duration Statistics (Tasks Assigned to Technician)
 	private double				avgTaskDuration;
-	private double				minTaskDuration;
-	private double				maxTaskDuration;
+	private Integer				minTaskDuration;
+	private Integer				maxTaskDuration;
 	private double				stdDevTaskDuration;
 }
