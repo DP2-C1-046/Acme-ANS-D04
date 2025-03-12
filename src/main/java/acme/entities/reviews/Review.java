@@ -19,6 +19,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
@@ -50,7 +51,7 @@ public class Review extends AbstractEntity {
 	private String				name;
 
 	@Mandatory
-	@ValidMoment
+	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				moment;
 
@@ -60,17 +61,18 @@ public class Review extends AbstractEntity {
 	private String				subject;
 
 	@Mandatory
-	@ValidString(min = 1)
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				text;
 
 	@Optional
-	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 2)
+	@ValidNumber(min = 0, max = 10, fraction = 2)
 	@Automapped
 	private Double				score;
 
-	@Mandatory
+	@Optional
+	@Valid
 	@Automapped
-	private Boolean				recommended;
+	private Boolean				isRecommended;
 
 }

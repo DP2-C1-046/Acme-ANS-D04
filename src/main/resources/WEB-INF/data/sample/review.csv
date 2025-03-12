@@ -1,4 +1,4 @@
-key,name,moment,subject,text,score,recommended
+key,name,moment,subject,text,score,isRecommended
 review-00,Paco Gonzalez,2020/01/06 00:00,Excelente limpieza,El aeropuerto estaba impecable y muy ordenado.,9.0,true
 review-01,Gladiator,2020/01/06 00:00,Restaurantes variados,La oferta gastronómica fue sorprendente y de buena calidad.,8.5,true
 review-02,Luis Perez,2020/01/20 16:20,Servicio al cliente,El personal de atención al cliente fue muy amable y eficiente.,9.2,true
