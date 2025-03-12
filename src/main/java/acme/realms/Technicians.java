@@ -1,9 +1,10 @@
 
-package acme.entities.technicians;
+package acme.realms;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
@@ -27,6 +28,7 @@ public class Technicians extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
+
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Automapped
@@ -43,11 +45,12 @@ public class Technicians extends AbstractRole {
 	private String				specialisation;
 
 	@Mandatory
+	@Valid
 	@Automapped
 	private Boolean				annualHealthTest;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
 	private Integer				yearsOfExperience;
 
