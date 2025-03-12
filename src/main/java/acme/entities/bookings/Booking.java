@@ -31,6 +31,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.entities.flights.Flight;
 import acme.realms.Customer;
 import lombok.Getter;
 import lombok.Setter;
@@ -69,11 +70,11 @@ public class Booking extends AbstractEntity {
 	@Automapped
 	private Money				price;
 
-	// Interpreto como el último dígito de la tarjeta de crédito
+	// Interpreto como 4 últimos dígitos de la tarjeta de crédito, consultar
 	@Optional
-	@ValidString(min = 1, max = 1)
+	@ValidString(pattern = "^[0-9]{4}$")
 	@Automapped
-	private String				lastNibble;
+	private String				lastCardNibble;
 
 	// Relationships ----------------------------------------------------------
 
@@ -82,24 +83,9 @@ public class Booking extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Customer			customer;
 
-	// Comento el atributo hasta que exista y pueda importar la entidad Flight
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne
-	 * private Flight flight;
-	 */
-
-	// Comento el atributo hasta que exista y pueda importar la entidad Passenger
-	/*
-	 * @Mandatory
-	 * 
-	 * @Valid
-	 * 
-	 * @ManyToOne
-	 * private Passenger passenger;
-	 */
+	@Mandatory
+	@Valid
+	@ManyToOne
+	private Flight				flight;
 
 }

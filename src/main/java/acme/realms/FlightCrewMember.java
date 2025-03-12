@@ -26,13 +26,7 @@ public class FlightCrewMember extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	//Attributes -----------------------------------
-	//	code (unique, pattern "^[A-Z]{2-3}\d{6}$", where the first two or three letters correspond to their initials),
-	//a phone number (pattern "^\+?\d{6,15}$"), 
-	//their language skills (final up to 255 characters), 
-	//their availability status ("AVAILABLE", "ON VACATION", "ON LEAVE"), 
-	//the airline they are working for, 
-	//and their salary. 
-	//Optionally, the system may store his or her years of experience. 
+
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
 	@Column(unique = true)

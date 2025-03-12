@@ -1,0 +1,3 @@
+key,employeeCode,spokenLanguages,employmentStartDate,bio,salary,linkToPhoto,key:airline,key:userAccount
+assistanceAgent-01,NJ123456,English,2021/01/01 10:00,Nice person,EUR 50000.00,https://example.com/photo1.jpg,airline-00,user-account-assistanceAgent-01
+assistanceAgent-02,LI133496,English Japanese,2022/01/04 13:00,"",EUR 50000.00,https://example.com/photo2.jpg,airline-00,user-account-assistanceAgent-02

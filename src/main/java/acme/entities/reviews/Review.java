@@ -12,12 +12,15 @@
 
 package acme.entities.reviews;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -48,8 +51,8 @@ public class Review extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment
-	@Automapped
-	private Moment				moment;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				moment;
 
 	@Mandatory
 	@ValidString(min = 1, max = 50)
@@ -64,7 +67,7 @@ public class Review extends AbstractEntity {
 	@Optional
 	@ValidNumber(min = 0, max = 10, integer = 2, fraction = 2)
 	@Automapped
-	private Integer				score;
+	private Double				score;
 
 	@Mandatory
 	@Automapped
