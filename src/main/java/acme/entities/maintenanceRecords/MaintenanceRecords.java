@@ -1,5 +1,5 @@
 
-package acme.entities.maintenaceRecords;
+package acme.entities.maintenanceRecords;
 
 import java.util.Date;
 
@@ -17,6 +17,7 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.aircrafts.Aircraft;
+import acme.realms.Technicians;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,12 +30,18 @@ public class MaintenanceRecords extends AbstractEntity {
 
 	private static final long			serialVersionUID	= 1L;
 
-	// Attributes -------------------------------------------------------------
+	// Relationships ----------------------------------------------------------
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Technicians					technicians;
+
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
 	private Aircraft					aircraft;
 
+	// Attributes -------------------------------------------------------------
 	@Mandatory
 	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
