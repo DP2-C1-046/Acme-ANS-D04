@@ -1,5 +1,5 @@
 
-package acme.entities.assignments;
+package acme.entities.activityLogs;
 
 import java.util.Date;
 
@@ -14,56 +14,58 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.flights.Leg;
-import acme.realms.FlightCrewMember;
+import acme.constraints.ValidActivityLog;
+import acme.entities.assignments.FlightAssignment;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@ValidActivityLog
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-public class FlightAssignment extends AbstractEntity {
+public class ActivityLog extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@Mandatory
-	@Automapped
-	private FlightCrewDuty		flightCrewDuty;
+	//Attributes --------------------------------------
+
+	//	They are logged by any of the flight crew members assigned to the corresponding leg and after the leg has taken place. 
 
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				lastUpdate;
+	private Date				registrationMoment;
 
 	@Mandatory
+	@ValidString(max = 50)
 	@Automapped
-	private AssignmentStatus	assignmentStatus;
+	private String				typeOfIndicent;
 
-	@Optional
+	@Mandatory
 	@ValidString
 	@Automapped
-	private String				remarks;
+	private String				description;
+
+	@Mandatory
+	@ValidNumber(min = 0, max = 10)
+	@Automapped
+	private Integer				severityLevel;
 
 	@Mandatory
 	@Valid
 	@Automapped
 	private Boolean				draftMode;
 
-	//Relationships ----------------------------------------------------
+	//Relationships ---------------------------------
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private FlightCrewMember	flightCrewMember;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Leg					leg;
+	private FlightAssignment	flightAssignment;
 
 }
