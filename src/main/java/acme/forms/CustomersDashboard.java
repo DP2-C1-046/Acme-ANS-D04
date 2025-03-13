@@ -13,8 +13,10 @@
 package acme.forms;
 
 import java.util.List;
+import java.util.Map;
 
 import acme.client.components.basis.AbstractForm;
+import acme.entities.bookings.TravelClass;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,29 +26,29 @@ public class CustomersDashboard extends AbstractForm {
 
 	// Serialisation version --------------------------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long			serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	List<String>				lastFiveDestinations;
-	Double						moneySpentInBookingsLastYear;
+	private List<String>				lastFiveDestinations;
+	private Double						moneySpentInBookingsLastYear;
 
-	Integer						economyBookingsNumber;
-	Integer						businessBookingsNumber;
+	// Their number of bookings grouped by travel class 
+	private Map<TravelClass, Integer>	bookingsByTravelClass;
 
 	// Cost of their bookings in the Last Five Years => (L5Y)
-	Integer						countOfBookingsL5Y;
-	Double						averageBookingsCostL5Y;
-	Double						minBookingsCostL5Y;
-	Double						maxBookingsCostL5Y;
-	Double						stdDesvBookingsCostL5Y;
+	private Integer						countOfBookingsL5Y;
+	private Double						averageBookingsCostL5Y;
+	private Double						minBookingsCostL5Y;
+	private Double						maxBookingsCostL5Y;
+	private Double						stdDesvBookingsCostL5Y;
 
 	// Number of passengers in their bookings
-	Integer						countOfPassengers;
-	Double						averagePassengerNumber;
-	Double						minPassengerNumber;
-	Double						maxPassengerNumber;
-	Double						stdPassengerNumber;
+	private Integer						countOfPassengers;
+	private Double						averagePassengerNumber;
+	private Double						minPassengerNumber;
+	private Double						maxPassengerNumber;
+	private Double						stdPassengerNumber;
 
 	// Derived attributes -----------------------------------------------------
 
