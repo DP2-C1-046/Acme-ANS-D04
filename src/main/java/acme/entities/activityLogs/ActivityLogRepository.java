@@ -4,7 +4,7 @@ package acme.entities.activityLogs;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.client.repositories.AbstractRepository;
-import acme.entities.flights.Leg;
+import acme.entities.legs.Leg;
 
 public interface ActivityLogRepository extends AbstractRepository {
 

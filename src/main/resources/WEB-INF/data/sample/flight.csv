@@ -3,4 +3,4 @@ flight-01,fastest,true,EUR 500,"Direct flight with no delays",airline-manager-01
 flight-02,cheapest,false,EUR 150,"Economy class with one stop",airline-manager-01
 flight-03,longest,true,USD 700,"Multiple stops with extended layovers",airline-manager-03
 flight-04,quickest,false,USD 300,"Fast flight with no waiting",airline-manager-02
-flight-05,affordable,true,JPY 250,"Cheap and reliable",airline-manager-03
+flight-05,affordable,true,GBP 250,"Cheap and reliable",airline-manager-03

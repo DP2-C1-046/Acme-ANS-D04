@@ -9,8 +9,8 @@ import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.activityLogs.ActivityLog;
 import acme.entities.activityLogs.ActivityLogRepository;
-import acme.entities.flights.Leg;
-import acme.entities.flights.LegStatus;
+import acme.entities.legs.Leg;
+import acme.entities.legs.LegStatus;
 
 @Validator
 public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, ActivityLog> {
