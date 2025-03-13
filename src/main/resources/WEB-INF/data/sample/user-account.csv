@@ -8,7 +8,6 @@ user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטי�
 user-account-customer-01,true,"UserIdentity{name: 'Rafael David', surname: 'Caro', email: 'rafacaro@acme.com'}",customer1,customer1
 user-account-customer-02,true,"UserIdentity{name: 'Francisco', surname: 'Lopez', email: 'francislopez@acme.com'}",customer2,customer2
 user-account-customer-03,true,"UserIdentity{name: 'Luis', surname: 'Gonzalez', email: 'luisgonzalez@acme.com'}",customer3,customer3
-user-account-flightCrewMember-01,true,"UserIdentity{name: 'David', surname: 'Blanco', email: 'david@iberia.com'}",flightCrewMember1,flightCrewMember1
 user-account-technician-01,true,"UserIdentity{name: 'Juan', surname: 'Rodríguez', email: 'juan@iberia.com'}",technician1,technician1
 user-account-technician-02,true,"UserIdentity{name: 'María', surname: 'Vázquez', email: 'maria@iberia.com'}",technician2,technician2
 user-account-technician-03,true,"UserIdentity{name: 'Pablo', surname: 'Llorente', email: 'pablo@iberia.com'}",technician3,technician3
@@ -18,3 +17,8 @@ user-account-airline-manager-03,true,"UserIdentity{name: 'Mica', surname: 'Galer
 user-account-assistanceAgent-01,true,"UserIdentity{name: 'Nerea', surname: 'Jimenez', email: 'nerea@acme.com'}",agent1,agent1
 user-account-assistanceAgent-02,true,"UserIdentity{name: 'Leslie', surname: 'Ironcar', email: 'leslie@acme.com'}",agent2,agent2
 user-account-assistanceAgent-03,true,"UserIdentity{name: 'Felix', surname: 'Saavedra', email: 'felix@acme.com'}",manager3,manager3
+user-account-flightCrewMember-01,true,"UserIdentity{name: 'David', surname: 'Blanco', email: 'david@iberia.com'}",member1,member1
+user-account-flightCrewMember-02,true,"UserIdentity{name: 'สมชาย', surname: 'Garcia', email: 'a@b.es'}",member2,member2
+user-account-flightCrewMember-03,true,"UserIdentity{name: 'Juan', surname: 'اسود', email: 'acme@lorem-ipsum.org'}",member3,member3
+user-account-flightCrewMember-04,true,"UserIdentity{name: '李连杰', surname: 'Blanco', email: 'a@b.esx'}",member4,member4
+user-account-flightCrewMember-05,true,"UserIdentity{name: 'Alejandro', surname: 'Mora', email: 'a@luftansa.com'}",member,member

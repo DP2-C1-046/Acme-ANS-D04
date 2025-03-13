@@ -23,7 +23,7 @@ public class Configuration extends AbstractEntity {
 	private String				currency;
 
 	@Mandatory
-	@ValidString(pattern = "^([A-Z]{3}(?:,|,\\s))*[A-Z]{3}$")
+	@ValidString
 	@Automapped
 	private String				acceptedCurrencies;
 }
