@@ -1,0 +1,8 @@
+key,name,picture,averageDwellTime,promotionCode,money
+service-00,Restaurante Fast&Food,https://example.com/foodcourt.jpg,1.5,FOOD-25,5.00
+service-01,Tienda Duty Free,https://example.com/dutyfree.jpg,1.00,SHOP-25,10.00
+service-02,Servicio de Equipaje,https://example.com/lounge.jpg,2.0,LOUN-25,15.00
+service-03,Kiosko de prensa,https://example.com/kiosk.jpg,1.0,,0.00
+service-04,Alquiler de coches Car&Rental,https://example.com/carrental.jpg,1.0,CARR-25,20.00
+service-05,Servicio Wi-Fi,https://example.com/wifi.jpg,3.0,WIFI-25,5.00
+

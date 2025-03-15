@@ -30,3 +30,10 @@ nbdist/
 mvnw
 
 mvnw\.cmd
+/bin/
+
+# Ignore the bin directory
+bin/
+
+# Ignorar archivos temporales de Word
+~$*

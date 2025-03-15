@@ -1,0 +1,4 @@
+key,key:userAccount,identifierNumber,yearsOfExperience,birthDate,linkToPicture,key:airline
+airline-manager-01,user-account-airline-manager-01,JD123456,15,2002/01/15 00:00,http://example.com/pic1,airline-01
+airline-manager-02,user-account-airline-manager-02,JS789012,10,2001/05/22 00:00,http://example.com/pic2,airline-02
+airline-manager-03,user-account-airline-manager-03,MG891726,8,2003/03/15 00:00,http://example.com/pic3,airline-03

@@ -1,0 +1,9 @@
+key,name,moment,subject,text,score,isRecommended
+review-00,Paco Gonzalez,2020/01/06 00:00,Excelente limpieza,El aeropuerto estaba impecable y muy ordenado.,9.0,true
+review-01,Gladiator,2020/01/06 00:00,Restaurantes variados,La oferta gastronómica fue sorprendente y de buena calidad.,8.5,true
+review-02,Luis Perez,2020/01/20 16:20,Servicio al cliente,El personal de atención al cliente fue muy amable y eficiente.,9.2,true
+review-03,Andres,2020/03/05 11:10,Demora en asistencia,"La asistencia fue lenta y poco coordinada, generó inconvenientes.",6.5,false
+review-04,John Doe,2020/02/10 09:50,Buena experiencia de vuelo,El vuelo fue muy cómodo y la atención a bordo excelente.,8.0,true
+review-05,PasajeroFrecuente,2020/02/20 07:15,Diseño funcional,"La distribución del aeropuerto facilitó el traslado, ideal para viajeros frecuentes.",,true
+review-06,Superman,2020/03/12 13:05,Retraso del vuelo,"El vuelo sufrió retrasos, pero la atención del personal compensó la espera.",7.0,true
+review-07,ViajeroDescontento,2022/07/29 23:59,Calidad de comida deficiente,"La calidad de la comida no cumplió con mis expectativas, muy decepcionante.",4.5,false
