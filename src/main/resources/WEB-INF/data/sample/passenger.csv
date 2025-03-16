@@ -1,0 +1,19 @@
+key,fullName,email,passportNumber,dateOfBirth,specialNeeds
+
+# base entity
+passenger-00,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+
+# fullName - standard variations
+passenger-01,A,allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+passenger-02,An,allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+passenger-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+passenger-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+
+
+# email - standard variations
+
+# passportNumber - standard variations
+
+# dateOfBirth - standard variations
+
+# specialNeeds - standard variations
