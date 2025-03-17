@@ -1,0 +1,21 @@
+key,key:booking,key:passenger
+
+# base entity
+bookingRecord-00,booking-00,passenger-00
+bookingRecord-01,booking-00,passenger-01
+bookingRecord-02,booking-00,passenger-02
+bookingRecord-03,booking-01,passenger-03
+bookingRecord-04,booking-01,passenger-04
+bookingRecord-05,booking-02,passenger-05
+bookingRecord-06,booking-03,passenger-00
+bookingRecord-07,booking-03,passenger-02
+bookingRecord-08,booking-04,passenger-06
+bookingRecord-09,booking-04,passenger-07
+bookingRecord-10,booking-05,passenger-10
+bookingRecord-11,booking-06,passenger-12
+bookingRecord-12,booking-07,passenger-00
+bookingRecord-13,booking-08,passenger-03
+bookingRecord-14,booking-09,passenger-05
+bookingRecord-15,booking-10,passenger-14
+
+
