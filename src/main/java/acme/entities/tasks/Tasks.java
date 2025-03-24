@@ -30,7 +30,7 @@ public class Tasks extends AbstractEntity {
 	@Mandatory
 	@ManyToOne(optional = false)
 	@Valid
-	private Technicians			technician;
+	private Technicians			technicians;
 
 	// Attributes -------------------------------------------------------------
 
