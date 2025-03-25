@@ -1,2 +1,40 @@
-key,key:technicians,tasksType,description,priority,estimatedDuration,draft-mode
-tasks-01,technician-01,MAINTENANCE,Routine maintenance check,5,120,TRUE
+key,tasksType,description,priority,estimatedDuration,draft-mode,key:technicians
+# base entity
+tasks-00,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",4,300,TRUE,technician-01
+# type - standard variations
+tasks-01,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",6,250,TRUE,technician-02
+tasks-02,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",3,400,TRUE,technician-01
+tasks-03,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",7,120,TRUE,technician-02
+tasks-04,SYSTEM_CHECK,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+# tasksType - no singular values
+# description - standard variations
+tasks-05,INSPECTION,A,2,150,TRUE,technician-02
+tasks-06,INSPECTION,Test,8,600,TRUE,technician-01
+tasks-07,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",9,50,TRUE,technician-02
+tasks-08,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",1,200,TRUE,technician-01
+tasks-09,INSPECTION,テスト,4,100,TRUE,technician-02
+tasks-10,INSPECTION,परीक्षण,6,250,TRUE,technician-01
+tasks-11,INSPECTION,測試,3,180,TRUE,technician-02
+tasks-12,INSPECTION,<b>Test Data</b>,5,400,TRUE,technician-01
+tasks-13,INSPECTION,<script>alert("Check");</script>,7,90,TRUE,technician-02
+tasks-14,INSPECTION,' OR 'X' = 'X,2,75,TRUE,technician-01
+# description - no singular values
+# priority - standard variations
+tasks-15,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0,300,TRUE,technician-02
+tasks-16,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",1,500,TRUE,technician-01
+tasks-17,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",9,1000,TRUE,technician-02
+tasks-18,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",10,200,TRUE,technician-01
+# priority - no singular values
+# estimatedDuration - standard variations
+tasks-19,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,0,TRUE,technician-02
+tasks-20,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1,TRUE,technician-01
+tasks-21,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,999,TRUE,technician-02
+tasks-22,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1000,TRUE,technician-01
+# estimated-duration-hours - no singular values
+# draft-mode - standard variations
+tasks-23,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,FALSE,technician-02
+# draft-mode - no singular values
+# technician - standard variations
+tasks-24,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+# technician - no singular values
+
