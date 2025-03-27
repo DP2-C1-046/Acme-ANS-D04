@@ -8,4 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-acme.validation.activityLog.invalidLeg = El tramo de vuelo tiene que haber dado lugar
+
+acme.validation.activityLog.invalidLeg      = El tramo de vuelo tiene que haber dado lugar
+
+acme.validation.customer.identifier.message = El identificador debe comenzar por las iniciales del nombre y apellidos del cliente
