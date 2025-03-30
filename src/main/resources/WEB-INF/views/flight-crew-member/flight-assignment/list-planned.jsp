@@ -21,3 +21,5 @@
 	<acme:list-column code="flightCrewMember.assignment.list.label.status" path="assignmentStatus" width="40%"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
+
+<acme:button code="flight-crew-member.flight-assignment.form.button.create" action="/flight-crew-member/flight-assignment/create"/>
