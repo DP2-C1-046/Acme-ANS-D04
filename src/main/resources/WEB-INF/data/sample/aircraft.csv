@@ -1,10 +1,41 @@
-key,model,registrationNumber,capacity,cargoWeight,status,optionalDetails
-aircraft-00,Boeing 737-800,1,189,20000,ACTIVE_SERVICE,Avión de fuselaje estrecho usado en vuelos de corta y media distancia 
-aircraft-01,Airbus A320,2,180,19000,ACTIVE_SERVICE,Popular para vuelos comerciales y chárter de corta y media distancia
-aircraft-02,Embraer E175,3,88,7600,UNDER_MAINTENANCE,Avión regional eficiente con diseño moderno y cómodo
-aircraft-03,Bombardier CRJ900,4,90,7700,ACTIVE_SERVICE,Usado en aerolíneas regionales con bajo consumo de combustible
-aircraft-04,Cessna Citation X,5,12,2000,ACTIVE_SERVICE,Jet privado de alta velocidad y lujo
-aircraft-05,Gulfstream G650,6,18,2500,UNDER_MAINTENANCE,Jet ejecutivo de largo alcance y alto confort
-aircraft-06,Dassault Falcon 2000,7,10,2000,ACTIVE_SERVICE,Avión de negocios con gran autonomía y espacio amplio
-aircraft-07,Beechcraft King Air 350,8,9,2000,ACTIVE_SERVICE,Turbohélice versátil para vuelos cortos y pistas pequeñas
-
+key,model,registrationNumber,capacity,cargoWeight,status,optionalDetails,key:airline
+# Aeronaves comerciales básicas
+aircraft-00,Boeing 737-800,1,189,20000,ACTIVE_SERVICE,Avión de fuselaje estrecho usado en vuelos de corta y media distancia,airline-01
+aircraft-01,Airbus A320,2,180,19000,ACTIVE_SERVICE,Popular para vuelos comerciales y chárter de corta y media distancia,airline-01
+aircraft-02,Embraer E175,3,88,7600,UNDER_MAINTENANCE,Avión regional eficiente con diseño moderno y cómodo,airline-03
+aircraft-03,Bombardier CRJ900,4,90,7700,ACTIVE_SERVICE,Usado en aerolíneas regionales con bajo consumo de combustible,airline-02
+# Aeronaves ejecutivas y privadas
+aircraft-04,Cessna Citation X,5,12,2000,ACTIVE_SERVICE,Jet privado de alta velocidad y lujo,airline-04
+aircraft-05,Gulfstream G650,6,18,2500,UNDER_MAINTENANCE,Jet ejecutivo de largo alcance y alto confort,airline-01
+aircraft-06,Dassault Falcon 2000,7,10,2000,ACTIVE_SERVICE,Avión de negocios con gran autonomía y espacio amplio,airline-03
+aircraft-07,Beechcraft King Air 350,8,9,2000,ACTIVE_SERVICE,Turbohélice versátil para vuelos cortos y pistas pequeñas,airline-01
+# Variaciones de modelo - Casos límite (nombres de aerolíneas como modelos)
+aircraft-08,Singapore Airlines,SQ505,255,2000,ACTIVE_SERVICE,"Singapore Airlines is the flag carrier of Singapore.",airline-07
+aircraft-09,c,CX606,255,2000,UNDER_MAINTENANCE,"Cathay Pacific is the flag carrier of Hong Kong.",airline-08
+aircraft-10,Japan Airlines,JL707,255,2000,ACTIVE_SERVICE,"Japan Airlines is the flag carrier of Japan.",airline-09
+# Variaciones de modelo con nombres largos y espacios
+aircraft-11,Air Canada,AC808,230,2000,ACTIVE_SERVICE,,airline-10
+aircraft-12,Qatar Airways,QR909,255,2000,ACTIVE_SERVICE,Heathrow AirportHeathrow AirportHeathrow...,airline-11
+aircraft-13,Turkish Airlines,TK1010,255,2000,UNDER_MAINTENANCE,"Turkish Airlines is the flag carrier of Turkey.",airline-12
+aircraft-14,Heathrow Heathrow Airport,EY1111,255,2000,ACTIVE_SERVICE,"Etihad Airways is the flag carrier of UAE.",airline-13
+# Variaciones de capacidad y peso
+aircraft-15,Virgin Atlantic,VS1212,255,50000,ACTIVE_SERVICE,"Virgin Atlantic is a British airline.",airline-14
+aircraft-16,Alaska Airlines,AS1313,1,2000,UNDER_MAINTENANCE,"Alaska Airlines is a major American airline.",airline-15
+aircraft-17,Southwest Airlines,WN1414,220,2000,ACTIVE_SERVICE,"Southwest Airlines is a major American low-cost carrier.",airline-12
+# Variaciones de registrationNumber
+aircraft-18,Ryanair,Heathrow Heathrow Airport,180,2000,ACTIVE_SERVICE,,airline-13
+aircraft-19,EasyJet,U21616,190,2000,UNDER_MAINTENANCE,"EasyJet is a British low-cost airline.",airline-02
+aircraft-20,AirAsia,AK1717,210,2000,ACTIVE_SERVICE,"AirAsia is a Malaysian low-cost airline.",airline-15
+# Pruebas de seguridad - Inyección de código
+aircraft-21,XSS Test,XSS123,100,2000,ACTIVE_SERVICE,"This is a test for XSS injection.",airline-11
+aircraft-22,Hacked Test,HACK456,150,2000,UNDER_MAINTENANCE,"This is a test for HTML injection.",airline-13
+aircraft-23,SQL Test,SQL789,255,2000,ACTIVE_SERVICE,"This is a test for SQL injection.",airline-14
+# Pruebas con caracteres especiales
+aircraft-24,Emoji Test,EMOJI123,250,2000,ACTIVE_SERVICE,"This is a test for emoji and special characters.",airline-14
+aircraft-25,Arabic Test,ARAB789,200,2000,UNDER_MAINTENANCE,"This is a test for Arabic script.",airline-10
+aircraft-26,Chinese Test,CHINA123,255,2000,ACTIVE_SERVICE,"This is a test for Chinese script.",airline-11
+aircraft-27,Japanese Test,JAPAN456,255,2000,UNDER_MAINTENANCE,"This is a test for Japanese script.",airline-12
+aircraft-28,Korean Test,KOREAN789,255,2000,ACTIVE_SERVICE,"This is a test for Korean script.",airline-13
+# Otras pruebas especiales
+aircraft-29,Ghost Test,GHOST123,150,2000,UNDER_MAINTENANCE,"This is a test for emoji and special characters.",airline-14
+aircraft-30,Bold Text Test,BOLD456,200,2000,ACTIVE_SERVICE,"This is a test for HTML tags.",airline-15

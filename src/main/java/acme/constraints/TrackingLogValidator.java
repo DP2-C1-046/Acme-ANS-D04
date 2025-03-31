@@ -37,17 +37,17 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 		// Fetch previous tracking log for resolution comparison
-		TrackingLog previousLog = this.repository.findLastTrackingLog(trackingLog.getClaim().getId());
+		TrackingLog previousLog = this.repository.findLastTrackingLog(trackingLog.getClaim().getId()).orElse(null);
 
 		// Rule 1: If resolution is 100%, status must be ACCEPTED or REJECTED
-		if (trackingLog.getResolution() == 100.0 && trackingLog.getStatus() == TrackingLogStatus.PENDING)
+		if (trackingLog.getResolutionPercentage() == 100.0 && trackingLog.getStatus() == TrackingLogStatus.PENDING)
 			super.state(context, false, "status", "acme.validation.trackinglog.invalid-final-status.message");
 
 		// Rule 2: If status is ACCEPTED or REJECTED, resolution must be 100%
-		if ((trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED) && trackingLog.getResolution() < 100.0)
+		if ((trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED) && trackingLog.getResolutionPercentage() < 100.0)
 			super.state(context, false, "resolution", "acme.validation.trackinglog.invalid-resolution.message");
 		// Rule 3: Resolution percentage must be monotonically increasing
-		if (previousLog != null && trackingLog.getResolution() < previousLog.getResolution())
+		if (previousLog != null && trackingLog.getResolutionPercentage() < previousLog.getResolutionPercentage())
 			super.state(context, false, "resolution", "acme.validation.trackinglog.decreasing-resolution.message");
 
 		// Rule 4: If status is ACCEPTED or REJECTED, resolutionReasonOrCompensation must be set
@@ -55,7 +55,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 			super.state(context, false, "resolutionReasonOrCompensation", "acme.validation.trackinglog.resolution-reason-required.message");
 
 		// Rule 5: Intermediate logs must remain in PENDING
-		if (trackingLog.getResolution() < 100.0 && trackingLog.getStatus() != TrackingLogStatus.PENDING)
+		if (trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getStatus() != TrackingLogStatus.PENDING)
 			super.state(context, false, "status", "acme.validation.trackinglog.invalid-intermediate-status.message");
 		result = !super.hasErrors(context);
 

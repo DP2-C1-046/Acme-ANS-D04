@@ -1,6 +1,6 @@
 # validation-en.i18n
 #
-# Copyright (C) 2012-2025 Rafael Corchuelo.
+# Copyright (C) 2025 G3-C1.046
 #
 # In keeping with the traditional purpose of furthering education and research, it is
 # the policy of the copyright owner to permit non-commercial use and redistribution of
@@ -9,5 +9,7 @@
 # they accept any liabilities with respect to them.
  
 
-acme.validation.activityLog.invalidLeg = The leg must have taken place
+acme.validation.activityLog.invalidLeg      = The leg must have taken place
+
+acme.validation.customer.identifier.message = The identifier must begin with the initials of the customer's first and last name
 
