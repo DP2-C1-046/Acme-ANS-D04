@@ -15,7 +15,7 @@ administrator.aircraft.list.label.model = Model
 administrator.aircraft.list.label.registrationNumber = Registration Number
 administrator.aircraft.list.label.capacity = Capacity
 administrator.aircraft.list.label.cargoWeight = CargoWeight
-administrator.aircraft.list.label.aircraftStatus = Status
+administrator.aircraft.list.label.status = Status
 
 administrator.aicraft.list.button.create = Create
 
@@ -26,7 +26,7 @@ administrator.aicraft.form.label.registrationNumber = Registration Number
 administrator.aicraft.form.label.capacity = Capacity
 administrator.aicraft.form.label.cargoWeight = Cargo Weight
 administrator.aicraft.form.label.status = Aircraft Status
-administrator.aicraft.form.label.details = Details
+administrator.aicraft.form.label.optionalDetails = Details
 administrator.aicraft.form.label.airline = Airline
 
 administrator.aircraft.form.label.confirmation = Confirm that the aircraft is correct.

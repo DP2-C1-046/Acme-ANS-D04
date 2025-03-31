@@ -18,9 +18,9 @@
 <acme:form readonly="${readonly}">
 	<acme:input-textbox code="administrator.aicraft.form.label.model" path="model"/>
 	<acme:input-textbox code="administrator.aicraft.form.label.registrationNumber" path="registrationNumber"/>
-	<acme:input-integer code="administrator.aicraft.form.label.capacity" path="capacity"/>
+	<acme:input-textbox code="administrator.aicraft.form.label.capacity" path="capacity"/>
 	<acme:input-select code="administrator.aicraft.form.label.status" path="status" choices="${statuses}"/>
-	<acme:input-integer code="administrator.aicraft.form.label.cargoWeight" path="cargoWeight"/>
+	<acme:input-textbox code="administrator.aicraft.form.label.cargoWeight" path="cargoWeight"/>
 	<acme:input-textbox code="administrator.aicraft.form.label.optionalDetails" path="optionalDetails"/>
 	<acme:input-select code="administrator.aicraft.form.label.airline" path="airline" choices="${airlines}"/>
 	
