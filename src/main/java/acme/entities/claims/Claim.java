@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -17,6 +18,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
 import acme.entities.legs.Leg;
 import acme.realms.AssistanceAgent;
 import lombok.Getter;
@@ -37,7 +39,6 @@ public class Claim extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	//¿Min o max?
 	@Mandatory
 	@ValidMoment(past = true)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -61,20 +62,48 @@ public class Claim extends AbstractEntity {
 	private ClaimType			claimType;
 
 	@Mandatory
-	// -- Boolean does not need valid
 	@Automapped
-	private boolean				isClaimAccepted;
+	private boolean				draftMode;
+
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public Boolean indicator() {
+		Boolean result;
+		TrackingLogRepository repository;
+		TrackingLog trackingLog;
+		repository = SpringHelper.getBean(TrackingLogRepository.class);
+		trackingLog = repository.findLastTrackingLog(this.getId()).orElse(null);
+		if (trackingLog == null)
+			result = null;
+		else {
+			TrackingLogStatus indicator = trackingLog.getStatus();
+			if (indicator.equals(TrackingLogStatus.ACCEPTED))
+				result = true;
+			else if (indicator.equals(TrackingLogStatus.REJECTED))
+				result = false;
+			else
+				result = null;
+		}
+		return result;
+	}
 
 	// Relationships ----------------------------------------------------------
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private AssistanceAgent		assistanceAgent;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
+
+	private AssistanceAgent		assistanceAgent;
+
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+
 	private Leg					leg;
+
 
 }
