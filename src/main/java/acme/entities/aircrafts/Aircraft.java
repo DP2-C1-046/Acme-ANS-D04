@@ -18,13 +18,6 @@ import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
-// An aircraft is a vehicle designed for air travel that belongs to an airline
-// and is used to transport passengers between cities or countries. The system
-// must store the following data about them: a model (up to 50 characters),
-// a registration number (unique, up to 50 characters), its capacity as a number of passengers,
-// its cargo weight (between 2K and 50K kgs), a status, which reports on whether
-// the aircraft is in active service or under maintenance, and optional details (up to 255 characters).
-
 @Entity
 @Getter
 @Setter
