@@ -8,4 +8,5 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-acme.validation.activityLog.invalidLeg = El tramo de vuelo tiene que haber dado lugar
+acme.validation.activitylog.registrationmoment.required = El momento de registro no puede ser nulo
+acme.validation.activitylog.registrationmoment.message = El momento de registro tiene que ser después de la consecución del tramo

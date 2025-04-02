@@ -9,5 +9,5 @@
 # they accept any liabilities with respect to them.
  
 
-acme.validation.activityLog.invalidLeg = The leg must have taken place
-
+acme.validation.activitylog.registrationmoment.required = Registration moment cannot be null
+acme.validation.activitylog.registrationmoment.message = Registration moment must be after the leg ends
