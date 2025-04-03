@@ -2,8 +2,6 @@
 package acme.entities.tasks;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
@@ -35,7 +33,7 @@ public class Tasks extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Mandatory
-	@Enumerated(EnumType.STRING)
+	@Valid
 	@Automapped
 	private TasksType			tasksType;
 
