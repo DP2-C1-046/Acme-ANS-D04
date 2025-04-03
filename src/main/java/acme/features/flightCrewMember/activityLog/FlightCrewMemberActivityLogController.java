@@ -25,6 +25,12 @@ public class FlightCrewMemberActivityLogController extends AbstractGuiController
 	@Autowired
 	private FlightCrewMemberActivityLogCreateService	createService;
 
+	@Autowired
+	private FlightCrewMemberActivityLogDeleteService	deleteService;
+
+	@Autowired
+	private FlightCrewMemberActivityLogPublishService	publishService;
+
 
 	@PostConstruct
 	protected void initialise() {
@@ -32,5 +38,7 @@ public class FlightCrewMemberActivityLogController extends AbstractGuiController
 		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
+		super.addCustomCommand("publish", "update", this.publishService);
 	}
 }
