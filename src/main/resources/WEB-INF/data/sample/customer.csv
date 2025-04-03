@@ -1,3 +1,3 @@
 key,key:userAccount,identifier,phoneNumber,physicalAddress,city,country,earnedPoints
-customer-01,user-account-customer-01,RDC111111,222222222,Calle_1,Sevilla,España,150
-customer-02,user-account-customer-02,FLM222222,333333333,Calle_2,Madrid,España,980
+customer-01,user-account-customer-01,RC111111,222222222,Calle_1,Sevilla,España,150
+customer-02,user-account-customer-02,FL222222,333333333,Calle_2,Madrid,España,980

@@ -8,6 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+
 acme.validation.activitylog.registrationmoment.required = El momento de registro no puede ser nulo
 acme.validation.activitylog.registrationmoment.message = El momento de registro tiene que ser después de la consecución del tramo
 
@@ -16,3 +17,9 @@ acme.validation.flightassignment.leg.completed.message = No puedes asignar la ta
 acme.validation.flightassignment.leg.overlap.message = Los tramos asignados no se pueden solapar
 acme.validation.flightassignment.duty.pilot.message = Solo puede haber un piloto por tramo
 acme.validation.flightassignment.duty.copilot.message = Solo puede haber un copiloto por tramo
+
+
+acme.validation.activityLog.invalidLeg      = El tramo de vuelo tiene que haber dado lugar
+
+acme.validation.customer.identifier.message = El identificador debe comenzar por las iniciales del nombre y apellidos del cliente
+

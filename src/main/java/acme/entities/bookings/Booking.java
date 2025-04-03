@@ -21,6 +21,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -66,7 +67,7 @@ public class Booking extends AbstractEntity {
 	private TravelClass			travelClass;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0, max = 1000000)
 	@Automapped
 	private Money				price;
 
@@ -76,16 +77,34 @@ public class Booking extends AbstractEntity {
 	@Automapped
 	private String				lastCardNibble;
 
+	@Mandatory
+	// @Valid por defecto
+	@Automapped
+	private boolean				draftMode;
+
+	// Derived attributes -----------------------------------------------------
+
+
+	@Transient
+	public boolean isPublished() {
+		boolean result;
+
+		result = !this.draftMode;
+
+		return result;
+	}
+
 	// Relationships ----------------------------------------------------------
+
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Customer			customer;
+	private Customer	customer;
 
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private Flight				flight;
+	private Flight		flight;
 
 }

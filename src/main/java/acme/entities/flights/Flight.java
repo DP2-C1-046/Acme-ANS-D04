@@ -60,6 +60,8 @@ public class Flight extends AbstractEntity {
 	@Automapped
 	private String				description;
 
+	private boolean				draftMode;
+
 	// Derived attributes -----------------------------------------------------
 
 

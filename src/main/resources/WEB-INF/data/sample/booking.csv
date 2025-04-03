@@ -1,0 +1,27 @@
+key,locatorCode,purchaseMoment,travelClass,price,lastCardNibble,draftMode,key:customer,key:flight
+
+# base entity
+booking-00,ABCD1111,2012/07/02 00:00,ECONOMY,EUR 80.00,6344,true,customer-01,flight-05
+
+# purchaseMoment - standard variations
+booking-01,ABCD1112,2012/07/01 23:59,ECONOMY,EUR 80.00,6344,true,customer-01,flight-05
+booking-02,ABCD1113,2000/01/01 00:00,ECONOMY,EUR 80.00,6344,true,customer-01,flight-05
+booking-03,ABCD1114,2000/01/01 00:01,ECONOMY,EUR 80.00,6344,true,customer-01,flight-05
+booking-04,ABCD1115,2022/07/30 00:00,ECONOMY,EUR 80.00,6344,true,customer-01,flight-05
+booking-05,ABCD1116,2022/07/29 23:59,ECONOMY,EUR 80.00,6344,true,customer-01,flight-05
+
+# price - standard variations
+booking-06,ABCD1117,2012/07/02 00:00,ECONOMY,EUR      00.00,6344,true,customer-01,flight-05
+booking-07,ABCD1118,2012/07/02 00:00,ECONOMY,EUR      00.01,6344,true,customer-01,flight-05
+booking-08,ABCD1119,2012/07/02 00:00,ECONOMY,EUR  999999.99,6344,true,customer-01,flight-05
+booking-09,ABCD1120,2012/07/02 00:00,ECONOMY,EUR 1000000.00,6344,true,customer-01,flight-05
+
+# lastCardNibble - standard variations
+booking-10,ABCD1121,2012/07/02 00:00,ECONOMY,EUR 80.00,0000,true,customer-01,flight-05
+booking-11,ABCD1122,2012/07/02 00:00,ECONOMY,EUR 80.00,0001,true,customer-01,flight-05
+booking-12,ABCD1123,2012/07/02 00:00,ECONOMY,EUR 80.00,9998,true,customer-01,flight-05
+booking-13,ABCD1124,2012/07/02 00:00,ECONOMY,EUR 80.00,9999,true,customer-01,flight-05
+
+
+
+

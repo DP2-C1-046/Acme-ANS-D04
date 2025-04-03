@@ -1,8 +1,27 @@
-key,key:technicians,key:aircraft,moment,status,inspectionDueDate,estimatedCost,notes
-maintenanceRecord-01,technician-01,aircraft-01,2025/03/10 08:00,PENDING,2025/04/10 08:00,1000,Completed routine check
-maintenanceRecord-02,technician-02,aircraft-02,2025/03/12 09:00,COMPLETED,2025/04/12 09:00,1200,Minor maintenance completed
-maintenanceRecord-03,technician-01,aircraft-03,2025/03/14 14:00,PENDING,2025/05/14 14:00,800,Annual inspection required
-maintenanceRecord-04,technician-01,aircraft-04,2025/03/16 16:00,COMPLETED,2025/04/16 16:00,1500,Full system check completed
-maintenanceRecord-05,technician-02,aircraft-05,2025/03/18 10:00,PENDING,2025/04/18 10:00,2000,Engine replacement
-maintenanceRecord-06,technician-02,aircraft-06,2025/03/20 11:00,PENDING,2025/05/20 11:00,900,Inspection of avionics
-maintenanceRecord-07,technician-01,aircraft-07,2025/03/22 13:00,COMPLETED,2025/04/22 13:00,700,Propeller maintenance completed
+key,moment,status,inspectionDueDate,estimatedCost,notes,draft-mode,key:aircraft,key:technicians
+# base entity
+maintenanceRecord-00,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-01
+# moment - standard variations
+maintenanceRecord-01,2000/01/01 00:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-02,technician-02
+maintenanceRecord-02,2000/01/01 00:01,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-01
+maintenanceRecord-03,2024/12/31 23:59,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-02,technician-02
+maintenanceRecord-04,2025/01/01 00:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-01
+# status - standard variations
+maintenanceRecord-06,2024/09/19 10:00,IN_PROGRESS,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-02
+maintenanceRecord-07,2024/09/19 10:00,COMPLETED,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-02,technician-01
+# inspectionDueDate - standard variations
+maintenanceRecord-08,2000/01/01 00:00,PENDING,2000/01/01 00:01,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-02,technician-02
+maintenanceRecord-09,2024/09/19 10:00,PENDING,2200/12/31 23:59,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-01
+# estimatedCost - standard variations
+maintenanceRecord-11,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 0.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-02,technician-02
+maintenanceRecord-12,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 1000000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-01
+# notes - standard variations
+maintenanceRecord-15,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,,TRUE,aircraft-01,technician-02
+maintenanceRecord-16,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,L,TRUE,aircraft-02,technician-01
+maintenanceRecord-17,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",TRUE,aircraft-01,technician-02
+# draft-mode - standard variations
+maintenanceRecord-28,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",FALSE,aircraft-02,technician-01
+# aircraft - standard variations
+maintenanceRecord-29,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-02,technician-02
+# technician - standard variations
+maintenanceRecord-30,2024/09/19 10:00,PENDING,2025/09/19 10:00,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",TRUE,aircraft-01,technician-02
