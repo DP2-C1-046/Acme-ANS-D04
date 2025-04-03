@@ -1,5 +1,5 @@
 
-package acme.features.maintenanceRecords;
+package acme.features.technician.maintenanceRecords;
 
 import javax.annotation.PostConstruct;
 

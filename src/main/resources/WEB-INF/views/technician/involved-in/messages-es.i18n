@@ -1,0 +1,22 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+technician.involved-in.form.title = Detalles de Involucración  
+technician.involved-in.list.title = Lista de Involucraciones  
+
+technician.involved-in.form.label.maintenanceRecord = Registro de Mantenimiento:  
+technician.involved-in.form.label.task = Tarea:  
+
+technician.involved-in.form.label.create = Crear  
+technician.involved-in.form.label.update = Actualizar  
+technician.involved-in.form.label.delete = Eliminar  
+
+technician.involved-in.list.label.maintenanceRecord = Registro de Mantenimiento:  
+technician.involved-in.list.label.task = Tarea:  

@@ -1,5 +1,5 @@
 
-package acme.features.maintenanceRecords;
+package acme.features.technician.maintenanceRecords;
 
 import java.util.Collection;
 
@@ -12,7 +12,7 @@ import acme.entities.maintenanceRecords.MaintenanceRecords;
 import acme.realms.Technicians;
 
 @GuiService
-public class TechnicianMaintenanceRecordListMineService extends AbstractGuiService<Technicians, MaintenanceRecords> {
+public class TechnicianMaintenanceRecordListService extends AbstractGuiService<Technicians, MaintenanceRecords> {
 
 	// Internal state ------------------------------------------------------------
 
@@ -30,10 +30,8 @@ public class TechnicianMaintenanceRecordListMineService extends AbstractGuiServi
 	@Override
 	public void load() {
 		Collection<MaintenanceRecords> maintenanceRecords;
-		int technicianId;
 
-		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		maintenanceRecords = this.repository.findMaintenanceRecordsByTechnicianId(technicianId);
+		maintenanceRecords = this.repository.findPublishedMaintenanceRecords();
 
 		super.getBuffer().addData(maintenanceRecords);
 	}

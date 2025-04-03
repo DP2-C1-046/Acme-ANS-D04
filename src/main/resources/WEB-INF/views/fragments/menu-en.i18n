@@ -36,6 +36,14 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.technician ##########################################################
+
+master.menu.technician = Technician
+master.menu.technician.maintenance-record = List all maintenance records
+master.menu.technician.maintenance-record-mine = List my maintenance records
+master.menu.technician.task = List all tasks
+master.menu.technician.task-mine = List my tasks
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
