@@ -11,27 +11,17 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.maintenanceRecords.Involves;
 import acme.entities.maintenanceRecords.MaintenanceRecords;
-import acme.entities.passengers.Passenger;
 import acme.entities.tasks.Tasks;
 import acme.realms.Technicians;
 
 @Repository
 public interface TechnicianTaskRepository extends AbstractRepository {
 
-	//listar todos los passenger de un customer 
-
-	//cambiado!
-	@Query("select p from Passenger p where p.customer.id=:customerId")
-	Collection<Passenger> findPassengersByCustomerId(@Param("customerId") int customerId);
-
-	@Query("select p from Tasks p where p.technicians.id=:technicianId")
+	@Query("select t from Tasks t where t.technicians.id=:technicianId")
 	Collection<Task> findTasksByTechnicianId(@Param("technicianId") int technicianId);
 
 	@Query("select br from Involves br where br.tasks.id=:id")
 	Collection<Involves> findAllInvolvedInById(int id);
-
-	@Query("SELECT p FROM Passenger p WHERE p.id = :id")
-	Passenger findPassengerById(final int id);
 
 	@Query("Select c from Technicians c where c.id=:id")
 	Technicians findTechnicianById(final int id);

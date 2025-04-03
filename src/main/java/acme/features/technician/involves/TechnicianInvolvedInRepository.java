@@ -44,7 +44,7 @@ public interface TechnicianInvolvedInRepository extends AbstractRepository {
 	Collection<MaintenanceRecords> findRecordByTechnicianId(int id);
 
 	//CAMBIADO
-	@Query("SELECT COUNT(b) > 0 FROM InvolvedIn b WHERE b.maintenanceRecords = :maintenanceRecords AND b.tasks = :tasks")
+	@Query("SELECT COUNT(b) > 0 FROM Involves b WHERE b.maintenanceRecords = :maintenanceRecords AND b.tasks = :tasks")
 	boolean existsByRecordAndTask(@Param("maintenanceRecords") MaintenanceRecords maintenanceRecords, @Param("tasks") Tasks tasks);
 
 	//CAMBIADO
