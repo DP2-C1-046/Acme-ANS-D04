@@ -1,52 +1,52 @@
-key,tag,needsSelfTransfer,cost,description,draftMode,key:airline-manager
+key,tag,needsSelfTransfer,cost,description,draftMode,key:airline-manager,key:airline
 # Base entity
-flight-00,TAG-00,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-01,fastest,true,EUR 500,"Direct flight with no delays",true,airline-manager-01
-flight-02,cheapest,false,EUR 150,"Economy class with one stop",true,airline-manager-01
-flight-03,longest,true,USD 700,"Multiple stops with extended layovers",true,airline-manager-03
-flight-04,quickest,false,USD 300,"Fast flight with no waiting",false,airline-manager-02
-flight-05,affordable,true,GBP 250,"Cheap and reliable",true,airline-manager-03
+flight-00,TAG-00,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-01,fastest,true,EUR 500,"Direct flight with no delays",true,airline-manager-01,airline-01
+flight-02,cheapest,false,EUR 150,"Economy class with one stop",true,airline-manager-01,airline-01
+flight-03,longest,true,USD 700,"Multiple stops with extended layovers",true,airline-manager-03,airline-01
+flight-04,quickest,false,USD 300,"Fast flight with no waiting",false,airline-manager-02,airline-01
+flight-05,affordable,true,GBP 250,"Cheap and reliable",true,airline-manager-03,airline-01
 # tag - variaciones estandar
-flight-06,T,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-07,TA,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-08,TAG-123456789012345678901234567890123456789012345,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-09,TAG-1234567890123456789012345678901234567890123456,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
+flight-06,T,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-07,TA,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-08,TAG-123456789012345678901234567890123456789012345,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-09,TAG-1234567890123456789012345678901234567890123456,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
 # tag - textos en otros idiomas
-flight-10,โลเร็ม อิปซัม,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-11,لوريم إيبسوم,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-12,洛伦·伊普森,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",false,airline-manager-01
+flight-10,โลเร็ม อิปซัม,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-11,لوريم إيبسوم,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-12,洛伦·伊普森,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",false,airline-manager-01,airline-01
 # tag - pruebas de inyección de código
-flight-13,<script>alert('Hacked!');</script>,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-14,<marquee>Hacked</marquee>,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-15,' OR 'A' = 'A,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-16,SELECT * FROM flights;,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-17,DROP TABLE flights;,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",false,airline-manager-01
-flight-18,' or 'A' = 'A,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
+flight-13,<script>alert('Hacked!');</script>,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-14,<marquee>Hacked</marquee>,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-15,' OR 'A' = 'A,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-16,SELECT * FROM flights;,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-17,DROP TABLE flights;,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",false,airline-manager-01,airline-01
+flight-18,' or 'A' = 'A,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
 # self-transfer - variaciones estandar
-flight-19,TAG-14,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-20,TAG-15,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
+flight-19,TAG-14,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-20,TAG-15,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
 # cost - standard variations (min,intermedio y max permitidos)
-flight-21,TAG-16,true,EUR 0.01,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-22,TAG-17,true,EUR 250000.50,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-23,TAG-18,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
+flight-21,TAG-16,true,EUR 0.01,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-22,TAG-17,true,EUR 250000.50,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-23,TAG-18,false,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
 # cost - diferentes monedas permitidas
-flight-24,TAG-19,true,USD 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-25,TAG-20,true,GBP 750.75,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01
-flight-26,TAG-21,true,JPY 100000,"Lorem ipsum dolor sit amet, consectetur adipiscing",false,airline-manager-01
+flight-24,TAG-19,true,USD 1000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-25,TAG-20,true,GBP 750.75,"Lorem ipsum dolor sit amet, consectetur adipiscing",true,airline-manager-01,airline-01
+flight-26,TAG-21,true,JPY 100000,"Lorem ipsum dolor sit amet, consectetur adipiscing",false,airline-manager-01,airline-01
 # description - standard variations (min,intermedio y max permitidos)
-flight-27,TAG-22,false,EUR 500.00,L,true,airline-manager-01
-flight-28,TAG-23,true,EUR 500.00,Lo,true,airline-manager-01
-flight-29,TAG-24,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure",true,airline-manager-01
-flight-30,TAG-25,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consLorem ipsum dolo",true,airline-manager-01
-flight-31,TAG-26,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consLorem ipsum dolor",true,airline-manager-01
+flight-27,TAG-22,false,EUR 500.00,L,true,airline-manager-01,airline-01
+flight-28,TAG-23,true,EUR 500.00,Lo,true,airline-manager-01,airline-01
+flight-29,TAG-24,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure",true,airline-manager-01,airline-01
+flight-30,TAG-25,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consLorem ipsum dolo",true,airline-manager-01,airline-01
+flight-31,TAG-26,true,EUR 500.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula justo eget consequat tincidunt.Lorem ipsum dolor sit amet, consLorem ipsum dolor",true,airline-manager-01,airline-01
 # description - otros alfabetos
-flight-32,TAG-27,true,EUR 500.00,โลเร็ม อิปซัม,true,airline-manager-01
-flight-33,TAG-28,true,EUR 500.00,لوريم إيبسوم,true,airline-manager-01
-flight-34,TAG-29,false,EUR 500.00,洛伦·伊普森,true,airline-manager-01
+flight-32,TAG-27,true,EUR 500.00,โลเร็ม อิปซัม,true,airline-manager-01,airline-01
+flight-33,TAG-28,true,EUR 500.00,لوريم إيبسوم,true,airline-manager-01,airline-01
+flight-34,TAG-29,false,EUR 500.00,洛伦·伊普森,true,airline-manager-01,airline-01
 # description - pruebas de inyección de código
-flight-35,TAG-30,true,EUR 500.00,<script>alert('Hacked!');</script>,true,airline-manager-01
-flight-36,TAG-31,true,EUR 500.00,<marquee>Hacked</marquee>,false,airline-manager-01
-flight-37,TAG-32,true,EUR 500.00,' OR 'A' = 'A,true,airline-manager-01
-flight-38,TAG-33,true,EUR 500.00,SELECT * FROM users;,true,airline-manager-01
-flight-39,TAG-34,false,EUR 500.00,DROP TABLE flights;,true,airline-manager-01
-flight-40,TAG-35,true,EUR 500.00,' or 'A' = 'A,true,airline-manager-01
+flight-35,TAG-30,true,EUR 500.00,<script>alert('Hacked!');</script>,true,airline-manager-01,airline-01
+flight-36,TAG-31,true,EUR 500.00,<marquee>Hacked</marquee>,false,airline-manager-01,airline-01
+flight-37,TAG-32,true,EUR 500.00,' OR 'A' = 'A,true,airline-manager-01,airline-01
+flight-38,TAG-33,true,EUR 500.00,SELECT * FROM users;,true,airline-manager-01,airline-01
+flight-39,TAG-34,false,EUR 500.00,DROP TABLE flights;,true,airline-manager-01,airline-01
+flight-40,TAG-35,true,EUR 500.00,' or 'A' = 'A,true,airline-manager-01,airline-01
