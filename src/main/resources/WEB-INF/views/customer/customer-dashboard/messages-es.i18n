@@ -1,0 +1,34 @@
+# messages-es.i18n
+#
+# Copyright (C) 2025 Rafael David Caro Medina
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+customer.customer-dashboard.form.title = Panel de indicadores de clientes
+
+customer.dashboard.form.title.general-indicators = Indicadores generales
+customer.dashboard.form.title.booking-statuses = Estados de reservas
+customer.dashboard.form.title.last-five-years = Datos de los 5 últimos años
+customer.dashboard.form.title.numbers-of-passengers = Número de pasajeros en reservas
+
+customer.dashboard.form.label.lastFiveDestinations = Cinco últimos destinos
+customer.dashboard.form.label.moneySpentInBookingsLastYear =  Dinero gastado en reservas en el último año
+customer.dashboard.form.label.bookingsInTravelClassECONOMY = Reservas en Clase de Vuelo ECONOMY
+customer.dashboard.form.label.bookingsInTravelClassBUSINESS = Reservas en Clase de Vuelo BUSINESS
+
+customer.dashboard.form.label.countOfBookingsL5Y = Nº de reservas en los últimos 5 años
+customer.dashboard.form.label.averageBookingsCostL5Y = Media del coste de reservas en los últimos 5 años
+customer.dashboard.form.label.minBookingsCostL5Y = Mínimo coste de reservas en los últimos 5 años
+customer.dashboard.form.label.maxBookingsCostL5Y = Máximo coste de reservas en los últimos 5 años
+customer.dashboard.form.label.stdDesvBookingsCostL5Y = Desviación standard del coste de reservas en los últimos 5 años
+
+customer.dashboard.form.label.countOfPassengers = Nº de pasajeros en reservas
+customer.dashboard.form.label.averagePassengerNumber = Media de pasajeros en reservas
+customer.dashboard.form.label.minPassengerNumber = Mínimo de pasajeros en reservas
+customer.dashboard.form.label.maxPassengerNumber = Máximo de pasajeros en reservas
+
+
