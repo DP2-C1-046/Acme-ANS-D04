@@ -13,3 +13,14 @@ acme.validation.activityLog.invalidLeg      = The leg must have taken place
 
 acme.validation.customer.identifier.message = The identifier must begin with the initials of the customer's first and last name
 
+acme.validation.booking.duplicated-locatorCode.message = The Locator Code is duplicated
+acme.validation.booking.lastCardNibble.message = A booking can be published only when the last credit card nibble has been stored
+acme.validation.booking.invalid-currency.message = Price must be a valid currency
+acme.validation.booking.passengersNumber.message = A booking can be published only when it has at least one passenger associated
+acme.validation.booking.passengersInDraftMode.message = A booking can be published only when ALL of its passengers are not in dratMode
+acme.validation.booking.invalid-passenger.message = Invalid passenger selected
+
+acme.validation.passenger.duplicated-passportNumber.message = The Passport Number is duplicated
+
+
+

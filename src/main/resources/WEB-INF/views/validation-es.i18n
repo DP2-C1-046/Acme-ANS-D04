@@ -12,3 +12,12 @@
 acme.validation.activityLog.invalidLeg      = El tramo de vuelo tiene que haber dado lugar
 
 acme.validation.customer.identifier.message = El identificador debe comenzar por las iniciales del nombre y apellidos del cliente
+
+acme.validation.booking.duplicated-locatorCode.message = El Código de Localizador está duplicado
+acme.validation.booking.lastCardNibble.message = Una reserva se puede publicar sólo cuando se hayan almacenado los últimos dígitos de la tarjeta de crédito
+acme.validation.booking.invalid-currency.message = El precio debe estar en una moneda válida
+acme.validation.booking.passengersNumber.message = Una reserva solo se puede publicar cuando tiene al menos un pasajero asociado
+acme.validation.booking.passengersInDraftMode.message = Una reserva solo se puede publicar cuando todos sus pasajeros no están en modo borrador
+acme.validation.booking.invalid-passenger.message = Seleccionado un pasajero inválido
+
+acme.validation.passenger.duplicated-passportNumber.message = El número de Pasaporte está duplicado
