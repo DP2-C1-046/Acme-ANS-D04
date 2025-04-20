@@ -1,0 +1,35 @@
+airlineManager.flight.form.title = Formulario de vuelo
+airlineManager.flight.list.title = Listado de vuelos
+
+airlineManager.flight.form.label.tag = Etiqueta:
+airlineManager.flight.form.label.airline = Aerolínea: 
+airlineManager.flight.form.label.needsSelfTransfer = Traslado:
+airlineManager.flight.form.label.cost = Coste:
+airlineManager.flight.form.label.description = Descripción (Opcional):
+
+		
+airlineManager.flight.form.button.legs = Tramos
+airlineManager.flight.form.button.update = Actualizar
+airlineManager.flight.form.button.delete = Borrar
+airlineManager.flight.form.button.publish = Publicar
+airlineManager.flight.form.button.create = Crear
+
+airlineManager.flight.list.label.tag = Etiqueta
+airlineManager.flight.list.label.needsSelfTransfer = Traslado
+airlineManager.flight.list.label.cost = Coste
+airlineManager.flight.list.label.originCity = Ciudad origen
+airlineManager.flight.list.label.destinationCity = Ciudad destino
+airlineManager.flight.list.label.scheduledDeparture = Horario Salida
+airlineManager.flight.list.label.scheduledArrival = Horario llegada
+airlineManager.flight.list.label.layovers = Escalas
+airlineManager.flight.list.label.description = Descripción
+
+airlineManager.flight.list.button.create = Crear
+
+airlineManager.flight.form.label.draftMode = Modo borrador
+airlineManager.flight.form.label.scheduledDeparture = Horario Salida
+airlineManager.flight.form.label.scheduledArrival = Horario llegada
+airlineManager.flight.form.label.originCity = Ciudad origen
+airlineManager.flight.form.label.destinationCity = Ciudad destino
+airlineManager.flight.form.label.layovers = Escalas
+airlineManager.flight.form.label.airline = Aerolínea
