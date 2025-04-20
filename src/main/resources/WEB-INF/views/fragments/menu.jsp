@@ -19,26 +19,55 @@
 <acme:menu-bar>
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.david-blanco" action="https://www.fcbarcelona.es/es/"/>
-			<acme:menu-suboption code="master.menu.anonymous.nerea-jimenez" action="https://www.youtube.com/"/>
-			<acme:menu-suboption code="master.menu.anonymous.rafael-segura" action="http://www.twitch.tv/"/>
-			<acme:menu-suboption code="master.menu.anonymous.rafael-david-caro" action="http://www.elmundo.es/"/>
-			<acme:menu-suboption code="master.menu.anonymous.emilio-espinosa" action="https://www.elmundotoday.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.david-blanco"
+				action="https://www.fcbarcelona.es/es/" />
+			<acme:menu-suboption code="master.menu.anonymous.nerea-jimenez"
+				action="https://www.youtube.com/" />
+			<acme:menu-suboption code="master.menu.anonymous.rafael-segura"
+				action="http://www.twitch.tv/" />
+			<acme:menu-suboption code="master.menu.anonymous.rafael-david-caro"
+				action="http://www.elmundo.es/" />
+			<acme:menu-suboption code="master.menu.anonymous.emilio-espinosa"
+				action="https://www.elmundotoday.com/" />
 		</acme:menu-option>
 
-		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
-			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.populate-db-initial" action="/administrator/system/populate-initial"/>
-			<acme:menu-suboption code="master.menu.administrator.populate-db-sample" action="/administrator/system/populate-sample"/>			
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
+		<acme:menu-option code="master.menu.administrator"
+			access="hasRealm('Administrator')">
+			<acme:menu-suboption
+				code="master.menu.administrator.list-user-accounts"
+				action="/administrator/user-account/list" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.administrator.list-aircrafts"
+				action="/administrator/aircraft/list" />
+			<acme:menu-suboption
+				code="master.menu.administrator.populate-db-initial"
+				action="/administrator/system/populate-initial" />
+			<acme:menu-suboption
+				code="master.menu.administrator.populate-db-sample"
+				action="/administrator/system/populate-sample" />
+			<acme:menu-separator />
+			<acme:menu-suboption
+				code="master.menu.administrator.shut-system-down"
+				action="/administrator/system/shut-down" />
 		</acme:menu-option>
 
-		<acme:menu-option code="master.menu.provider" access="hasRealm('Provider')">
-			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
+		<acme:menu-option code="master.menu.provider"
+			access="hasRealm('Provider')">
+			<acme:menu-suboption code="master.menu.provider.favourite-link"
+				action="http://www.example.com/" />
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.airlineManager" access="hasRealm('AirlineManager')">
+			<acme:menu-suboption code="master.menu.airlineManager.list-my-flights" action="/airline-manager/flight/list" />
+			<acme:menu-suboption code="master.menu.airlineManager.list-my-legs" action="/airline-manager/leg/list" />
 		</acme:menu-option>
 
+
+		<acme:menu-option code="master.menu.flightCrewMember" access="hasRealm('FlightCrewMember')">
+			<acme:menu-suboption code="master.menu.flightCrewMember.listCompleted" action="/flight-crew-member/flight-assignment/list"/>
+			<acme:menu-suboption code="master.menu.flightCrewMember.listPlanned" action="/flight-crew-member/flight-assignment/list-planned"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.consumer" access="hasRealm('Consumer')">
 			<acme:menu-suboption code="master.menu.consumer.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>

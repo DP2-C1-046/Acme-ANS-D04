@@ -9,6 +9,10 @@
 # they accept any liabilities with respect to them.
  
 
+
+acme.validation.activitylog.registrationmoment.required = Registration moment cannot be null
+acme.validation.activitylog.registrationmoment.message = Registration moment must be after the leg ends
+
 acme.validation.activityLog.invalidLeg      = The leg must have taken place
 
 acme.validation.customer.identifier.message = The identifier must begin with the initials of the customer's first and last name
@@ -22,5 +26,8 @@ acme.validation.booking.invalid-passenger.message = Invalid passenger selected
 
 acme.validation.passenger.duplicated-passportNumber.message = The Passport Number is duplicated
 
-
-
+acme.validation.flightassignment.flightcrewmember.available.message = Only available members can be assigned
+acme.validation.flightassignment.leg.completed.message = The assignment cannot be linked to a completed leg
+acme.validation.flightassignment.leg.overlap.message = Legs cannot be overlapped
+acme.validation.flightassignment.duty.pilot.message = Each leg can only have one pilot
+acme.validation.flightassignment.duty.copilot.message = Each leg can only have one copilot

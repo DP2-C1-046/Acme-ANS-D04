@@ -1,2 +1,3 @@
 key,registrationMoment,typeOfIndicent,description,severityLevel,draftMode,key:flightAssignment
-activityLog-00,2020/09/01 10:00,"Turbulences","Turbulences due to weather conditions",3,True,flight-assignment-03
+activityLog-00,2021/09/01 10:00,"Turbulences","Turbulences due to weather conditions",3,True,flight-assignment-03
+activityLog-01,2021/09/01 12:00,"Strong storm","Strong storm when taking off",5,True,flight-assignment-03
