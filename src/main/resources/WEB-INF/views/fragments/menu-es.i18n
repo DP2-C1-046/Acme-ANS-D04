@@ -35,7 +35,7 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.airlineManager = Mánager de aerolíneas
 master.menu.airlineManager.list-my-flights = Listar mis vuelos
-master.menu.airlineManager.list-my-legs = Listar mis escalas
+master.menu.airlineManager.list-my-legs = Listar mis tramos
 
 # master.menu.consumer ##########################################################
 

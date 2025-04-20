@@ -21,6 +21,7 @@ import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
 import acme.entities.airlines.Airline;
 import acme.entities.airports.Airport;
+import acme.entities.legs.Leg;
 import acme.entities.legs.LegRepository;
 import acme.realms.AirlineManager;
 import lombok.Getter;
@@ -102,6 +103,20 @@ public class Flight extends AbstractEntity {
 		Integer layovers = repository.numberOfLayovers(this.getId());
 
 		return layovers != null ? layovers : 0;
+	}
+
+	@Transient
+	public Integer getLayovers() {
+		Integer res;
+		LegRepository repository;
+		List<Leg> wrapper;
+
+		repository = SpringHelper.getBean(LegRepository.class);
+		wrapper = repository.findLegsByFlightId(this.getId());
+		res = wrapper.size();
+
+		return res;
+
 	}
 
 	// Relationships ----------------------------------------------------------
