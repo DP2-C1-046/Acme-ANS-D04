@@ -10,13 +10,13 @@ airline-06,Lo,SHD,http://lorem.com/ipsum,LUXURY,2002/09/01 10:00,acme@lorem-ipsu
 airline-07,Lorem ipsum dolor sit ame,SHE,http://lorem.com/ipsum,LUXURY,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 airline-08,"Lorem ipsum dolor sit amet, consectetur adipiscin",SHF,http://lorem.com/ipsum,LUXURY,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 airline-09,"Lorem ipsum dolor sit amet, consectetur adipiscing",SHG,http://lorem.com/ipsum,LUXURY,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
-# web-site variation
-airline-10,Lorem ipsum dolor sit ame,AAA,ftp://a,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
-airline-11,Lorem ipsum dolor sit ame,AAB,ftp://a.b,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
+# web-site variation,"","",""
+airline-10,Lorem ipsum dolor sit ame,AAA,http://a.b,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
+airline-11,Lorem ipsum dolor sit ame,AAB,http://a.b,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 airline-12,Lorem ipsum dolor sit ame,AAC,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 airline-13,Lorem ipsum dolor sit ame,AAD,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X",STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 airline-14,Lorem ipsum dolor sit ame,AAE,https://www.lorem-ipsum.org,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
-airline-15,Lorem ipsum dolor sit ame,AAF,ftp://www.lorem-ipsum.org,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
+airline-15,Lorem ipsum dolor sit ame,AAF,http://www.lorem-ipsum.org,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 airline-16,Lorem ipsum dolor sit ame,AAG,http://www.lorem-ipsum.org/dolor/sit.html,STANDARD,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
 # airline-type variation
 airline-17,Lorem ipsum dolor sit ame,AAI,http://lorem.com/ipsum,LOWCOST,2002/09/01 10:00,acme@lorem-ipsum.org,+1234567890,true
