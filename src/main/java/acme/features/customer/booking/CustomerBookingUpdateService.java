@@ -79,8 +79,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		flightId = super.getRequest().getData("flight", int.class);
 		flight = this.repository.findFlightById(flightId);
 
-		super.bindObject(booking, "locatorCode", "travelClass", "price", "customer.identity.fullName", // 
-			"lastCardNibble");
+		super.bindObject(booking, "locatorCode", "travelClass", "price", "lastCardNibble");
 
 		booking.setFlight(flight);
 	}
