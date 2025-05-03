@@ -39,7 +39,20 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int bookingId;
+		int customerId;
+		Booking booking;
+
+		bookingId = super.getRequest().getData("masterId", int.class);
+		customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		// Ensure that the booking to add the passenger exists and belongs to principal
+		booking = this.repository.findBookingById(bookingId);
+
+		status = booking != null && customerId == booking.getCustomer().getId();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
