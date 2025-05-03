@@ -21,7 +21,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -84,27 +83,16 @@ public class Booking extends AbstractEntity {
 
 	// Derived attributes -----------------------------------------------------
 
-
-	@Transient
-	public boolean isPublished() {
-		boolean result;
-
-		result = !this.draftMode;
-
-		return result;
-	}
-
 	// Relationships ----------------------------------------------------------
-
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Customer	customer;
+	private Customer			customer;
 
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private Flight		flight;
+	private Flight				flight;
 
 }
