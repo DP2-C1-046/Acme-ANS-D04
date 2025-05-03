@@ -14,25 +14,17 @@ administrator.booking.form.title = Booking form
 
 administrator.booking.list.label.locatorCode = Locator Code
 administrator.booking.list.label.purchaseMoment = Purchase Moment
-administrator.booking.form.label.flight = Flight
 administrator.booking.list.label.travelClass = Travel Class
 administrator.booking.list.label.price = Price
-administrator.booking.list.label.lastCardNibble = Last Card Nibble
-administrator.booking.list.label.customer.identity.fullName = Customer FullName
 administrator.booking.list.label.draftMode = Draft Mode
 
 administrator.booking.form.label.locatorCode = Locator Code
 administrator.booking.form.label.purchaseMoment = Purchase Moment
 administrator.booking.form.label.travelClass = Travel Class
+administrator.booking.form.label.flight = Flight
 administrator.booking.form.label.price = Price
 administrator.booking.form.label.lastCardNibble = Last Card Nibble
 administrator.booking.form.label.customer.identity.fullName = Customer FullName
-administrator.booking.form.label.draftMode = Draft Mode
 
 administrator.booking.form.button.passengers = Passengers
-administrator.booking.form.button.update = Update
-administrator.booking.form.button.delete = Delete
-administrator.booking.form.button.publish = Publish
-administrator.booking.form.button.create = Create
-
 

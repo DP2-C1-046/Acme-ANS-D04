@@ -11,7 +11,6 @@
 customer.customer-dashboard.form.title = Panel de indicadores de clientes
 
 customer.dashboard.form.title.general-indicators = Indicadores generales
-customer.dashboard.form.title.booking-statuses = Estados de reservas
 customer.dashboard.form.title.last-five-years = Datos de los 5 últimos años
 customer.dashboard.form.title.numbers-of-passengers = Número de pasajeros en reservas
 

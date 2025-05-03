@@ -10,8 +10,7 @@
 
 customer.customer-dashboard.form.title = Customer dashboard
 
-customer.dashboard.form.title.general-indicators = General indicators  
-customer.dashboard.form.title.booking-statuses = Booking statuses
+customer.dashboard.form.title.general-indicators = General indicators
 customer.dashboard.form.title.last-five-years = Data in the last five years
 customer.dashboard.form.title.numbers-of-passengers = Number of passengers in bookings
 

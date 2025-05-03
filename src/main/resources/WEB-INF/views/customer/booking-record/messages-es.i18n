@@ -15,14 +15,7 @@ customer.booking-record.form.label.passenger = Pasajero
 customer.booking-record.form.label.locatorCode = Codigo Localizador de Reserva
 
 customer.booking-record.passenger.form.label.fullName = Nombre completo
-customer.booking-record.passenger.form.label.email = Email
-customer.booking-record.passenger.form.label.passportNumber = Número de pasaporte
-customer.booking-record.passenger.form.label.dateOfBirth = Fecha de nacimiento
-customer.booking-record.passenger.form.label.specialNeeds = Necesidades especiales (Opcional)
-customer.booking-record.passenger.form.label.draftMode = Modo borrador
 
-customer.booking-record.form.button.update = Actualizar
-customer.booking-record.form.button.delete = Borrar
 customer.booking-record.form.button.create = Crear
 
 customer.booking-record.passenger.list.label.fullName = Nombre Completo

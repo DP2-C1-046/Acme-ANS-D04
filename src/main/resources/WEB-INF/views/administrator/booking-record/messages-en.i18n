@@ -15,11 +15,6 @@ administrator.booking-record.form.label.passenger = Passenger
 administrator.booking-record.form.label.locatorCode = Booking Locator Code
 
 administrator.booking-record.passenger.form.label.fullName = Full Name
-administrator.booking-record.passenger.form.label.email = Email
-administrator.booking-record.passenger.form.label.passportNumber = Passport Number
-administrator.booking-record.passenger.form.label.dateOfBirth = Date of birth
-administrator.booking-record.passenger.form.label.specialNeeds = Special Needs (Optional)
-administrator.booking-record.passenger.form.label.draftMode = Draft Mode
 
 administrator.booking-record.passenger.list.label.fullName = Full Name
 administrator.booking-record.passenger.list.label.email = Email

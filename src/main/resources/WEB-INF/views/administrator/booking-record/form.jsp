@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="administrator.booking.list.label.customer.identity.fullName" path="booking.customer.identity.fullName" readonly="true"/>
+	<acme:input-textbox code="administrator.booking-record.passenger.form.label.fullName" path="booking.customer.identity.fullName" readonly="true"/>
 	<acme:input-textbox code="administrator.booking-record.form.label.locatorCode" path="booking.locatorCode" readonly="true"/>
 	<acme:input-select code="administrator.booking.form.label.travelClass" path="booking.travelClass" choices="${travelClasses}" readonly="true"/>
 	<acme:input-money code="administrator.booking.form.label.price" path="booking.price" readonly="true"/>

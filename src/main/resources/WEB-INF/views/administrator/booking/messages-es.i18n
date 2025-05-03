@@ -13,24 +13,17 @@ administrator.booking.form.title = Formulario de reservas
 
 administrator.booking.list.label.locatorCode = Codigo Localizador
 administrator.booking.list.label.purchaseMoment = Fecha Compra
-administrator.booking.form.label.flight = Vuelo
 administrator.booking.list.label.travelClass = Clase vuelo
 administrator.booking.list.label.price = Precio
-administrator.booking.list.label.lastCardNibble = Ult Digitos Tarjeta
-administrator.booking.list.label.customer.identity.fullName = Nombre Cliente
 administrator.booking.list.label.draftMode = Modo borrador
 
 administrator.booking.form.label.locatorCode = Codigo Localizador
 administrator.booking.form.label.purchaseMoment = Fecha Compra
 administrator.booking.form.label.travelClass = Clase vuelo
+administrator.booking.form.label.flight = Vuelo
 administrator.booking.form.label.price = Precio
 administrator.booking.form.label.lastCardNibble = Ult Digitos Tarjeta
 administrator.booking.form.label.customer.identity.fullName = Nombre Cliente
-administrator.booking.form.label.draftMode = Modo borrador
 
 administrator.booking.form.button.passengers = Pasajeros
-administrator.booking.form.button.update = Actualizar
-administrator.booking.form.button.delete = Borrar
-administrator.booking.form.button.publish = Publicar
-administrator.booking.form.button.create = Crear
 
