@@ -123,13 +123,13 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		Date currentMoment;
 
 		// Pendiente de hacer cuando Flights tenga draftMode, en esta rama no lo tiene aún
-		//currentMoment = MomentHelper.getCurrentMoment();
+		currentMoment = MomentHelper.getCurrentMoment();
 
-		// Y sólo con fecha de salida posterior a currentMoment
-		//flights = this.repository.findAvailablesFlights(currentMoment);
-		flights = this.repository.findAllFlights();
+		// Y sólo con en draftMode=false y fecha de salida posterior a currentMoment
+		flights = this.repository.findAvailablesFlights();
+		//flights = this.repository.findAllFlights();
 
-		flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
+		flightChoices = SelectChoices.from(flights, "displayTag", booking.getFlight());
 
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 

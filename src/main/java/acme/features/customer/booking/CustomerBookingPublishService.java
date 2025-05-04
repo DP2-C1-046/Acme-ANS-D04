@@ -158,9 +158,11 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		SelectChoices travelClassChoices, flightChoices;
 		Dataset dataset;
 
-		flights = this.repository.findAllFlights();
+		// Y sólo con en draftMode=false y fecha de salida posterior a currentMoment
+		flights = this.repository.findAvailablesFlights();
+		//flights = this.repository.findAllFlights();
 
-		flightChoices = SelectChoices.from(flights, "tag", booking.getFlight());
+		flightChoices = SelectChoices.from(flights, "displayTag", booking.getFlight());
 
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 

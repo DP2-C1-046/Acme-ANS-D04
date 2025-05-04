@@ -54,9 +54,12 @@ public interface CustomerBookingRepository extends AbstractRepository {
 	@Query("select f from Flight f")
 	Collection<Flight> findAllFlights();
 
-	// Ahora mismo no se puede ejecutar, no existe draftMode para Flight en esta rama
+	// Ahora mismo no se puede ejecutar, no existe draftMode para Flight en esta rama y getScheduledDeparture es @Transient
 	//@Query("select f from Flight f where f.draftMode=false and f.getScheduledDeparture > :currentMoment")
 	//Collection<Flight> findAvailablesFlights(Date currentMoment);
+
+	@Query("select f from Flight f where f.draftMode=false")
+	Collection<Flight> findAvailablesFlights();
 
 	@Query("select f from Flight f where f.id = :id")
 	Flight findFlightById(int id);
