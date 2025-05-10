@@ -9,39 +9,39 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimRepository;
+import acme.entities.claims.TrackingLogStatus;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentClaimListService extends AbstractGuiService<AssistanceAgent, Claim> {
-
-	// Internal state ---------------------------------------------------------
+public class CompletedClaimListService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	@Autowired
-	private AssistanceAgentClaimRepository repository;
-
-	// AbstractGuiService interface -------------------------------------------
+	private ClaimRepository repository;
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = super.getRequest().getPrincipal().hasRealmOfType(AssistanceAgent.class);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Collection<Claim> claims;
-		int agentId;
+		int assistanceAgentId;
 
-		agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		claims = this.repository.findAllCompletedClaimsByAgentId(agentId);
-
+		assistanceAgentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		claims = this.repository.findClaimsByAssistanceAgent(assistanceAgentId).stream().filter(x -> x.getStatus() != TrackingLogStatus.PENDING).toList();
 		super.getBuffer().addData(claims);
 	}
 
 	@Override
 	public void unbind(final Claim claim) {
+
 		Dataset dataset;
-		Boolean indicator = claim.indicator();
+		TrackingLogStatus indicator = claim.getStatus();
 
 		dataset = super.unbindObject(claim, "passengerEmail", "type");
 		dataset.put("indicator", indicator);
@@ -49,5 +49,4 @@ public class AssistanceAgentClaimListService extends AbstractGuiService<Assistan
 
 		super.getResponse().addData(dataset);
 	}
-
 }

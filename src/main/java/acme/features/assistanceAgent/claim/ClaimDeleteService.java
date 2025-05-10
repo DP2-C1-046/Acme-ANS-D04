@@ -10,18 +10,19 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimRepository;
 import acme.entities.claims.ClaimType;
 import acme.entities.claims.TrackingLog;
 import acme.entities.legs.Leg;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentClaimDeleteService extends AbstractGuiService<AssistanceAgent, Claim> {
+public class ClaimDeleteService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AssistanceAgentClaimRepository repository;
+	private ClaimRepository repository;
 
 	// AbstractGuiService interface -------------------------------------------
 
@@ -58,7 +59,10 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 
 	@Override
 	public void validate(final Claim claim) {
-		;
+
+		Collection<TrackingLog> trackingLogs = this.repository.findTrackingLogsByClaimId(claim.getId());
+		boolean valid = trackingLogs.isEmpty();
+		super.state(valid, "*", "assistanceAgent.claim.form.error.stillTrackingLogs");
 	}
 
 	@Override
@@ -78,7 +82,7 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 		Dataset dataset;
 
 		choices = SelectChoices.from(ClaimType.class, claim.getClaimType());
-		legs = this.repository.findAllLeg();
+		legs = this.repository.findAllLegPublish();
 		choices2 = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode");

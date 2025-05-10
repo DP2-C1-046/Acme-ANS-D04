@@ -42,6 +42,13 @@ master.menu.provider.favourite-link = Favourite link
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
+# master.menu.assistance-agent ####################################################
+master.menu.assistanceAgent  = Asistente
+master.menu.assistanceAgent.list-claims = Listar quejas completadas
+master.menu.assistanceAgent.list-claims-pending = Listar quejas en proceso
+master.menu.assistanceAgent.list-trackingLog = Listar todos los registros
+master.menu.assistanceAgent.show-dashboard= Ver dashboard
+
 # master.menu.flightCrewMember #################################################
 master.menu.flightCrewMember = FlightCrewMember
 master.menu.flightCrewMember.listCompleted = List completed assignments

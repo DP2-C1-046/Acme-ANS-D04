@@ -42,6 +42,13 @@ master.menu.airlineManager.list-my-legs = Listar mis tramos
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.assistance-agent ####################################################
+master.menu.assistanceAgent  = Assistance Agent
+master.menu.assistanceAgent.list-claims = List completed claims
+master.menu.assistanceAgent.list-claims-pending = List undergoing claims
+master.menu.assistanceAgent.list-trackingLog = List all tracking logs
+master.menu.assistanceAgent.show-dashboard = Show dashboard
+
 # master.menu.flightCrewMember #################################################
 master.menu.flightCrewMember = Tripulante de vuelo
 master.menu.flightCrewMember.listCompleted = Listar asignaciones completadas

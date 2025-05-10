@@ -10,43 +10,36 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
+import acme.entities.claims.ClaimRepository;
 import acme.entities.claims.ClaimType;
+import acme.entities.claims.TrackingLogStatus;
 import acme.entities.legs.Leg;
 import acme.realms.AssistanceAgent;
 
 @GuiService
-public class AssistanceAgentClaimShowService extends AbstractGuiService<AssistanceAgent, Claim> {
-
-	// Internal state ---------------------------------------------------------
+public class ClaimShowService extends AbstractGuiService<AssistanceAgent, Claim> {
 
 	@Autowired
-	private AssistanceAgentClaimRepository repository;
-
-	// AbstractGuiService interface -------------------------------------------
+	private ClaimRepository repository;
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int claimId;
-		Claim claim;
-		AssistanceAgent assistanceAgent;
 
-		claimId = super.getRequest().getData("id", int.class);
-		claim = this.repository.findClaimById(claimId);
-		assistanceAgent = claim == null ? null : claim.getAssistanceAgent();
-		status = super.getRequest().getPrincipal().hasRealm(assistanceAgent);
+		int agentId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		int claimId = super.getRequest().getData("id", int.class);
+		Claim claim = this.repository.findClaimById(claimId);
 
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(agentId == claim.getAssistanceAgent().getId());
 	}
 
 	@Override
 	public void load() {
-		int claimId;
 		Claim claim;
+		int id;
 
-		claimId = super.getRequest().getData("id", int.class);
-		claim = this.repository.findClaimById(claimId);
+		id = super.getRequest().getData("id", int.class);
+		claim = this.repository.findClaimById(id);
 
 		super.getBuffer().addData(claim);
 	}
@@ -57,14 +50,14 @@ public class AssistanceAgentClaimShowService extends AbstractGuiService<Assistan
 		SelectChoices choices;
 		SelectChoices choices2;
 		Dataset dataset;
-		Boolean indicator;
+		TrackingLogStatus indicator;
 
-		indicator = claim.indicator();
+		indicator = claim.getStatus();
 		choices = SelectChoices.from(ClaimType.class, claim.getClaimType());
-		legs = this.repository.findAllLeg();
+		legs = this.repository.findAllLegPublish();
 		choices2 = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode", "id");
 		dataset.put("types", choices);
 		dataset.put("leg", choices2.getSelected().getKey());
 		dataset.put("legs", choices2);

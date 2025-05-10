@@ -11,30 +11,28 @@ import acme.entities.claims.Claim;
 import acme.realms.AssistanceAgent;
 
 @GuiController
-public class AssistanceAgentClaimController extends AbstractGuiController<AssistanceAgent, Claim> {
-
-	// Internal state ---------------------------------------------------------
+public class ClaimController extends AbstractGuiController<AssistanceAgent, Claim> {
 
 	@Autowired
-	private AssistanceAgentClaimListService			listService;
+	private CompletedClaimListService	listService;
 
 	@Autowired
-	private AssistanceAgentClaimListPendingService	listPendingService;
+	private PendingClaimListService		listPendingService;
 
 	@Autowired
-	private AssistanceAgentClaimShowService			showService;
+	private ClaimShowService			showService;
 
 	@Autowired
-	private AssistanceAgentClaimCreateService		createService;
+	private ClaimCreateService			createService;
 
 	@Autowired
-	private AssistanceAgentClaimUpdateService		updateService;
+	private ClaimUpdateService			updateService;
 
 	@Autowired
-	private AssistanceAgentClaimDeleteService		deleteService;
+	private ClaimDeleteService			deleteService;
 
 	@Autowired
-	private AssistanceAgentClaimPublishService		publishService;
+	private ClaimPublishService			publishService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -45,9 +43,7 @@ public class AssistanceAgentClaimController extends AbstractGuiController<Assist
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
 		super.addBasicCommand("delete", this.deleteService);
-
 		super.addCustomCommand("pending", "list", this.listPendingService);
 		super.addCustomCommand("publish", "update", this.publishService);
 	}
-
 }

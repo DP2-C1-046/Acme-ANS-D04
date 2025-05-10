@@ -19,6 +19,7 @@ import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
+import acme.constraints.ValidClaim;
 import acme.entities.legs.Leg;
 import acme.realms.AssistanceAgent;
 import lombok.Getter;
@@ -30,7 +31,7 @@ import lombok.Setter;
 @Table(indexes = {
 	@Index(columnList = "id")
 })
-
+@ValidClaim
 public class Claim extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -69,24 +70,15 @@ public class Claim extends AbstractEntity {
 
 
 	@Transient
-	public Boolean indicator() {
-		Boolean result;
-		TrackingLogRepository repository;
-		TrackingLog trackingLog;
-		repository = SpringHelper.getBean(TrackingLogRepository.class);
-		trackingLog = repository.findLastTrackingLog(this.getId()).orElse(null);
-		if (trackingLog == null)
-			result = null;
-		else {
-			TrackingLogStatus indicator = trackingLog.getStatus();
-			if (indicator.equals(TrackingLogStatus.ACCEPTED))
-				result = true;
-			else if (indicator.equals(TrackingLogStatus.REJECTED))
-				result = false;
-			else
-				result = null;
-		}
-		return result;
+	public TrackingLogStatus getStatus() {
+		TrackingLogStatus tls;
+		TrackingLogRepository repository = SpringHelper.getBean(TrackingLogRepository.class);
+		TrackingLog tl = repository.findLastTrackingLog(this.getId()).orElse(null);
+		if (tl == null)
+			tls = null;
+		else
+			tls = tl.getStatus();
+		return tls;
 	}
 
 	// Relationships ----------------------------------------------------------
@@ -95,15 +87,11 @@ public class Claim extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-
-	private AssistanceAgent		assistanceAgent;
-
+	private AssistanceAgent	assistanceAgent;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-
-	private Leg					leg;
-
+	private Leg				leg;
 
 }
