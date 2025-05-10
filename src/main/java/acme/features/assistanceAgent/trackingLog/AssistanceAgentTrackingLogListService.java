@@ -57,7 +57,7 @@ public class AssistanceAgentTrackingLogListService extends AbstractGuiService<As
 
 		int claimId = super.getRequest().getData("claimId", int.class);
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "resolutionPercentage", "status", "step", "resolution");
+		dataset = super.unbindObject(trackingLog, "lastUpdate", "resolutionPercentage", "status", "stepUndergoing", "resolution");
 		super.getResponse().addGlobal("claimId", claimId);
 
 		super.getResponse().addData(dataset);

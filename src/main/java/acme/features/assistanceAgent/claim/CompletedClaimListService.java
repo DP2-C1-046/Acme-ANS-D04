@@ -43,7 +43,7 @@ public class CompletedClaimListService extends AbstractGuiService<AssistanceAgen
 		Dataset dataset;
 		TrackingLogStatus indicator = claim.getStatus();
 
-		dataset = super.unbindObject(claim, "passengerEmail", "type");
+		dataset = super.unbindObject(claim, "passengerEmail", "claimType");
 		dataset.put("indicator", indicator);
 		super.addPayload(dataset, claim, "registrationMoment", "description", "leg.flightNumber");
 

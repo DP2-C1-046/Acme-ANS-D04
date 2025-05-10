@@ -71,14 +71,8 @@ public class Claim extends AbstractEntity {
 
 	@Transient
 	public TrackingLogStatus getStatus() {
-		TrackingLogStatus tls;
 		TrackingLogRepository repository = SpringHelper.getBean(TrackingLogRepository.class);
-		TrackingLog tl = repository.findLastTrackingLog(this.getId()).orElse(null);
-		if (tl == null)
-			tls = null;
-		else
-			tls = tl.getStatus();
-		return tls;
+		return repository.findOrderTrackingLog(this.getId()).flatMap(list -> list.stream().findFirst()).map(TrackingLog::getStatus).orElse(TrackingLogStatus.PENDING);
 	}
 
 	// Relationships ----------------------------------------------------------

@@ -50,19 +50,18 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "status", "resolution");
+		super.bindObject(trackingLog, "lastUpdate", "stepUndergoing", "resolutionPercentage", "status", "resolution");
 
 	}
 
 	@Override
 	public void validate(final TrackingLog trackingLog) {
 		boolean valid;
-		// Verificar si la Claim asociada está publicada
 		valid = trackingLog.getClaim() != null && !trackingLog.getClaim().isDraftMode();
 		super.state(valid, "*", "assistanceAgent.trackingLog.form.error.claimNotPublished");
 
 		if (!valid)
-			return; // Si la Claim no está publicada, no continuar con otras validaciones
+			return;
 		if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() != null && trackingLog.getStatus() != null && trackingLog.getResolutionPercentage() < 100.0) {
 			valid = trackingLog.getStatus().equals(TrackingLogStatus.PENDING);
 			super.state(valid, "status", "assistanceAgent.trackingLog.form.error.badStatus");
@@ -109,7 +108,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 		statusChoices = SelectChoices.from(TrackingLogStatus.class, trackingLog.getStatus());
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "lastUpdate", "stepUndergoing", "resolutionPercentage", "status", "resolution", "draftMode");
 		dataset.put("statusChoices", statusChoices);
 
 		super.getResponse().addData(dataset);

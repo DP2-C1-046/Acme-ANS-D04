@@ -65,7 +65,7 @@ public class ClaimUpdateService extends AbstractGuiService<AssistanceAgent, Clai
 
 	@Override
 	public void bind(final Claim claim) {
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "id");
+		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType", "leg", "id");
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class ClaimUpdateService extends AbstractGuiService<AssistanceAgent, Clai
 				legs.add(leg);
 		choices2 = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode", "id");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType", "draftMode", "id");
 		dataset.put("types", choices);
 		dataset.put("leg", choices2.getSelected().getKey());
 		dataset.put("legs", choices2);

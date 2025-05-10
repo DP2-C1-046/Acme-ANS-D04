@@ -43,11 +43,12 @@ master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
 
 # master.menu.assistance-agent ####################################################
-master.menu.assistanceAgent  = Asistente
-master.menu.assistanceAgent.list-claims = Listar quejas completadas
-master.menu.assistanceAgent.list-claims-pending = Listar quejas en proceso
-master.menu.assistanceAgent.list-trackingLog = Listar todos los registros
-master.menu.assistanceAgent.show-dashboard= Ver dashboard
+master.menu.assistanceAgent  = Assistance Agent
+master.menu.assistanceAgent.list-claims = List completed claims
+master.menu.assistanceAgent.list-claims-pending = List undergoing claims
+master.menu.assistanceAgent.list-trackingLog = List all tracking logs
+master.menu.assistanceAgent.show-dashboard = Show dashboard
+
 
 # master.menu.flightCrewMember #################################################
 master.menu.flightCrewMember = FlightCrewMember

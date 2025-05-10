@@ -49,7 +49,7 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 	}
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "status", "resolution");
+		super.bindObject(trackingLog, "lastUpdate", "stepUndergoing", "resolutionPercentage", "status", "resolution");
 
 	}
 
@@ -107,7 +107,7 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 		statusChoices = SelectChoices.from(TrackingLogStatus.class, trackingLog.getStatus());
 
-		dataset = super.unbindObject(trackingLog, "lastUpdateMoment", "step", "resolutionPercentage", "status", "resolution", "draftMode");
+		dataset = super.unbindObject(trackingLog, "lastUpdate", "stepUndergoing", "resolutionPercentage", "status", "resolution", "draftMode");
 		dataset.put("statusChoices", statusChoices);
 
 		super.getResponse().addData(dataset);

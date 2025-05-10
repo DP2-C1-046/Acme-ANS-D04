@@ -11,11 +11,11 @@
 assistance-agent.tracking-log.form.title = Detalles de los seguimientos de los registros
 assistance-agent.tracking-log.list.title = Listar seguimientos de los registro
 
-assistanceAgent.trackingLog.form.label.lastUpdateMoment = Última fecha de cambio:
-assistanceAgent.trackingLog.form.label.step = Paso:
+assistanceAgent.trackingLog.form.label.lastUpdate = Última fecha de cambio:
+assistanceAgent.trackingLog.form.label.stepUndergoing = Paso:
 assistanceAgent.trackingLog.form.label.resolutionPercentage = Porcentaje de resolución:
 assistanceAgent.trackingLog.form.label.status = Estado:
-assistanceAgent.trackingLog.form.label.resolution = Resolucion:
+assistanceAgent.trackingLog.form.label.resolution = Resolución:
 assistanceAgent.trackingLog.form.label.claim = Queja:
 assistanceAgent.trackingLog.form.label.confirmation = ¿Desea confirmar?
 
@@ -23,9 +23,9 @@ assistanceAgent.trackingLog.form.button.create = Crear
 assistanceAgent.trackingLog.form.button.update = Actualizar
 assistanceAgent.trackingLog.form.button.delete = Borrar
  
-assistanceAgent.trackingLog.list.label.step = Paso
+assistanceAgent.trackingLog.list.label.stepUndergoing = Paso
 assistanceAgent.trackingLog.list.label.resolutionPercentage = Porcentaje de resolución:
-assistanceAgent.trackingLog.list.label.Status = Estado:
+assistanceAgent.trackingLog.list.label.status = Estado:
 
 assistanceAgent.trackingLog.list.button.create = Crear
 

@@ -54,7 +54,7 @@ public class ClaimDeleteService extends AbstractGuiService<AssistanceAgent, Clai
 
 	@Override
 	public void bind(final Claim claim) {
-		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg");
+		super.bindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType", "leg");
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class ClaimDeleteService extends AbstractGuiService<AssistanceAgent, Clai
 		legs = this.repository.findAllLegPublish();
 		choices2 = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "claimType", "draftMode");
 		dataset.put("types", choices);
 		dataset.put("leg", choices2.getSelected().getKey());
 		dataset.put("legs", choices2);

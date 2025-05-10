@@ -24,7 +24,7 @@ assistanceAgent.claim.form.button.update = Update
 assistanceAgent.claim.form.button.delete = Delete
  
 assistanceAgent.claim.list.label.passengerEmail = Passenger Email
-assistanceAgent.claim.list.label.type = Type:
+assistanceAgent.claim.list.label.claimType = Type:
 assistanceAgent.claim.list.label.indicator = Indicator:
 
 assistanceAgent.claim.list.button.create = Create

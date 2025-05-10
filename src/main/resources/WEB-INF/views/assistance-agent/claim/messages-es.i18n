@@ -14,7 +14,7 @@ assistance-agent.claim.list.title = Lista de quejas
 assistanceAgent.claim.form.label.registrationMoment = Fecha de registro:
 assistanceAgent.claim.form.label.passengerEmail = Email del pasajero:
 assistanceAgent.claim.form.label.description = Descripcion:
-assistanceAgent.claim.form.label.type = Tipo:
+assistanceAgent.claim.form.label.claimType = Tipo:
 assistanceAgent.claim.form.label.leg = Tramo de vuelo
 assistanceAgent.claim.form.label.indicator = Indicador:
 assistanceAgent.claim.form.button.publish = Publicar
@@ -24,7 +24,7 @@ assistanceAgent.claim.form.button.update = Actualizar
 assistanceAgent.claim.form.button.delete = Borrar
  
 assistanceAgent.claim.list.label.passengerEmail = Email de pasajero
-assistanceAgent.claim.list.label.type = Tipo:
+assistanceAgent.claim.list.label.claimType = Tipo:
 assistanceAgent.claim.list.label.indicator = Indicador:
 
 assistanceAgent.claim.list.button.create = Crear

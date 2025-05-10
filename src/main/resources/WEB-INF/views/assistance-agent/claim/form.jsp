@@ -19,7 +19,7 @@
 	<acme:input-moment code="assistanceAgent.claim.form.label.registrationMoment" path="registrationMoment" readonly="true"/>	
 	<acme:input-textbox code="assistanceAgent.claim.form.label.passengerEmail" path="passengerEmail"/>	
 	<acme:input-textarea code="assistanceAgent.claim.form.label.description" path="description"/>	
-	<acme:input-select code="assistanceAgent.claim.form.label.type" path="type" choices="${types}"/>
+	<acme:input-select code="assistanceAgent.claim.form.label.claimType" path="claimType" choices="${types}"/>
 	<acme:input-select code="assistanceAgent.claim.form.label.leg" path="leg" choices="${legs}"/>
 	<jstl:if test="${_command != 'create'}">
     <acme:input-textbox code="assistanceAgent.claim.form.label.indicator" path="indicator" readonly="true"/>
