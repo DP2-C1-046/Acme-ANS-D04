@@ -1,0 +1,11 @@
+key,registrationMoment,passengerEmail,description,type,draftMode,key:assistanceAgents,key:leg
+claim-01,2023/03/12 08:45,"amelia.jones@example.com","Flight crew refused to assist with carry-on",FLIGHT_ISSUES,true,agent1,leg-01
+claim-02,2023/04/18 15:20,"liam.miller@example.com","Luggage delayed for over 48 hours",LUGGAGE_ISSUES,true,agent2,leg-02
+claim-03,2023/05/22 09:00,"ella.davis@example.com","In-flight turbulence not properly handled",OTHER_ISSUES,true,agent3,leg-03
+claim-04,2023/06/10 21:15,"jack.garcia@example.com","Security staff damaged personal item",SECURITY_INCIDENT,true,agent1,leg-04
+claim-05,2023/07/07 11:30,"chloe.rodriguez@example.com","Denied boarding despite confirmed ticket",FLIGHT_ISSUES,true,agent2,leg-05
+claim-06,2023/08/14 17:55,"ethan.martinez@example.com","Child separated during boarding process",SECURITY_INCIDENT,true,agent3,leg-06
+claim-07,2023/09/25 13:40,"sophia.lopez@example.com","Meal caused allergic reaction",LUGGAGE_ISSUES,true,agent1,leg-07
+claim-08,2023/10/30 06:25,"logan.harris@example.com","Luggage searched without consent",SECURITY_INCIDENT,true,agent2,leg-08
+claim-09,2023/11/11 20:10,"grace.clark@example.com","Gate change not communicated",FLIGHT_ISSUES,true,agent3,leg-09
+claim-10,2023/12/05 10:50,"lucas.lewis@example.com","Overhead bin fell and injured passenger",OTHER_ISSUES,true,agent1,leg-10
