@@ -1,3 +1,4 @@
 key,registrationMoment,typeOfIndicent,description,severityLevel,draftMode,key:flightAssignment
 activityLog-00,2024/03/13 21:01,Turbulences,Turbulences due to weather conditions,3,True,flight-assignment-03
 activityLog-01,2024/03/13 21:00,Strong storm,Strong storm when taking off,5,True,flight-assignment-03
+

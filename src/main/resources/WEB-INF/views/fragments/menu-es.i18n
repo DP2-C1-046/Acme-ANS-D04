@@ -36,12 +36,19 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.airlineManager = Mánager de aerolíneas
 master.menu.airlineManager.list-my-flights = Listar mis vuelos
-master.menu.airlineManager.list-my-legs = Listar mis escalas
+master.menu.airlineManager.list-my-legs = Listar mis tramos
 
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.assistance-agent ####################################################
+master.menu.assistanceAgent  = Assistance Agent
+master.menu.assistanceAgent.list-claims = List completed claims
+master.menu.assistanceAgent.list-claims-pending = List undergoing claims
+master.menu.assistanceAgent.list-trackingLog = List all tracking logs
+master.menu.assistanceAgent.show-dashboard = Show dashboard
 
 # master.menu.flightCrewMember #################################################
 master.menu.flightCrewMember = Tripulante de vuelo
