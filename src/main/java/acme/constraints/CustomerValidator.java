@@ -43,8 +43,8 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 			initials = nameParts[1].substring(0, 1).toUpperCase();
 			initials += surnameParts[0].substring(0, 1).toUpperCase();
 
-			if (surnameParts.length > 1)
-				initials += surnameParts[1].substring(0, 1).toUpperCase();
+			//if (surnameParts.length > 1)
+			//	initials += surnameParts[1].substring(0, 1).toUpperCase();
 
 			boolean validIdentifier;
 

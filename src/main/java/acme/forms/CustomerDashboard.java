@@ -1,5 +1,5 @@
 /*
- * CustomersDashboard.java
+ * CustomerDashboard.java
  *
  * Copyright (C) 2025 Rafael David Caro Medina
  *
@@ -12,43 +12,41 @@
 
 package acme.forms;
 
-import java.util.List;
-import java.util.Map;
-
 import acme.client.components.basis.AbstractForm;
-import acme.entities.bookings.TravelClass;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomersDashboard extends AbstractForm {
+public class CustomerDashboard extends AbstractForm {
 
 	// Serialisation version --------------------------------------------------
 
-	private static final long			serialVersionUID	= 1L;
+	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
 
-	private List<String>				lastFiveDestinations;
-	private Double						moneySpentInBookingsLastYear;
+	private String				lastFiveDestinations;
+	private Double				moneySpentInBookingsLastYear;
 
 	// Their number of bookings grouped by travel class 
-	private Map<TravelClass, Integer>	bookingsByTravelClass;
+	//private Map<TravelClass, Integer>	bookingsByTravelClass;
+	private Integer				bookingsInTravelClassECONOMY;
+	private Integer				bookingsInTravelClassBUSINESS;
 
 	// Cost of their bookings in the Last Five Years => (L5Y)
-	private Integer						countOfBookingsL5Y;
-	private Double						averageBookingsCostL5Y;
-	private Double						minBookingsCostL5Y;
-	private Double						maxBookingsCostL5Y;
-	private Double						stdDesvBookingsCostL5Y;
+	private Integer				countOfBookingsL5Y;
+	private Double				averageBookingsCostL5Y;
+	private Double				minBookingsCostL5Y;
+	private Double				maxBookingsCostL5Y;
+	private Double				stdDesvBookingsCostL5Y;
 
 	// Number of passengers in their bookings
-	private Integer						countOfPassengers;
-	private Double						averagePassengerNumber;
-	private Double						minPassengerNumber;
-	private Double						maxPassengerNumber;
-	private Double						stdPassengerNumber;
+	private Integer				countOfPassengers;
+	private Double				averagePassengerNumber;
+	private Double				minPassengerNumber;
+	private Double				maxPassengerNumber;
+	private Double				stdPassengerNumber;
 
 	// Derived attributes -----------------------------------------------------
 

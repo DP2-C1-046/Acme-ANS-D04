@@ -116,7 +116,23 @@ public class Flight extends AbstractEntity {
 		res = wrapper.size();
 
 		return res;
+	}
 
+	@Transient
+	public String getDisplayTag() {
+
+		Date scheduledDeparture;
+		Date scheduledArrival;
+
+		scheduledDeparture = this.getScheduledDeparture();
+		scheduledArrival = this.getScheduledArrival();
+
+		int departureHour = scheduledDeparture != null ? this.getScheduledDeparture().getHours() : 0;
+		int departureMinute = scheduledDeparture != null ? this.getScheduledDeparture().getMinutes() : 0;
+		int arrivalHour = scheduledArrival != null ? this.getScheduledArrival().getHours() : 0;
+		int arrivalMinute = scheduledArrival != null ? this.getScheduledArrival().getMinutes() : 0;
+
+		return String.format("%02d:%02d %s → %02d:%02d %s", departureHour, departureMinute, this.getOriginCity(), arrivalHour, arrivalMinute, this.getDestinationCity());
 	}
 
 	// Relationships ----------------------------------------------------------
