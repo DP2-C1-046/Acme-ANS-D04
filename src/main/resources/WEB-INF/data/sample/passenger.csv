@@ -1,0 +1,41 @@
+key,fullName,email,passportNumber,dateOfBirth,specialNeeds
+
+# base entity
+passenger-00,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+
+# fullName - standard variations
+passenger-01,A,allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+passenger-02,An,allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+passenger-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+passenger-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",allf@acme.es,AAA000,2010/07/21 05:12,Almohada
+
+
+# email - standard variations
+passenger-05,Antonio Luis Lopez Fuentes,a@b.e,AAA000,2010/07/21 05:12,Almohada
+passenger-06,Antonio Luis Lopez Fuentes,a@b.es,AAA000,2010/07/21 05:12,Almohada
+passenger-07,Antonio Luis Lopez Fuentes,"lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu",AAA000,2010/07/21 05:12,Almohada
+passenger-08,Antonio Luis Lopez Fuentes,"lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org",AAA000,2010/07/21 05:12,Almohada
+
+
+# passportNumber - standard variations
+passenger-09,Antonio Luis Lopez Fuentes,allf@acme.es,BBB000,2010/07/21 05:12,Almohada
+passenger-10,Antonio Luis Lopez Fuentes,allf@acme.es,BBB999,2010/07/21 05:12,Almohada
+passenger-11,Antonio Luis Lopez Fuentes,allf@acme.es,ZZZ000,2010/07/21 05:12,Almohada
+passenger-12,Antonio Luis Lopez Fuentes,allf@acme.es,ZZZ999,2010/07/21 05:12,Almohada
+
+# dateOfBirth - standard variations
+passenger-13,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2000/01/01 00:00,Almohada
+passenger-14,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2000/01/01 00:01,Almohada
+passenger-15,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2022/07/30 00:00,Almohada
+passenger-16,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2022/07/29 23:59,Almohada
+
+
+# specialNeeds - standard variations
+passenger-17,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,null
+passenger-18,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,A
+passenger-19,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,Al
+passenger-20,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,"Lorem ipsum dolor sit amet, consectetur adipiscin"
+passenger-21,Antonio Luis Lopez Fuentes,allf@acme.es,AAA000,2010/07/21 05:12,"Lorem ipsum dolor sit amet, consectetur adipiscing"
+
+
+

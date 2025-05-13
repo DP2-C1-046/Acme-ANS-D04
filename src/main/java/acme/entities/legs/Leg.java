@@ -62,6 +62,8 @@ public class Leg extends AbstractEntity {
 	@Automapped
 	private LegStatus			legStatus;
 
+	private boolean				draftMode;
+
 
 	// Derived attributes -----------------------------------------------------
 	@Transient

@@ -49,7 +49,7 @@ public class TrackingLog extends AbstractEntity {
 	@Mandatory
 	@ValidScore
 	@Automapped
-	private Double				resolution;
+	private Double				resolutionPercentage;
 
 	//¿No es derivada del claim o al revés?
 
