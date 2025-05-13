@@ -7,9 +7,8 @@
 	<acme:input-moment code="flight-crew-member.flight-assignment.form.label.lastUpdate" path="lastUpdate" readonly="true"/>
 	<acme:input-select code="flight-crew-member.flight-assignment.form.label.assignmentStatus" path="assignmentStatus" choices="${currentStatusChoice}"/>
 	<acme:input-textarea code="flight-crew-member.flight-assignment.form.label.remarks" path="remarks"/>
-	<acme:input-checkbox code="flight-crew-member.flight-assignment.form.label.draftMode" path="draftMode"/>
-	<acme:input-select code="flight-crew-member.flight-assignment.form.label.flightCrewMember" path="flightCrewMember" choices="${flightCrewMemberChoice}"/>
-	<acme:input-select code="flight-crew-member.flight-assignment.form.label.leg" path="leg" choices="${legChoice}"/>
+	<acme:input-textbox code="flight-crew-member.flight-assignment.form.label.flightCrewMember" path="flightCrewMember.identity.fullName" readonly="true"/>	
+    <acme:input-select code="flight-crew-member.flight-assignment.form.label.leg" path="leg" choices="${legChoice}"/>
 
 
 	<jstl:choose>
@@ -18,6 +17,9 @@
 			<acme:submit code="flight-crew-member.flight-assignment.form.button.publish" action="/flight-crew-member/flight-assignment/publish"/>
 			<acme:submit code="flight-crew-member.flight-assignment.form.button.update" action="/flight-crew-member/flight-assignment/update"/>
 			<acme:submit code="flight-crew-member.flight-assignment.form.button.delete" action="/flight-crew-member/flight-assignment/delete"/>
+			<acme:button code="flight-crew-member.flight-assignment.form.button.activity-log" action="/flight-crew-member/activity-log/list?masterId=${id}"/>
+		</jstl:when>
+		<jstl:when test="${draftMode == false}">
 			<acme:button code="flight-crew-member.flight-assignment.form.button.activity-log" action="/flight-crew-member/activity-log/list?masterId=${id}"/>
 		</jstl:when>
 

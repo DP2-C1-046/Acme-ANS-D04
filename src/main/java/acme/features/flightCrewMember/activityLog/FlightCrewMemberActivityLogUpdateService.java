@@ -1,16 +1,12 @@
 
 package acme.features.flightCrewMember.activityLog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
-import acme.entities.assignments.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -47,7 +43,10 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 
 	@Override
 	public void bind(final ActivityLog log) {
-		super.bindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "flightAssignment");
+		super.bindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
+
+		ActivityLog original = this.repository.findActivityLogById(log.getId());
+		log.setFlightAssignment(original.getFlightAssignment());
 	}
 
 	@Override
@@ -64,14 +63,8 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 	public void unbind(final ActivityLog log) {
 		Dataset dataset;
 
-		SelectChoices assignmentChoice;
-		Collection<FlightAssignment> assignments;
-
-		assignments = this.repository.findAllFlightAssignments();
-		assignmentChoice = SelectChoices.from(assignments, "id", log.getFlightAssignment());
-
-		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "flightAssignment");
-		dataset.put("assignmentChoice", assignmentChoice);
+		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
+		dataset.put("flightAssignment.id", log.getFlightAssignment().getId());
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);

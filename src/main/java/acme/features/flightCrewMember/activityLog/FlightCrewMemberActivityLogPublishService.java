@@ -47,7 +47,9 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 
 	@Override
 	public void bind(final ActivityLog log) {
-		super.bindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "flightAssignment");
+		super.bindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
+		ActivityLog original = this.repository.findActivityLogById(log.getId());
+		log.setFlightAssignment(original.getFlightAssignment());
 
 	}
 

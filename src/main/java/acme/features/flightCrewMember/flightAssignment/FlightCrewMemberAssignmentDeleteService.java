@@ -51,7 +51,7 @@ public class FlightCrewMemberAssignmentDeleteService extends AbstractGuiService<
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "flightCrewMember", "leg");
+		super.bindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "leg");
 	}
 
 	@Override
@@ -77,23 +77,17 @@ public class FlightCrewMemberAssignmentDeleteService extends AbstractGuiService<
 		SelectChoices legChoice;
 		Collection<Leg> legs;
 
-		SelectChoices flightCrewMemberChoice;
-		Collection<FlightCrewMember> flightCrewMembers;
-
 		dutyChoice = SelectChoices.from(FlightCrewDuty.class, assignment.getFlightCrewDuty());
 		currentStatusChoice = SelectChoices.from(AssignmentStatus.class, assignment.getAssignmentStatus());
 
 		legs = this.repository.findAllLegs();
-		legChoice = SelectChoices.from(legs, "id", assignment.getLeg());
+		legChoice = SelectChoices.from(legs, "flightNumber", assignment.getLeg());
 
-		flightCrewMembers = this.repository.findAllFlightCrewMembers();
-		flightCrewMemberChoice = SelectChoices.from(flightCrewMembers, "id", assignment.getFlightCrewMember());
-
-		dataset = super.unbindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "flightCrewMember", "leg");
+		dataset = super.unbindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "leg");
+		dataset.put("flightCrewMember", assignment.getFlightCrewMember().getId());
 		dataset.put("dutyChoice", dutyChoice);
 		dataset.put("currentStatusChoice", currentStatusChoice);
 		dataset.put("legChoice", legChoice);
-		dataset.put("flightCrewMemberChoice", flightCrewMemberChoice);
 
 		super.getResponse().addData(dataset);
 	}
