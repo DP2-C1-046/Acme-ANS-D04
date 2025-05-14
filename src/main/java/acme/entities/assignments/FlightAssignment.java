@@ -66,10 +66,4 @@ public class FlightAssignment extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Leg					leg;
 
-
-	@Override
-	public String toString() {
-		return String.format(" %s - %s (%s)", this.leg.getFlight().getAirline().getName(), this.leg.getDepartureAirport().getName(), this.flightCrewDuty);
-	}
-
 }
