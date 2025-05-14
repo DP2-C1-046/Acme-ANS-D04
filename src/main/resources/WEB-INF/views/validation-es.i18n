@@ -18,10 +18,18 @@ acme.validation.flightassignment.leg.overlap.message = Los tramos asignados no s
 acme.validation.flightassignment.duty.pilot.message = Solo puede haber un piloto por tramo
 acme.validation.flightassignment.duty.copilot.message = Solo puede haber un copiloto por tramo
 
+acme.validation.flight-assignment.status-cancelled-not-allowed = No puedes crear una asignación con estado cancelado.
+acme.validation.flight-assignment.status-confirmed-not-allowed = No puedes crear una asignación con estado confirmado.
+acme.validation.flight-assignment.status-not-publishable = Solo se pueden publicar asignaciones con estado CONFIRMADO o CANCELADO.
+
+
 
 acme.validation.activityLog.invalidLeg      = El tramo de vuelo tiene que haber dado lugar
 
 acme.validation.customer.identifier.message = El identificador debe comenzar por las iniciales del nombre y apellidos del cliente
+
+
+
 
 acme.validation.booking.duplicated-locatorCode.message = El Código de Localizador está duplicado
 acme.validation.booking.lastCardNibble.message = Una reserva se puede publicar sólo cuando se hayan almacenado los últimos dígitos de la tarjeta de crédito
@@ -31,3 +39,4 @@ acme.validation.booking.passengersInDraftMode.message = Una reserva solo se pued
 acme.validation.booking.invalid-passenger.message = Seleccionado un pasajero inválido
 
 acme.validation.passenger.duplicated-passportNumber.message = El número de Pasaporte está duplicado
+

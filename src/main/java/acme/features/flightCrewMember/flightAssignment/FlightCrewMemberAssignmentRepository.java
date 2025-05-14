@@ -24,6 +24,9 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 	@Query("select f from FlightAssignment f where f.leg.scheduledDeparture > CURRENT_TIMESTAMP and f.flightCrewMember.id = ?1")
 	Collection<FlightAssignment> assignmentsWithPlannedLegs(Integer member);
 
+	@Query("select f from FlightAssignment f where f.flightCrewMember.id = ?1")
+	Collection<FlightAssignment> findAllAssignmentsByMemberId(Integer member);
+
 	@Query("select f from FlightAssignment f where f.id = ?1")
 	FlightAssignment findFlightAssignmentById(int id);
 

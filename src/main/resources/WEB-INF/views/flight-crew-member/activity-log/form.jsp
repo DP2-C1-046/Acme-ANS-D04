@@ -8,7 +8,7 @@
 	<acme:input-textbox code="flight-crew-member.activity-log.form.label.typeOfIndicent" path="typeOfIndicent"/>
 	<acme:input-textbox code="flight-crew-member.activity-log.form.label.description" path="description"/>
 	<acme:input-integer code="flight-crew-member.activity-log.form.label.severityLevel" path="severityLevel"/>
-	<acme:input-textbox code="flight-crew-member.activity-log.form.label.flightAssignment" path="flightAssignment" readonly="true"/>
+	<acme:input-textbox code="flight-crew-member.activity-log.form.label.flightAssignment" path="flightAssignment.id" readonly="true"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command,'show|update|delete') && draftMode == true}">
