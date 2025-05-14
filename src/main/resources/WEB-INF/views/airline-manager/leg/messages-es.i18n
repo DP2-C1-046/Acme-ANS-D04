@@ -1,0 +1,37 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2025 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+airline-manager.leg.form.title = Escala
+airline-manager.leg.list.title = Listado de escalas
+
+airline-manager.leg.form.title = Escala
+airlineManager.leg.form.label.flightNumber =  Número de vuelo
+airlineManager.leg.form.label.scheduledDeparture = Salida programada
+airlineManager.leg.form.label.scheduledArrival = Llegada programada
+airlineManager.leg.form.label.duration = Duración
+airlineManager.leg.form.label.legStatus = Estado
+airlineManager.leg.form.label.departureAirport = Aeropuerto de salida
+airlineManager.leg.form.label.arrivalAirport = Aeropuerto de llegada
+airlineManager.leg.form.label.aircraft = Aeronave
+airlineManager.leg.form.label.flight = Vuelo
+
+airlineManager.leg.list.button.create = Crear
+
+airlineManager.leg.list.label.flightNumber = Número de vuelo
+airlineManager.leg.list.label.scheduledDeparture = Salida programada
+airlineManager.leg.list.label.scheduledArrival = Llegada programada
+airlineManager.leg.list.label.departureAirport = Aeropuerto de salida
+airlineManager.leg.list.label.arrivalAirport = Aeropuerto de llegada
+
+airlineManager.leg.form.button.update = Actualizar
+airlineManager.leg.form.button.delete = Borrar
+airlineManager.leg.form.button.publish = Publicar
+airlineManager.leg.form.button.create = Crear
+

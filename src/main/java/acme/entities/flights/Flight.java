@@ -19,7 +19,9 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
+import acme.entities.airlines.Airline;
 import acme.entities.airports.Airport;
+import acme.entities.legs.Leg;
 import acme.entities.legs.LegRepository;
 import acme.realms.AirlineManager;
 import lombok.Getter;
@@ -103,12 +105,47 @@ public class Flight extends AbstractEntity {
 		return layovers != null ? layovers : 0;
 	}
 
+	@Transient
+	public Integer getLayovers() {
+		Integer res;
+		LegRepository repository;
+		List<Leg> wrapper;
+
+		repository = SpringHelper.getBean(LegRepository.class);
+		wrapper = repository.findLegsByFlightId(this.getId());
+		res = wrapper.size();
+
+		return res;
+	}
+
+	@Transient
+	public String getDisplayTag() {
+
+		Date scheduledDeparture;
+		Date scheduledArrival;
+
+		scheduledDeparture = this.getScheduledDeparture();
+		scheduledArrival = this.getScheduledArrival();
+
+		int departureHour = scheduledDeparture != null ? this.getScheduledDeparture().getHours() : 0;
+		int departureMinute = scheduledDeparture != null ? this.getScheduledDeparture().getMinutes() : 0;
+		int arrivalHour = scheduledArrival != null ? this.getScheduledArrival().getHours() : 0;
+		int arrivalMinute = scheduledArrival != null ? this.getScheduledArrival().getMinutes() : 0;
+
+		return String.format("%02d:%02d %s → %02d:%02d %s", departureHour, departureMinute, this.getOriginCity(), arrivalHour, arrivalMinute, this.getDestinationCity());
+	}
+
 	// Relationships ----------------------------------------------------------
 
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private AirlineManager airlineManager;
+	private AirlineManager	airlineManager;
+
+	@Mandatory
+	@ManyToOne(optional = false)
+	@Valid
+	private Airline			airline;
 
 }

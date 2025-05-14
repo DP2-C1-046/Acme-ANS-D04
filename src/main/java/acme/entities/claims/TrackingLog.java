@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidString;
@@ -51,18 +52,19 @@ public class TrackingLog extends AbstractEntity {
 	@Automapped
 	private Double				resolutionPercentage;
 
-	//¿No es derivada del claim o al revés?
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 	@Mandatory
 	@Valid
 	@Automapped
 	private TrackingLogStatus	status;
 
-	//¿Lo quito al tener el validador custom?
-	//@Optional
+	@Optional
 	@ValidString(min = 0, max = 255)
 	@Automapped
-	private String				resolutionReasonOrCompensation;
+	private String				resolution;
 
 	// Relationships -------------------------------------------------------------
 

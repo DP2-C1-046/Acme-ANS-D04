@@ -1,6 +1,9 @@
 
 package acme.constraints;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.entities.claims.TrackingLog;
-import acme.entities.claims.TrackingLogRepository;
 import acme.entities.claims.TrackingLogStatus;
+import acme.features.assistanceAgent.trackingLog.AssistanceAgentTrackingLogRepository;
 
 @Validator
 public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, TrackingLog> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
-	private TrackingLogRepository repository;
-
-	// ConstraintValidator interface ------------------------------------------
+	private AssistanceAgentTrackingLogRepository repository;
 
 
 	@Override
@@ -29,36 +28,28 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 	@Override
 	public boolean isValid(final TrackingLog trackingLog, final ConstraintValidatorContext context) {
+		boolean result;
+
 		assert context != null;
 
-		boolean result = true;
-
 		if (trackingLog == null)
-			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+			super.state(context, false, "TrackingLog", "No hay trackingLogs");
+		else if (trackingLog.getStatus() != null && trackingLog.getResolution() != null && trackingLog.getClaim() != null) {
 
-		// Fetch previous tracking log for resolution comparison
-		TrackingLog previousLog = this.repository.findLastTrackingLog(trackingLog.getClaim().getId()).orElse(null);
+			if (trackingLog.getResolutionPercentage() != null && trackingLog.getResolutionPercentage() == 100.0)
+				super.state(context, !trackingLog.getStatus().equals(TrackingLogStatus.PENDING), "Status", "El estado no puede ser PENDING");
+			else
+				super.state(context, trackingLog.getStatus().equals(TrackingLogStatus.PENDING), "Status", "El estado debe ser PENDING");
 
-		// Rule 1: If resolution is 100%, status must be ACCEPTED or REJECTED
-		if (trackingLog.getResolutionPercentage() == 100.0 && trackingLog.getStatus() == TrackingLogStatus.PENDING)
-			super.state(context, false, "status", "acme.validation.trackinglog.invalid-final-status.message");
+			if (trackingLog.getStatus().equals(TrackingLogStatus.PENDING))
+				super.state(context, trackingLog.getResolution() == null || trackingLog.getResolution().isBlank(), "Resolution", "El campo resolution debe quedar vacío hasta la finalización del tracking log");
+			else
+				super.state(context, trackingLog.getResolution() != null && !trackingLog.getResolution().isBlank(), "Resolution", "El campo resolucion es incorrecto");
 
-		// Rule 2: If status is ACCEPTED or REJECTED, resolution must be 100%
-		if ((trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED) && trackingLog.getResolutionPercentage() < 100.0)
-			super.state(context, false, "resolution", "acme.validation.trackinglog.invalid-resolution.message");
-		// Rule 3: Resolution percentage must be monotonically increasing
-		if (previousLog != null && trackingLog.getResolutionPercentage() < previousLog.getResolutionPercentage())
-			super.state(context, false, "resolution", "acme.validation.trackinglog.decreasing-resolution.message");
+			Optional<List<TrackingLog>> trackingLogsOpt = this.repository.findOrderTrackingLog(trackingLog.getClaim().getId());
 
-		// Rule 4: If status is ACCEPTED or REJECTED, resolutionReasonOrCompensation must be set
-		if ((trackingLog.getStatus() == TrackingLogStatus.ACCEPTED || trackingLog.getStatus() == TrackingLogStatus.REJECTED) && (trackingLog.getResolutionReasonOrCompensation() == null || trackingLog.getResolutionReasonOrCompensation().trim().isEmpty()))
-			super.state(context, false, "resolutionReasonOrCompensation", "acme.validation.trackinglog.resolution-reason-required.message");
-
-		// Rule 5: Intermediate logs must remain in PENDING
-		if (trackingLog.getResolutionPercentage() < 100.0 && trackingLog.getStatus() != TrackingLogStatus.PENDING)
-			super.state(context, false, "status", "acme.validation.trackinglog.invalid-intermediate-status.message");
+		}
 		result = !super.hasErrors(context);
-
 		return result;
 	}
 }
