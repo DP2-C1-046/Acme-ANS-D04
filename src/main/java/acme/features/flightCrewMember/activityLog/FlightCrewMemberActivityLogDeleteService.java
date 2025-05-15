@@ -49,7 +49,10 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 
 	@Override
 	public void bind(final ActivityLog log) {
-		super.bindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "flightAssignment");
+		super.bindObject(log, "typeOfIndicent", "description", "severityLevel");
+		ActivityLog original = this.repository.findActivityLogById(log.getId());
+		log.setFlightAssignment(original.getFlightAssignment());
+		log.setRegistrationMoment(original.getRegistrationMoment());
 	}
 
 	@Override
