@@ -1,12 +1,9 @@
 
 package acme.features.flightCrewMember.activityLog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
@@ -70,14 +67,11 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 	public void unbind(final ActivityLog log) {
 		Dataset dataset;
 
-		SelectChoices assignmentChoice;
-		Collection<FlightAssignment> assignments;
+		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
+		FlightAssignment assignment = log.getFlightAssignment();
+		String assignmentDescription = String.format("Flight %s - Duty: %s", assignment.getLeg().getFlightNumber(), assignment.getFlightCrewDuty());
 
-		assignments = this.repository.findAllFlightAssignments();
-		assignmentChoice = SelectChoices.from(assignments, "id", log.getFlightAssignment());
-
-		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "flightAssignment");
-		dataset.put("assignmentChoice", assignmentChoice);
+		dataset.put("flightAssignmentDescription", assignmentDescription);
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);

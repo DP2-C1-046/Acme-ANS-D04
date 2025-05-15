@@ -7,6 +7,7 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
+import acme.entities.assignments.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -65,7 +66,10 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 		Dataset dataset;
 
 		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
-		dataset.put("flightAssignment.id", log.getFlightAssignment().getId());
+		FlightAssignment assignment = log.getFlightAssignment();
+		String assignmentDescription = String.format("Flight %s - Duty: %s", assignment.getLeg().getFlightNumber(), assignment.getFlightCrewDuty());
+
+		dataset.put("flightAssignmentDescription", assignmentDescription);
 		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
 
 		super.getResponse().addData(dataset);
