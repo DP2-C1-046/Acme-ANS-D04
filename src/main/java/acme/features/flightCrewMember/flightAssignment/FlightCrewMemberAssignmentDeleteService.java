@@ -51,7 +51,7 @@ public class FlightCrewMemberAssignmentDeleteService extends AbstractGuiService<
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "leg");
+		super.bindObject(assignment, "flightCrewDuty", "assignmentStatus", "remarks", "leg");
 	}
 
 	@Override
