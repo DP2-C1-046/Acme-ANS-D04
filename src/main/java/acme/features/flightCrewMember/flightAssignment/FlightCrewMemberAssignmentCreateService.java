@@ -67,6 +67,9 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 
 		boolean sameAirline = legAirline.getId() == memberAirline.getId();
 		super.state(sameAirline, "leg", "acme.validation.flight-crew-member.assignment.form.error.different-airline", flightAssignment);
+
+		boolean isPublished = !leg.isDraftMode();
+		super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", flightAssignment);
 	}
 
 	@Override

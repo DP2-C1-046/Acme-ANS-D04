@@ -31,6 +31,8 @@ acme.validation.flightassignment.leg.completed.message = The assignment cannot b
 acme.validation.flightassignment.leg.overlap.message = Legs cannot be overlapped
 acme.validation.flightassignment.duty.pilot.message = Each leg can only have one pilot
 acme.validation.flightassignment.duty.copilot.message = Each leg can only have one copilot
+acme.validation.flight-crew-member.assignment.form.error.leg-not-published = The selected leg must be published.
+
 
 acme.validation.flight-assignment.status-cancelled-not-allowed = You cannot create an assignment with status CANCELLED.
 acme.validation.flight-assignment.status-confirmed-not-allowed = You cannot create an assignment with status CONFIRMED.
