@@ -1,6 +1,6 @@
 key,flightNumber,scheduledDeparture,scheduledArrival,legStatus,draftMode,key:departureAirport,key:arrivalAirport,key:aircraft,key:flight
 leg-01,ACM1001,2025/03/12 08:00,2025/03/12 10:00,ON_TIME,true,airport-01,airport-02,aircraft-01,flight-01
-leg-02,ACM1002,2025/03/12 11:30,2025/03/12 14:00,DELAYED,true,airport-00,airport-01,aircraft-03,flight-02
+leg-02,ACM1002,2025/03/12 11:30,2025/03/12 14:00,DELAYED,true,airport-00,airport-03,aircraft-03,flight-02
 leg-03,ACM1003,2025/03/12 15:00,2025/03/12 17:30,CANCELLED,true,airport-05,airport-00,aircraft-04,flight-03
 leg-04,ACM1004,2024/03/12 18:00,2024/03/12 21:00,LANDED,true,airport-02,airport-03,aircraft-00,flight-02
 leg-05,ACM1005,2025/03/12 22:00,2025/03/13 01:00,ON_TIME,true,airport-05,airport-01,aircraft-02,flight-01
@@ -14,14 +14,17 @@ leg-10,BWA2002,2024/07/02 09:15,2024/07/02 12:45,LANDED,true,airport-02,airport-
 leg-11,GDA3002,2200/12/31 20:00,2200/12/31 23:59,ON_TIME,true,airport-03,airport-01,aircraft-03,flight-07
 # scheduled-departure y scheduled-arrival - Casos mixtos
 leg-12,SHA1004,2000/01/01 06:00,2025/01/01 06:00,ON_TIME,true,airport-01,airport-02,aircraft-01,flight-08
-leg-13,BWA2003,2025/01/01 00:01,2200/12/31 22:00,DELAYED,false,airport-02,airport-03,aircraft-02,flight-09
+leg-13,BWA2003,2025/01/01 00:01,2025/01/01 00:45,DELAYED,false,airport-02,airport-03,aircraft-02,flight-09
 leg-14,GDA3003,2000/01/01 01:00,2200/12/31 23:59,CANCELLED,true,airport-03,airport-01,aircraft-03,flight-10
 # scheduled-departure y scheduled-arrival - Casos de margen
 leg-15,SHA1005,2025/06/10 00:00,2025/06/10 00:01,ON_TIME,true,airport-01,airport-02,aircraft-01,flight-11
 leg-16,BWA2004,2024/07/20 12:00,2024/07/20 12:01,LANDED,false,airport-02,airport-03,aircraft-02,flight-12
 leg-17,GDA3004,2200/12/31 23:58,2200/12/31 23:59,CANCELLED,true,airport-03,airport-01,aircraft-03,flight-13
 # scheduled-departure y scheduled-arrival - Diferencias horarias amplias
-leg-18,SHA1006,2000/06/01 05:00,2025/06/02 06:00,ON_TIME,false,airport-01,airport-02,aircraft-01,flight-14
+leg-18,SHA1006,2025/06/01 05:00,2025/06/01 06:00,ON_TIME,false,airport-01,airport-02,aircraft-01,flight-14
 leg-19,BWA2005,2025/07/01 10:00,2025/07/02 11:00,DELAYED,true,airport-02,airport-03,aircraft-02,flight-15
 leg-20,ALO1012,2024/01/01 00:00,2024/01/02 00:00,ON_TIME,false,airport-02,airport-03,aircraft-01,flight-00
-
+# Introducir Legs a vuelos PUBLICADOS en sample data flight.csv sin Legs
+leg-21,ACM1006,2024/06/07 11:00,2024/06/07 17:00,ON_TIME,false,airport-01,airport-05,aircraft-01,flight-17
+leg-22,ACM1007,2024/10/09 07:00,2024/10/09 08:00,ON_TIME,false,airport-04,airport-01,aircraft-02,flight-26
+leg-23,ACM1008,2024/01/22 10:00,2024/01/22 17:45,ON_TIME,false,airport-00,airport-05,aircraft-04,flight-36
