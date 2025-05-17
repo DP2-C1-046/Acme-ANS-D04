@@ -35,3 +35,4 @@ acme.validation.flightassignment.duty.copilot.message = Each leg can only have o
 acme.validation.flight-assignment.status-cancelled-not-allowed = You cannot create an assignment with status CANCELLED.
 acme.validation.flight-assignment.status-confirmed-not-allowed = You cannot create an assignment with status CONFIRMED.
 acme.validation.flight-assignment.status-not-publishable = Only assignments with status CONFIRMED or CANCELLED can be published.
+acme.validation.flight-crew-member.assignment.form.error.different-airline = You cannot be assigned to a flight of an airline you don't belong.

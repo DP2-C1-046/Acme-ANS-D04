@@ -10,6 +10,7 @@ import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.airlines.Airline;
 import acme.entities.assignments.AssignmentStatus;
 import acme.entities.assignments.FlightAssignment;
 import acme.entities.assignments.FlightCrewDuty;
@@ -55,6 +56,17 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 	public void validate(final FlightAssignment flightAssignment) {
 		super.state(flightAssignment.getAssignmentStatus() != AssignmentStatus.CANCELLED, "assignmentStatus", "acme.validation.flight-assignment.status-cancelled-not-allowed");
 		super.state(flightAssignment.getAssignmentStatus() != AssignmentStatus.CONFIRMED, "assignmentStatus", "acme.validation.flight-assignment.status-confirmed-not-allowed");
+
+		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		FlightCrewMember member = this.repository.findFlightCrewMemberById(memberId);
+
+		Leg leg = flightAssignment.getLeg();
+
+		Airline legAirline = leg.getFlight().getAirline();
+		Airline memberAirline = member.getAirline();
+
+		boolean sameAirline = legAirline.getId() == memberAirline.getId();
+		super.state(sameAirline, "leg", "acme.validation.flight-crew-member.assignment.form.error.different-airline", flightAssignment);
 	}
 
 	@Override
