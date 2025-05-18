@@ -28,3 +28,4 @@ leg-20,ALO1012,2024/01/01 00:00,2024/01/02 00:00,ON_TIME,false,airport-02,airpor
 leg-21,ACM1006,2024/06/07 11:00,2024/06/07 17:00,ON_TIME,false,airport-01,airport-05,aircraft-01,flight-17
 leg-22,ACM1007,2024/10/09 07:00,2024/10/09 08:00,ON_TIME,false,airport-04,airport-01,aircraft-02,flight-26
 leg-23,ACM1008,2024/01/22 10:00,2024/01/22 17:45,ON_TIME,false,airport-00,airport-05,aircraft-04,flight-36
+
