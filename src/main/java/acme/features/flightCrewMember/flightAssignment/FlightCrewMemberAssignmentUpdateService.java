@@ -33,7 +33,8 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 		assignmentId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(assignmentId);
 		memberId = flightAssignment == null ? null : super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode() && !flightAssignment.getLeg().isDraftMode();
+		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode() && !flightAssignment.getLeg().isDraftMode()
+			&& !flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment());
 
 		super.getResponse().setAuthorised(status);
 	}
