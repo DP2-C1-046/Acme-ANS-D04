@@ -36,7 +36,7 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 	@Query("select f.leg from FlightAssignment f where f.flightCrewMember.id = ?1")
 	Collection<Leg> findLegsByFlightCrewMemberId(int memberId);
 
-	@Query("SELECT l FROM Leg l")
+	@Query("SELECT l FROM Leg l where l.draftMode = false")
 	Collection<Leg> findAllLegs();
 
 	@Query("SELECT fcm FROM FlightCrewMember fcm")
