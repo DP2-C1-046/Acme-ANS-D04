@@ -45,11 +45,7 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final FlightAssignment flightAssignment) {
-		int legId = super.getRequest().getData("leg", int.class);
-		Leg leg = this.repository.findLegById(legId);
-		flightAssignment.setLeg(leg);
-
-		super.bindObject(flightAssignment, "flightCrewDuty", "assignmentStatus", "remarks");
+		super.bindObject(flightAssignment, "flightCrewDuty", "assignmentStatus", "remarks", "leg");
 	}
 
 	@Override
@@ -57,19 +53,22 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 		super.state(flightAssignment.getAssignmentStatus() != AssignmentStatus.CANCELLED, "assignmentStatus", "acme.validation.flight-assignment.status-cancelled-not-allowed");
 		super.state(flightAssignment.getAssignmentStatus() != AssignmentStatus.CONFIRMED, "assignmentStatus", "acme.validation.flight-assignment.status-confirmed-not-allowed");
 
-		int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		FlightCrewMember member = this.repository.findFlightCrewMemberById(memberId);
-
 		Leg leg = flightAssignment.getLeg();
+		super.state(leg != null, "leg", "acme.validation.flight-assignment.leg.required");
 
-		Airline legAirline = leg.getFlight().getAirline();
-		Airline memberAirline = member.getAirline();
+		if (leg != null) {
+			boolean isPublished = !leg.isDraftMode();
+			super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", flightAssignment);
 
-		boolean sameAirline = legAirline.getId() == memberAirline.getId();
-		super.state(sameAirline, "leg", "acme.validation.flight-crew-member.assignment.form.error.different-airline", flightAssignment);
+			int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			FlightCrewMember member = this.repository.findFlightCrewMemberById(memberId);
 
-		boolean isPublished = !leg.isDraftMode();
-		super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", flightAssignment);
+			Airline legAirline = leg.getFlight().getAirline();
+			Airline memberAirline = member.getAirline();
+
+			boolean sameAirline = legAirline.getId() == memberAirline.getId();
+			super.state(sameAirline, "leg", "acme.validation.flight-crew-member.assignment.form.error.different-airline", flightAssignment);
+		}
 	}
 
 	@Override
