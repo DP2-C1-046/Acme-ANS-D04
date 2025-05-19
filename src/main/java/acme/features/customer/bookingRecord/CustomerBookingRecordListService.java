@@ -37,12 +37,16 @@ public class CustomerBookingRecordListService extends AbstractGuiService<Custome
 	@Override
 	public void authorise() {
 		boolean status;
-		int masterId;
+		int masterId, customerId;
 		Booking booking;
 
 		masterId = super.getRequest().getData("masterId", int.class);
+		customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
 		booking = this.repository.findBookingById(masterId);
-		status = booking != null && (!booking.isDraftMode() || super.getRequest().getPrincipal().hasRealm(booking.getCustomer()));
+
+		status = booking != null && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) //
+			&& customerId == booking.getCustomer().getId();
 
 		super.getResponse().setAuthorised(status);
 	}

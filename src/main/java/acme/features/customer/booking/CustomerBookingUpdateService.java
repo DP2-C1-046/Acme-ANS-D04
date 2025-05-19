@@ -45,6 +45,15 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		int masterId;
 		int customerId;
 
+		String travelClass;
+		SelectChoices travelClassChoices;
+		boolean validTravelClass = true;
+
+		Collection<Flight> availableFlights;
+		Flight selectedFlight;
+		int flightId;
+		boolean validFlight = true;
+
 		Booking booking;
 		Customer customer;
 
@@ -54,10 +63,28 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
 
+		if (super.getRequest().getMethod().equals("POST")) {
+			travelClassChoices = SelectChoices.from(TravelClass.class, null);
+
+			travelClass = super.getRequest().getData("travelClass", String.class);
+
+			validTravelClass = travelClassChoices.hasChoiceWithKey(travelClass);
+
+			availableFlights = this.repository.findAvailablesFlights();
+
+			flightId = super.getRequest().getData("flight", int.class);
+
+			selectedFlight = this.repository.findFlightById(flightId);
+
+			validFlight = selectedFlight != null && availableFlights.contains(selectedFlight);
+		}
+
 		status = booking != null && booking.isDraftMode() && customer != null && //
-			super.getRequest().getPrincipal().hasRealm(customer) && customerId == customer.getId();
+			super.getRequest().getPrincipal().hasRealm(customer) && customerId == customer.getId() && //
+			validTravelClass && validFlight;
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override

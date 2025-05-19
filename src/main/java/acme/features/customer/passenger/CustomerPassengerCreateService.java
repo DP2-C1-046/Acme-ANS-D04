@@ -33,6 +33,7 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void authorise() {
+		// Se autoriza siempre, crea el pasajero asociado al Customer logado
 		super.getResponse().setAuthorised(true);
 	}
 

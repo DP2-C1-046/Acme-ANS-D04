@@ -42,7 +42,12 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		boolean status;
 		int bookingId;
 		int customerId;
+		int passengerId;
 		Booking booking;
+
+		Collection<Passenger> passengers;
+		Passenger selectedPassenger;
+		boolean validPassenger = true;
 
 		bookingId = super.getRequest().getData("masterId", int.class);
 		customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
@@ -50,7 +55,18 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		// Ensure that the booking to add the passenger exists and belongs to principal
 		booking = this.repository.findBookingById(bookingId);
 
-		status = booking != null && customerId == booking.getCustomer().getId();
+		if (super.getRequest().getMethod().equals("POST")) {
+
+			passengerId = super.getRequest().getData("passenger", int.class);
+			passengers = this.repository.findAvailablePassengersByBookingId(customerId, bookingId);
+
+			selectedPassenger = this.repository.findPassengerById(passengerId);
+
+			validPassenger = passengers.contains(selectedPassenger);
+
+		}
+
+		status = booking != null && customerId == booking.getCustomer().getId() && validPassenger;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -96,6 +112,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 
 		int masterId;
 		int customerId;
+		int passengerId;
 
 		Collection<Passenger> passengers;
 		Passenger selectedPassenger;
