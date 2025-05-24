@@ -42,7 +42,6 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		boolean status;
 		int bookingId;
 		int customerId;
-		int passengerId;
 		Booking booking;
 
 		bookingId = super.getRequest().getData("masterId", int.class);
