@@ -51,7 +51,7 @@ public class CustomerBookingRecordCreateService extends AbstractGuiService<Custo
 		// Ensure that the booking to add the passenger exists and belongs to principal
 		booking = this.repository.findBookingById(bookingId);
 
-		status = booking != null && customerId == booking.getCustomer().getId();
+		status = booking != null && booking.isDraftMode() && customerId == booking.getCustomer().getId();
 
 		super.getResponse().setAuthorised(status);
 	}
