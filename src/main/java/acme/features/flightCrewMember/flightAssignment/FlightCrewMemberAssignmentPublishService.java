@@ -32,7 +32,7 @@ public class FlightCrewMemberAssignmentPublishService extends AbstractGuiService
 
 		masterId = super.getRequest().getData("id", int.class);
 		assignment = this.repository.findFlightAssignmentById(masterId);
-		status = assignment.getDraftMode() && assignment != null;
+		status = assignment.getDraftMode() && assignment != null && assignment.getLeg() != null && !assignment.getLeg().isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -46,7 +46,7 @@ public class FlightCrewMemberAssignmentPublishService extends AbstractGuiService
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "leg");
+		super.bindObject(assignment, "flightCrewDuty", "assignmentStatus", "remarks", "leg");
 
 		int id = super.getRequest().getData("id", int.class);
 		FlightAssignment original = this.repository.findFlightAssignmentById(id);

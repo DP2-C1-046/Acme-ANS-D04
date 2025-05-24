@@ -33,7 +33,8 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 		assignmentId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(assignmentId);
 		memberId = flightAssignment == null ? null : super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode();
+		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode() && !flightAssignment.getLeg().isDraftMode()
+			&& !flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()) && flightAssignment.getLeg() != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,19 +52,18 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		int legId = super.getRequest().getData("leg", int.class);
-		Leg leg = this.repository.findLegById(legId);
-		assignment.setLeg(leg);
 
 		FlightAssignment original = this.repository.findFlightAssignmentById(assignment.getId());
 		assignment.setFlightCrewMember(original.getFlightCrewMember());
 
-		super.bindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks");
+		super.bindObject(assignment, "flightCrewDuty", "assignmentStatus", "remarks", "leg");
 	}
 
 	@Override
 	public void validate(final FlightAssignment assignment) {
-		;
+		Leg leg = assignment.getLeg();
+		boolean isPublished = !leg.isDraftMode();
+		super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", assignment);
 	}
 
 	@Override

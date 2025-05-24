@@ -17,10 +17,12 @@ acme.validation.flightassignment.leg.completed.message = No puedes asignar la ta
 acme.validation.flightassignment.leg.overlap.message = Los tramos asignados no se pueden solapar
 acme.validation.flightassignment.duty.pilot.message = Solo puede haber un piloto por tramo
 acme.validation.flightassignment.duty.copilot.message = Solo puede haber un copiloto por tramo
-
+acme.validation.flight-assignment.leg.required = Tienes que seleccionar un tramo para esta asignación.
 acme.validation.flight-assignment.status-cancelled-not-allowed = No puedes crear una asignación con estado cancelado.
 acme.validation.flight-assignment.status-confirmed-not-allowed = No puedes crear una asignación con estado confirmado.
 acme.validation.flight-assignment.status-not-publishable = Solo se pueden publicar asignaciones con estado CONFIRMADO o CANCELADO.
+acme.validation.flight-crew-member.assignment.form.error.different-airline = No se te puede asignar a un vuelo de una aerolínea a la que no perteneces.
+acme.validation.flight-crew-member.assignment.form.error.leg-not-published = El tramo seleccionado tiene que estar publicado.
 
 
 

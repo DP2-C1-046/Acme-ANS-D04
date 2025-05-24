@@ -10,6 +10,7 @@ import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.airlines.Airline;
 import acme.entities.assignments.AssignmentStatus;
 import acme.entities.assignments.FlightAssignment;
 import acme.entities.assignments.FlightCrewDuty;
@@ -44,17 +45,30 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final FlightAssignment flightAssignment) {
-		int legId = super.getRequest().getData("leg", int.class);
-		Leg leg = this.repository.findLegById(legId);
-		flightAssignment.setLeg(leg);
-
-		super.bindObject(flightAssignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks");
+		super.bindObject(flightAssignment, "flightCrewDuty", "assignmentStatus", "remarks", "leg");
 	}
 
 	@Override
 	public void validate(final FlightAssignment flightAssignment) {
 		super.state(flightAssignment.getAssignmentStatus() != AssignmentStatus.CANCELLED, "assignmentStatus", "acme.validation.flight-assignment.status-cancelled-not-allowed");
 		super.state(flightAssignment.getAssignmentStatus() != AssignmentStatus.CONFIRMED, "assignmentStatus", "acme.validation.flight-assignment.status-confirmed-not-allowed");
+
+		Leg leg = flightAssignment.getLeg();
+		super.state(leg != null, "leg", "acme.validation.flight-assignment.leg.required");
+
+		if (leg != null) {
+			boolean isPublished = !leg.isDraftMode();
+			super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", flightAssignment);
+
+			int memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			FlightCrewMember member = this.repository.findFlightCrewMemberById(memberId);
+
+			Airline legAirline = leg.getFlight().getAirline();
+			Airline memberAirline = member.getAirline();
+
+			boolean sameAirline = legAirline.getId() == memberAirline.getId();
+			super.state(sameAirline, "leg", "acme.validation.flight-crew-member.assignment.form.error.different-airline", flightAssignment);
+		}
 	}
 
 	@Override

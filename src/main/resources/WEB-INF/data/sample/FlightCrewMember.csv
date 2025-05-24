@@ -1,5 +1,5 @@
 key,code,phoneNumber,languageSkills,crewMemberStatus,salary,yearsOfExperience,key:airline,key:userAccount
-flightCrewMember-00,AB123456,2345678,"español ingles aleman frances",AVAILABLE,EUR 500000.00,6,airline-00,user-account-flightCrewMember-01
-flightCrewMember-01,CD789012,3456789,"inglés francés italiano",AVAILABLE,EUR 450000.00,5,airline-01,user-account-flightCrewMember-02
-flightCrewMember-02,EF345678,4567890,"español inglés portugués",ONLEAVE,EUR 480000.00,7,airline-02,user-account-flightCrewMember-03
-flightCrewMember-03,GH901234,5678901,"inglés alemán chino",AVAILABLE,EUR 520000.00,8,airline-03,user-account-flightCrewMember-04
+flightCrewMember-00,AB123456,2345678,"español ingles aleman frances",AVAILABLE,EUR 500000.00,6,airline-01,user-account-flightCrewMember-01
+flightCrewMember-01,CD789012,3456789,"inglés francés italiano",AVAILABLE,EUR 450000.00,5,airline-02,user-account-flightCrewMember-02
+flightCrewMember-02,EF345678,4567890,"español inglés portugués",ONLEAVE,EUR 480000.00,7,airline-03,user-account-flightCrewMember-03
+flightCrewMember-03,GH901234,5678901,"inglés alemán chino",AVAILABLE,EUR 520000.00,8,airline-04,user-account-flightCrewMember-04
