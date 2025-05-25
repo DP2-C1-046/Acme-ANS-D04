@@ -40,7 +40,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "id")
+	@Index(columnList = "locator_code"), @Index(columnList = "draft_mode")
 })
 public class Booking extends AbstractEntity {
 
@@ -52,7 +52,7 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
-	@Column(unique = true)
+	@Column(name = "locator_code", unique = true)
 	private String				locatorCode;
 
 	@Mandatory
@@ -78,7 +78,7 @@ public class Booking extends AbstractEntity {
 
 	@Mandatory
 	// @Valid por defecto
-	@Automapped
+	@Column(name = "draft_mode")
 	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
