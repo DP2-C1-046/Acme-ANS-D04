@@ -9,7 +9,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -29,7 +31,12 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-//@ValidLeg
+@Table(indexes = {
+	@Index(columnList = "flight_id"),           // Para findLegsByFlightId, findAllPublishedLegsByFlightId
+	@Index(columnList = "draftMode"),           // Para findAllPublishedLegsByFlightId
+	@Index(columnList = "scheduled_departure"), // Para findSimultaneousLegsByMemberId
+	@Index(columnList = "scheduled_arrival")    // Para findSimultaneousLegsByMemberId
+})
 public class Leg extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
