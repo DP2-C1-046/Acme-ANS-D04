@@ -58,6 +58,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 			super.getRequest().getPrincipal().hasRealm(customer) && customerId == customer.getId();
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
@@ -129,7 +130,6 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		SelectChoices travelClassChoices, flightChoices;
 		Dataset dataset;
 
-		// Y sólo con en draftMode=false y fecha de salida posterior a currentMoment
 		flights = this.repository.findAvailablesFlights();
 		//flights = this.repository.findAllFlights();
 

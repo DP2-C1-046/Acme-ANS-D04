@@ -54,9 +54,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
 
-		// && booking.isDraftMode() ??
-		status = booking != null && customer != null && super.getRequest().getPrincipal().hasRealm(customer) && //
-			customerId == customer.getId();
+		status = booking != null && booking.isDraftMode() && customer != null && //
+			super.getRequest().getPrincipal().hasRealm(customer) && customerId == customer.getId();
 
 		super.getResponse().setAuthorised(status);
 	}
