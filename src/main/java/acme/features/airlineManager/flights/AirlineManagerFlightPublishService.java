@@ -23,16 +23,21 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int flightId;
+		boolean status = false;
+		Integer masterId;
 		Flight flight;
 		AirlineManager airlineManager;
 
 		int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		flightId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(flightId);
-		airlineManager = flight == null ? null : flight.getAirlineManager();
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(airlineManager) && managerId == airlineManager.getId();
+		if (!super.getRequest().getData().isEmpty()) {
+			masterId = super.getRequest().getData("id", Integer.class);
+			if (masterId != null) {
+				flight = this.repository.findFlightById(masterId);
+				boolean tag = super.getRequest().hasData("tag");
+				airlineManager = flight == null ? null : flight.getAirlineManager();
+				status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(airlineManager) && managerId == airlineManager.getId() && tag;
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,15 +66,19 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 		}
 
 		Collection<Leg> legs = this.repository.findLegsByFlightId(flight.getId());
+		java.util.Date currentDate = acme.client.helpers.MomentHelper.getCurrentMoment();
 
 		boolean hasLegs = !legs.isEmpty();
 		boolean anyDraftMode = !legs.stream().anyMatch(Leg::isDraftMode);
+		boolean noPastLeg = true;
+		for (Leg leg : legs)
+			if (acme.client.helpers.MomentHelper.isBefore(leg.getScheduledDeparture(), currentDate))
+				noPastLeg = false;
 
 		super.state(hasLegs, "*", "acme.validation.manager.flights.without.legs");
 		super.state(anyDraftMode, "*", "acme.validation.manager.flights.no.published.leg");
-
+		super.state(noPastLeg, "*", "acme.validation.manager.flights.publish.past.leg");
 	}
-
 	@Override
 	public void perform(final Flight flight) {
 		flight.setDraftMode(false);

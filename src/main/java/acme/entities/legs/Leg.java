@@ -1,6 +1,7 @@
 
 package acme.entities.legs;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -8,9 +9,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Index;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -30,9 +29,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(indexes = {
-	@Index(columnList = "id")
-})
+//@ValidLeg
 public class Leg extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -74,6 +71,21 @@ public class Leg extends AbstractEntity {
 		Duration duration = Duration.between(departure, arrival);
 
 		return (double) duration.toHours();
+	}
+
+	@Transient
+	public String getLabel() {
+		SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+
+		String departureCity = this.departureAirport.getCity();
+		String departureCountry = this.departureAirport.getCountry();
+		String arrivalCity = this.arrivalAirport.getCity();
+		String arrivalCountry = this.arrivalAirport.getCountry();
+		String departureTime = timeFormat.format(this.getScheduledDeparture());
+		String arrivalTime = timeFormat.format(this.getScheduledArrival());
+
+		return String.format("%s: %s - %s: %s %s-%s", departureCountry, departureCity, arrivalCountry, arrivalCity, departureTime, arrivalTime);
+
 	}
 
 	// Relationships ----------------------------------------------------------

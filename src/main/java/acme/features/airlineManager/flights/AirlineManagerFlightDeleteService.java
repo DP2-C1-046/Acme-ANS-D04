@@ -23,16 +23,19 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean status = false;
 		int masterId;
 		Flight flight;
 		AirlineManager airlineManager;
 
-		int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		masterId = super.getRequest().getData("id", int.class);
-		flight = this.repository.findFlightById(masterId);
-		airlineManager = flight == null ? null : flight.getAirlineManager();
-		status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(airlineManager) && managerId == airlineManager.getId();
+		if (!super.getRequest().getData().isEmpty() && super.getRequest().getData() != null) {
+			int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			masterId = super.getRequest().getData("id", int.class);
+			flight = this.repository.findFlightById(masterId);
+			boolean tag = super.getRequest().hasData("tag");
+			airlineManager = flight == null ? null : flight.getAirlineManager();
+			status = flight != null && flight.isDraftMode() && super.getRequest().getPrincipal().hasRealm(airlineManager) && managerId == airlineManager.getId() && tag;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
