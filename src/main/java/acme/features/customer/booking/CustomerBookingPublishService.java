@@ -68,15 +68,19 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 			travelClass = super.getRequest().getData("travelClass", String.class);
 
-			validTravelClass = travelClassChoices.hasChoiceWithKey(travelClass);
+			if (!travelClass.equals("0"))
+				validTravelClass = travelClassChoices.hasChoiceWithKey(travelClass);
 
 			availableFlights = this.repository.findAvailablesFlights();
 
 			flightId = super.getRequest().getData("flight", int.class);
 
-			selectedFlight = this.repository.findFlightById(flightId);
+			if (flightId != 0) {
+				selectedFlight = this.repository.findFlightById(flightId);
 
-			validFlight = selectedFlight != null && availableFlights.contains(selectedFlight);
+				// selectedFlight != null
+				validFlight = availableFlights.contains(selectedFlight);
+			}
 		}
 
 		status = booking != null && booking.isDraftMode() && customer != null && //
