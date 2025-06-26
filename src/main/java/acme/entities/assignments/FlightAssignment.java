@@ -3,6 +3,7 @@ package acme.entities.assignments;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
@@ -26,7 +27,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(indexes = {
-	@Index(columnList = "id")
+	@Index(columnList = "flight_crew_member_id"), @Index(columnList = "leg_id"), @Index(columnList = "flight_crew_duty")
 })
 public class FlightAssignment extends AbstractEntity {
 
@@ -34,6 +35,7 @@ public class FlightAssignment extends AbstractEntity {
 
 	@Mandatory
 	@Automapped
+	@Column(name = "flight_crew_duty")
 	private FlightCrewDuty		flightCrewDuty;
 
 	@Mandatory

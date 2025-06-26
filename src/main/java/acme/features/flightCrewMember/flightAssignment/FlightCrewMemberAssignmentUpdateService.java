@@ -33,7 +33,8 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 		assignmentId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(assignmentId);
 		memberId = flightAssignment == null ? null : super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode();
+		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode() && !flightAssignment.getLeg().isDraftMode()
+			&& !flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()) && flightAssignment.getLeg() != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,12 +52,18 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final FlightAssignment assignment) {
-		super.bindObject(assignment, "flightCrewDuty", "lastUpdate", "assignmentStatus", "remarks", "flightCrewMember", "leg");
+
+		FlightAssignment original = this.repository.findFlightAssignmentById(assignment.getId());
+		assignment.setFlightCrewMember(original.getFlightCrewMember());
+
+		super.bindObject(assignment, "flightCrewDuty", "assignmentStatus", "remarks", "leg");
 	}
 
 	@Override
 	public void validate(final FlightAssignment assignment) {
-		;
+		Leg leg = assignment.getLeg();
+		boolean isPublished = !leg.isDraftMode();
+		super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", assignment);
 	}
 
 	@Override
@@ -82,7 +89,7 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 		currentStatusChoice = SelectChoices.from(AssignmentStatus.class, assignment.getAssignmentStatus());
 
 		legs = this.repository.findAllLegs();
-		legChoice = SelectChoices.from(legs, "id", assignment.getLeg());
+		legChoice = SelectChoices.from(legs, "flightNumber", assignment.getLeg());
 
 		flightCrewMembers = this.repository.findAllFlightCrewMembers();
 		flightCrewMemberChoice = SelectChoices.from(flightCrewMembers, "id", assignment.getFlightCrewMember());

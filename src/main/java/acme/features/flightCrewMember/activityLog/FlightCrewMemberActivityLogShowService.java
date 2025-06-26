@@ -1,12 +1,10 @@
 
 package acme.features.flightCrewMember.activityLog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
@@ -31,7 +29,7 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 		log = this.repository.findActivityLogById(logId);
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = log != null && log.getFlightAssignment().getFlightCrewMember().getId() == memberId;
+		status = log != null && log.getFlightAssignment().getFlightCrewMember().getId() == memberId && log.getFlightAssignment().getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment());
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -49,14 +47,10 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 	public void unbind(final ActivityLog log) {
 		Dataset dataset;
 
-		SelectChoices assignmentChoice;
-		Collection<FlightAssignment> assignments;
-
-		assignments = this.repository.findAllFlightAssignments();
-		assignmentChoice = SelectChoices.from(assignments, "id", log.getFlightAssignment());
-
-		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "draftMode", "flightAssignment");
-		dataset.put("assignmentChoice", assignmentChoice);
+		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "draftMode");
+		FlightAssignment assignment = log.getFlightAssignment();
+		String assignmentDescription = String.format("Flight %s - Duty: %s", assignment.getLeg().getFlightNumber(), assignment.getFlightCrewDuty());
+		dataset.put("flightAssignmentDescription", assignmentDescription);
 
 		super.getResponse().addData(dataset);
 	}

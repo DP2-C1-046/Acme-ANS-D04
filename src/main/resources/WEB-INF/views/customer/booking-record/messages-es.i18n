@@ -16,10 +16,10 @@ customer.booking-record.form.label.locatorCode = Codigo Localizador de Reserva
 
 customer.booking-record.passenger.form.label.fullName = Nombre completo
 
-customer.booking-record.form.button.create = Crear
+customer.booking-record.form.button.create = Asociar
 
 customer.booking-record.passenger.list.label.fullName = Nombre Completo
 customer.booking-record.passenger.list.label.email = Email
 customer.booking-record.passenger.list.label.passportNumber = Número de pasaporte
 
-customer.booking-record.passenger.list.button.create = Crear
+customer.booking-record.passenger.list.button.create = Asociar pasajero

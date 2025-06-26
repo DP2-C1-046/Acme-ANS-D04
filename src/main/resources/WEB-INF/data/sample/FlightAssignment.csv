@@ -1,8 +1,10 @@
 key,flightCrewDuty,lastUpdate,assignmentStatus,remarks,draftMode,key:flightCrewMember,key:leg
-flight-assignment-00,PILOT,2020/09/01 10:00,CONFIRMED,"some example remarks",True,flightCrewMember-00,leg-01
-flight-assignment-01,COPILOT,2020/08/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",True,flightCrewMember-01,leg-02
-flight-assignment-02,CABINATTENDANT,2020/04/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo",True,flightCrewMember-02,leg-03
-flight-assignment-03,PILOT,2021/03/21 10:00,CONFIRMED,"s",True,flightCrewMember-00,leg-04
-flight-assignment-04,COPILOT,2022/03/01 10:00,CONFIRMED,"some example",True,flightCrewMember-00,leg-02
-flight-assignment-05,CABINATTENDANT,2022/05/01 10:00,CONFIRMED,"s",True,flightCrewMember-00,leg-03
-flight-assignment-06,LEADATTENDANT,2022/06/01 10:00,CONFIRMED,"someeeeeee",True,flightCrewMember-00,leg-01
+flight-assignment-00,PILOT,2020/09/01 10:00,CONFIRMED,"some example remarks",True,flightCrewMember-00,leg-07
+flight-assignment-01,COPILOT,2020/08/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",True,flightCrewMember-01,leg-08
+flight-assignment-02,CABINATTENDANT,2020/04/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo",True,flightCrewMember-02,leg-09
+flight-assignment-03,PILOT,2021/03/21 10:00,CONFIRMED,"s",True,flightCrewMember-00,leg-13
+flight-assignment-04,COPILOT,2022/03/01 10:00,CONFIRMED,"some example",True,flightCrewMember-00,leg-16
+flight-assignment-05,CABINATTENDANT,2022/05/01 10:00,CONFIRMED,"s",True,flightCrewMember-00,leg-18
+flight-assignment-06,LEADATTENDANT,2022/06/01 10:00,CONFIRMED,"someeeeeee",True,flightCrewMember-00,leg-20
+flight-assignment-07,LEADATTENDANT,2024/12/31 23:59,CONFIRMED,"something",True,flightCrewMember-00,leg-22
+flight-assignment-08,CABINATTENDANT,2000/01/01 00:00,PENDING,"example",True,flightCrewMember-00,leg-23

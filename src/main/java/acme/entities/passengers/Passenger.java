@@ -14,6 +14,7 @@ package acme.entities.passengers;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Index;
 import javax.persistence.ManyToOne;
@@ -35,7 +36,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "id")
+	@Index(columnList = "passport_number"), @Index(columnList = "id, draft_mode")
 })
 public class Passenger extends AbstractEntity {
 
@@ -57,7 +58,7 @@ public class Passenger extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
-	@Automapped
+	@Column(name = "passport_number")
 	private String				passportNumber;
 
 	@Mandatory
@@ -72,7 +73,7 @@ public class Passenger extends AbstractEntity {
 
 	@Mandatory
 	// @Valid por defecto
-	@Automapped
+	@Column(name = "draft_mode")
 	private boolean				draftMode;
 
 	// Relationships ----------------------------------------------------------
