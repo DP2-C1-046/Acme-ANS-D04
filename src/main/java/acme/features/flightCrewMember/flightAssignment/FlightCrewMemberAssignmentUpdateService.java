@@ -33,8 +33,7 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 		assignmentId = super.getRequest().getData("id", int.class);
 		flightAssignment = this.repository.findFlightAssignmentById(assignmentId);
 		memberId = flightAssignment == null ? null : super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode() && !flightAssignment.getLeg().isDraftMode()
-			&& !flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()) && flightAssignment.getLeg() != null;
+		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getDraftMode() && !flightAssignment.getLeg().isDraftMode() && flightAssignment.getLeg() != null;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -64,6 +63,9 @@ public class FlightCrewMemberAssignmentUpdateService extends AbstractGuiService<
 		Leg leg = assignment.getLeg();
 		boolean isPublished = !leg.isDraftMode();
 		super.state(isPublished, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-not-published", assignment);
+
+		boolean isPlanned = leg.getScheduledArrival().after(MomentHelper.getCurrentMoment());
+		super.state(isPlanned, "leg", "acme.validation.flight-crew-member.assignment.form.error.leg-already-completed", assignment);
 	}
 
 	@Override
