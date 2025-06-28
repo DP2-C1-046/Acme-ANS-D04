@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
@@ -31,18 +30,17 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
 
-		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId && flightAssignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment()) && !flightAssignment.getDraftMode();
+		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId;
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<ActivityLog> logs;
-		int masterId;
+		int masterId = super.getRequest().getData("masterId", int.class);
 
-		masterId = super.getRequest().getData("masterId", int.class);
-		logs = this.repository.findActivityLogsByAssignmentId(masterId);
+		Collection<ActivityLog> logs = this.repository.findActivityLogsByAssignmentId(masterId);
 		super.getBuffer().addData(logs);
+		super.getResponse().addGlobal("masterId", masterId);
 	}
 
 	@Override
