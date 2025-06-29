@@ -4,6 +4,7 @@ package acme.features.flightCrewMember.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
@@ -53,7 +54,9 @@ public class FlightCrewMemberActivityLogPublishService extends AbstractGuiServic
 
 	@Override
 	public void validate(final ActivityLog log) {
-		;
+		FlightAssignment assignment = log.getFlightAssignment();
+		boolean legIsCompleted = MomentHelper.isAfter(MomentHelper.getCurrentMoment(), assignment.getLeg().getScheduledArrival());
+		super.state(legIsCompleted, "*", "acme.validation.flight-crew-member.activity-log.validation.create");
 	}
 
 	@Override

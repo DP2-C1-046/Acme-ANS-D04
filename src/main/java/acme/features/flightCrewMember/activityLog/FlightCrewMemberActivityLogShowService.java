@@ -4,7 +4,6 @@ package acme.features.flightCrewMember.activityLog;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
@@ -29,7 +28,7 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 		log = this.repository.findActivityLogById(logId);
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		status = log != null && log.getFlightAssignment().getFlightCrewMember().getId() == memberId && log.getFlightAssignment().getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment());
+		status = log != null && log.getFlightAssignment().getFlightCrewMember().getId() == memberId;
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -40,7 +39,9 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 
 		id = super.getRequest().getData("id", int.class);
 		log = this.repository.findActivityLogById(id);
+
 		super.getBuffer().addData(log);
+
 	}
 
 	@Override

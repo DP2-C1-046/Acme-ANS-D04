@@ -24,7 +24,7 @@ acme.validation.flight-assignment.status-not-publishable = Solo se pueden public
 acme.validation.flight-crew-member.assignment.form.error.different-airline = No se te puede asignar a un vuelo de una aerolínea a la que no perteneces.
 acme.validation.flight-crew-member.assignment.form.error.leg-not-published = El tramo seleccionado tiene que estar publicado.
 acme.validation.flight-crew-member.assignment.form.error.leg-already-completed=No se puede actualizar una asignación cuyo tramo ya ha sido completado.
-
+acme.validation.flight-crew-member.activity-log.validation.create = No puedes crear un registro de actividad para un tramo no completado.
 
 
 

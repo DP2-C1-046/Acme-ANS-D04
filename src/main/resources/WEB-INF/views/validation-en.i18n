@@ -39,4 +39,4 @@ acme.validation.flight-assignment.status-confirmed-not-allowed = You cannot crea
 acme.validation.flight-assignment.status-not-publishable = Only assignments with status CONFIRMED or CANCELLED can be published.
 acme.validation.flight-crew-member.assignment.form.error.different-airline = You cannot be assigned to a flight of an airline you don't belong.
 acme.validation.flight-crew-member.assignment.form.error.leg-already-completed = You cannot update an assignment whose leg has already been completed.
-
+acme.validation.flight-crew-member.activity-log.validation.create = You cannot create an activity log for an uncompleted leg

@@ -28,7 +28,7 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 		masterId = super.getRequest().getData("masterId", int.class);
 		assignment = this.repository.findFlightAssignmentById(masterId);
 		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = assignment != null && !assignment.getDraftMode() && assignment.getFlightCrewMember().getId() == memberId && assignment.getLeg().getScheduledArrival().before(MomentHelper.getCurrentMoment());
+		status = assignment != null && !assignment.getDraftMode() && assignment.getFlightCrewMember().getId() == memberId;
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -61,7 +61,10 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 
 	@Override
 	public void validate(final ActivityLog log) {
-		;
+		int masterId = super.getRequest().getData("masterId", int.class);
+		FlightAssignment assignment = this.repository.findFlightAssignmentById(masterId);
+		boolean legIsCompleted = MomentHelper.isAfter(MomentHelper.getCurrentMoment(), assignment.getLeg().getScheduledArrival());
+		super.state(legIsCompleted, "*", "acme.validation.flight-crew-member.activity-log.validation.create");
 	}
 
 	@Override
@@ -77,7 +80,7 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 		FlightAssignment assignment = log.getFlightAssignment();
 		String assignmentDescription = String.format("Flight %s - Duty: %s", assignment.getLeg().getFlightNumber(), assignment.getFlightCrewDuty());
 		dataset.put("flightAssignmentDescription", assignmentDescription);
-		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		super.getResponse().addGlobal("masterId", super.getRequest().getData("masterId", int.class));
 		super.getResponse().addData(dataset);
 	}
 }

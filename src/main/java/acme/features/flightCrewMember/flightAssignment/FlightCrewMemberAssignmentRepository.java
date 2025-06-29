@@ -36,8 +36,8 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 	@Query("select f.leg from FlightAssignment f where f.flightCrewMember.id = ?1")
 	Collection<Leg> findLegsByFlightCrewMemberId(int memberId);
 
-	@Query("SELECT l FROM Leg l where l.draftMode = false")
-	Collection<Leg> findAllLegs();
+	@Query("SELECT l FROM Leg l WHERE l.draftMode = false AND l.flight.airline.id = :airlineId")
+	Collection<Leg> findLegsByAirlineId(int airlineId);
 
 	@Query("SELECT fcm FROM FlightCrewMember fcm")
 	Collection<FlightCrewMember> findAllFlightCrewMembers();
@@ -53,5 +53,12 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg = :flightAssignmentLeg and fa.flightCrewDuty = :duty")
 	Collection<FlightAssignment> findFlightAssignmentByLegAndDuty(Leg flightAssignmentLeg, FlightCrewDuty duty);
+
+	@Query("""
+		    SELECT DISTINCT f.leg.flight.airline.id
+		    FROM FlightAssignment f
+		    WHERE f.flightCrewMember.id = :memberId
+		""")
+	Integer findAirlineIdByFlightCrewMemberId(int memberId);
 
 }
