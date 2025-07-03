@@ -52,7 +52,7 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 
 	@Override
 	public void bind(final ActivityLog log) {
-		super.bindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
+		super.bindObject(log, "typeOfIndicent", "description", "severityLevel");
 
 		int masterId = super.getRequest().getData("masterId", int.class);
 		FlightAssignment assignment = this.repository.findFlightAssignmentById(masterId);
