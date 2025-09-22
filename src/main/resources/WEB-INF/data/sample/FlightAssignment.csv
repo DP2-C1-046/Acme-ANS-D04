@@ -1,10 +1,17 @@
 key,flightCrewDuty,lastUpdate,assignmentStatus,remarks,draftMode,key:flightCrewMember,key:leg
-flight-assignment-00,PILOT,2020/09/01 10:00,CONFIRMED,"some example remarks",True,flightCrewMember-00,leg-07
-flight-assignment-01,COPILOT,2020/08/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",True,flightCrewMember-01,leg-08
-flight-assignment-02,CABINATTENDANT,2020/04/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo",True,flightCrewMember-02,leg-09
-flight-assignment-03,PILOT,2021/03/21 10:00,CONFIRMED,"s",True,flightCrewMember-00,leg-13
-flight-assignment-04,COPILOT,2022/03/01 10:00,CONFIRMED,"some example",True,flightCrewMember-00,leg-16
-flight-assignment-05,CABINATTENDANT,2022/05/01 10:00,CONFIRMED,"s",True,flightCrewMember-00,leg-18
-flight-assignment-06,LEADATTENDANT,2022/06/01 10:00,CONFIRMED,"someeeeeee",True,flightCrewMember-00,leg-20
-flight-assignment-07,LEADATTENDANT,2024/12/31 23:59,CONFIRMED,"something",True,flightCrewMember-00,leg-22
-flight-assignment-08,CABINATTENDANT,2000/01/01 00:00,PENDING,"example",True,flightCrewMember-00,leg-23
+flight-assignment-00,PILOT,2019/03/01 00:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",False,flightCrewMember-00,leg-04
+flight-assignment-01,CABINATTENDANT,2000/01/01 00:05,PENDING,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo",True,flightCrewMember-00,leg-06
+flight-assignment-02,COPILOT,2000/01/01 09:42,CONFIRMED,"S",False,flightCrewMember-00,leg-09
+flight-assignment-03,LEADATTENDANT,2024/07/02 08:30,CONFIRMED,"Sa",False,flightCrewMember-00,leg-10
+flight-assignment-04,PILOT,2024/07/20 10:00,PENDING,"Captain swap under review.",True,flightCrewMember-00,leg-16
+flight-assignment-05,CABINATTENDANT,2010/01/02 06:00,CONFIRMED,"Special meals loaded; UMNR seats assigned.",False,flightCrewMember-00,leg-20
+flight-assignment-06,COPILOT,2024/06/07 09:15,CONFIRMED,"Night-stop bag checked; FMS route preloaded.",False,flightCrewMember-00,leg-21
+flight-assignment-07,LEADATTENDANT,2024/10/09 06:50,CONFIRMED,"Cabin defects none; security sweep complete.",False,flightCrewMember-00,leg-22
+flight-assignment-08,CABINATTENDANT,2024/01/22 09:00,PENDING,"Awaiting last-minute pax manifest.",True,flightCrewMember-00,leg-23
+flight-assignment-09,PILOT,2023/12/31 23:50,PENDING,"Training pairing with junior FO.",False,flightCrewMember-00,leg-01
+flight-assignment-10,COPILOT,2024/12/31 23:59,CONFIRMED,"لوريم إيبسوم",True,flightCrewMember-00,leg-02
+flight-assignment-11,LEADATTENDANT,2017/12/31 23:58,CONFIRMED,"<script>alert(‘Hacked!’);</script>",False,flightCrewMember-00,leg-05
+flight-assignment-12,PILOT,2024/12/31 23:45,CANCELLED,"Rotation revised due to slot restrictions.",True,flightCrewMember-00,leg-07
+flight-assignment-13,CABINATTENDANT,2024/12/31 23:30,CANCELLED,"Ultra-long sector crew released per ops.",True,flightCrewMember-00,leg-12
+flight-assignment-14,COPILOT,2024/12/31 23:55,PENDING,"洛伦·伊普森",False,flightCrewMember-00,leg-13
+flight-assignment-15,LEADATTENDANT,2024/05/31 23:59,CONFIRMED,โลเร็ม อิปซัม,False,flightCrewMember-00,leg-18
