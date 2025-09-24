@@ -61,4 +61,16 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 		""")
 	Integer findAirlineIdByFlightCrewMemberId(int memberId);
 
+	@Query("select l from Leg l where l.scheduledDeparture>:now and l.draftMode = false")
+	Collection<Leg> findUncompletedLegs(Date now);
+
+	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId and fa.draftMode = false")
+	Collection<FlightAssignment> findPublishedFlightAssignmentsByLegId(int legId);
+
+	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival > :now and fa.flightCrewMember.id = :flightCrewMemberId and fa.draftMode = false")
+	Collection<FlightAssignment> findPublishedUncompletedFlightAssignmentsByFlightCrewMemberId(Date now, int flightCrewMemberId);
+
+	@Query("select fa from FlightAssignment fa where fa.flightCrewMember.id = :memberId and fa.draftMode = false and fa.leg.scheduledDeparture < :newArrival and fa.leg.scheduledArrival > :newDeparture")
+	Collection<FlightAssignment> findOverlappingPublishedFlightAssignments(int memberId, Date newDeparture, Date newArrival);
+
 }
