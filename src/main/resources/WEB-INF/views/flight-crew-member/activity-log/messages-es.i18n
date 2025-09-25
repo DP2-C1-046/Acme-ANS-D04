@@ -21,3 +21,4 @@ flight-crew-member.activity-log.form.button.delete = Borrar
 flight-crew-member.activity-log.form.button.publish = Publicar
 
 flight-crew-member.activity-log.form.title = Registro de actividad
+flight-crew-member.activity-log.list.label.draft-mode = Modo borrador
