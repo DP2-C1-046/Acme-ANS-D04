@@ -1,12 +1,27 @@
 key,registrationMoment,typeOfIndicent,description,severityLevel,draftMode,key:flightAssignment
-activityLog-00,2024/08/13 21:01,Turbulences,"Turbulences due to weather conditions",0,True,flight-assignment-04
-activityLog-01,2024/09/13 21:00,Strong storm,"Strong storm when taking off",5,True,flight-assignment-04
-activityLog-02,2024/12/31 23:59,Strong turbulence,"Strong turbulence when landing",7,True,flight-assignment-06
-activityLog-03,2024/12/31 23:59,Strong turbulence,"Strong turbulence when landing",10,True,flight-assignment-06
-activityLog-04,2025/01/01 00:00,Strong turbulence,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",10,False,flight-assignment-06
-activityLog-05,2024/01/20 00:01,Strong turbulence,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo",10,False,flight-assignment-06
-activityLog-06,2024/01/20 00:01,S,"<script>alert(‘Hacked!’);</script>",10,False,flight-assignment-06
-activityLog-07,2024/01/20 00:01,โลเร็ม อิปซัม,"s",10,False,flight-assignment-06
-
-
-
+activityLog-00,2000/01/01 06:01,Technical check,"Brake temperature slightly elevated on arrival; cooled on stand.",4,True,flight-assignment-01
+activityLog-01,2000/01/01 10:01,Minor runway excursion,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",3,False,flight-assignment-02
+activityLog-02,2001/02/03 04:05,Retrospective safety note,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo",2,True,flight-assignment-01
+activityLog-03,2005/05/05 05:06,Data correction,"C",1,False,flight-assignment-02
+activityLog-04,2008/08/08 08:08,Security report,"Updated report on gate-area screening irregularity.",3,True,flight-assignment-01
+activityLog-05,2010/10/10 10:10,Fuel imbalance advisory,"Slight lateral imbalance; corrected per SOP; no MEL action.",5,False,flight-assignment-02
+activityLog-06,2012/12/12 12:12,Bird activity review,"Wildlife hazard review added to flight file.",2,True,flight-assignment-01
+activityLog-07,2015/07/14 09:30,Passenger assistance audit,"UMNR handling reviewed; procedures confirmed adequate.",2,False,flight-assignment-02
+activityLog-08,2017/03/01 00:00,Post-flight audit,"Routine post-flight audit completed; no findings.",10,True,flight-assignment-01
+activityLog-09,2019/11/30 23:55,Cabin equipment check,"Galley latches re-inspected; no defects found.",1,False,flight-assignment-01
+activityLog-10,2020/06/15 18:20,Maintenance finding closure,"Galley latches re-inspected; no defects found.",9,True,flight-assignment-02
+activityLog-11,2021/01/01 00:10,Documentation update,"Inspection item closed with no further action.",1,False,flight-assignment-01
+activityLog-12,2022/09/30 05:45,Compliance check,"洛伦·伊普森",2,True,flight-assignment-02
+activityLog-13,2023/04/01 14:00,Historical log migration,"Legacy record migrated to new system; verified.",1,False,flight-assignment-01
+activityLog-14,2024/01/02 00:01,Cabin odor report,"Faint galley odor detected; oven powered off and inspected.",6,False,flight-assignment-05
+activityLog-15,2024/01/22 17:59,Strong storm,"Heavy rain during taxi-in; reduced-visibility procedures applied.",5,False,flight-assignment-08
+activityLog-16,2024/03/12 21:07,Ground delay,"Stand change on short notice; pushback held awaiting marshaller.",2,False,flight-assignment-00
+activityLog-17,2024/03/12 21:20,Bird strike,"<script>alert(‘Hacked!’);</script>",4,True,flight-assignment-00
+activityLog-18,2024/06/07 17:09,S,"Moderate chop on descent; service paused and secured.",5,False,flight-assignment-06
+activityLog-19,2024/06/07 17:30,โลเร็ม อิปซัม,"Chocks not in place on arrival; corrected by ground crew.",2,True,flight-assignment-06
+activityLog-20,2024/07/02 12:55,Fuel imbalance advisory,"Small lateral imbalance; corrected during taxi-in.",5,True,flight-assignment-03
+activityLog-21,2024/07/02 13:02,De-icing delay,"De-icing queue formed for next sector; minor turnaround impact.",3,False,flight-assignment-03
+activityLog-22,2024/07/20 12:06,Passenger assistance,"Wheelchair requested at gate; coordinated with ground staff.",2,True,flight-assignment-04
+activityLog-23,2024/07/20 12:20,Ground equipment delay,"GPU arrival delayed; minimal turnaround impact.",3,False,flight-assignment-04
+activityLog-24,2024/10/09 08:01,Unexpected event,"Brief pressure fluctuation; masks not required; stable thereafter.",7,True,flight-assignment-07
+activityLog-25,2024/12/31 23:59,Runway contamination,"Light rubber deposit noted; braking action good, no NOTAM changes.",2,False,flight-assignment-07

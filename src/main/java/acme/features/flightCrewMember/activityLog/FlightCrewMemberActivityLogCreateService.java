@@ -20,47 +20,41 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		FlightAssignment assignment;
-		int masterId;
-		int memberId;
 		boolean status;
-
+		int masterId;
+		FlightAssignment flightAssignment;
 		masterId = super.getRequest().getData("masterId", int.class);
-		assignment = this.repository.findFlightAssignmentById(masterId);
-		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		status = assignment != null && !assignment.getDraftMode() && assignment.getFlightCrewMember().getId() == memberId;
-
+		flightAssignment = this.repository.findFlightAssignmentById(masterId);
+		status = flightAssignment != null && !flightAssignment.getDraftMode() && super.getRequest().getPrincipal().hasRealm(flightAssignment.getFlightCrewMember());
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		ActivityLog log;
+		ActivityLog activityLog = new ActivityLog();
+		FlightAssignment flightAssignment;
 		int masterId;
-		FlightAssignment assignment;
-
 		masterId = super.getRequest().getData("masterId", int.class);
-		assignment = this.repository.findFlightAssignmentById(masterId);
-
-		log = new ActivityLog();
-		log.setFlightAssignment(assignment);
-		log.setRegistrationMoment(MomentHelper.getCurrentMoment());
-		log.setDraftMode(true);
-
-		super.getBuffer().addData(log);
+		flightAssignment = this.repository.findFlightAssignmentById(masterId);
+		activityLog.setFlightAssignment(flightAssignment);
+		activityLog.setDraftMode(true);
+		activityLog.setSeverityLevel(0);
+		activityLog.setDescription("");
+		activityLog.setTypeOfIndicent("");
+		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
 	public void bind(final ActivityLog log) {
+		log.setRegistrationMoment(MomentHelper.getCurrentMoment());
+		log.setDraftMode(true);
 		super.bindObject(log, "typeOfIndicent", "description", "severityLevel");
 
-		int masterId = super.getRequest().getData("masterId", int.class);
-		FlightAssignment assignment = this.repository.findFlightAssignmentById(masterId);
-		log.setFlightAssignment(assignment);
 	}
 
 	@Override
 	public void validate(final ActivityLog log) {
+
 		int masterId = super.getRequest().getData("masterId", int.class);
 		FlightAssignment assignment = this.repository.findFlightAssignmentById(masterId);
 		boolean legIsCompleted = MomentHelper.isAfter(MomentHelper.getCurrentMoment(), assignment.getLeg().getScheduledArrival());
@@ -77,10 +71,8 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 		Dataset dataset;
 
 		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
-		FlightAssignment assignment = log.getFlightAssignment();
-		String assignmentDescription = String.format("Flight %s - Duty: %s", assignment.getLeg().getFlightNumber(), assignment.getFlightCrewDuty());
-		dataset.put("flightAssignmentDescription", assignmentDescription);
-		super.getResponse().addGlobal("masterId", super.getRequest().getData("masterId", int.class));
+		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+
 		super.getResponse().addData(dataset);
 	}
 }

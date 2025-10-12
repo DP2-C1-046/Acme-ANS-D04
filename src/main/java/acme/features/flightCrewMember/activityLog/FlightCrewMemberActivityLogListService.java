@@ -21,38 +21,44 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 
 	@Override
 	public void authorise() {
-		int masterId;
-		int memberId;
-		FlightAssignment flightAssignment;
 		boolean status;
-
+		int masterId;
+		FlightAssignment flightAssignment;
 		masterId = super.getRequest().getData("masterId", int.class);
-		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
 		flightAssignment = this.repository.findFlightAssignmentById(masterId);
-
-		status = flightAssignment != null && flightAssignment.getFlightCrewMember().getId() == memberId;
+		status = flightAssignment != null && super.getRequest().getPrincipal().hasRealm(flightAssignment.getFlightCrewMember());
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		int masterId = super.getRequest().getData("masterId", int.class);
+		Collection<ActivityLog> activityLogs;
+		int flightAssignmentId;
 
-		Collection<ActivityLog> logs = this.repository.findActivityLogsByAssignmentId(masterId);
-		super.getBuffer().addData(logs);
-		super.getResponse().addGlobal("masterId", masterId);
+		flightAssignmentId = super.getRequest().getData("masterId", int.class);
+
+		activityLogs = this.repository.findActivityLogsByAssignmentId(flightAssignmentId);
+
+		super.getBuffer().addData(activityLogs);
 	}
 
 	@Override
 	public void unbind(final ActivityLog activityLog) {
+
 		Dataset dataset;
-		int masterId;
-
-		dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIndicent", "severityLevel");
-		masterId = super.getRequest().getData("masterId", int.class);
-
-		super.addPayload(dataset, activityLog, "draftMode");
-		super.getResponse().addGlobal("masterId", masterId);
+		if (activityLog.getDraftMode() == true)
+			dataset = super.unbindObject(activityLog, "typeOfIndicent", "description", "severityLevel", "draftMode");
+		else
+			dataset = super.unbindObject(activityLog, "registrationMoment", "typeOfIndicent", "description", "severityLevel", "draftMode");
 		super.getResponse().addData(dataset);
+
+	}
+
+	@Override
+	public void unbind(final Collection<ActivityLog> activityLog) {
+		int masterId;
+		masterId = super.getRequest().getData("masterId", int.class);
+		super.getResponse().addGlobal("masterId", masterId);
+
 	}
 }
