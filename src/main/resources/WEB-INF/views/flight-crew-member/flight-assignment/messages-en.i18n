@@ -12,6 +12,7 @@ flightCrewMember.assignment.list.label.duty = Crew duty
 flightCrewMember.assignment.list.label.lastUpdate = Last update
 flightCrewMember.assignment.list.label.status = Status
 flight-crew-member.flight-assignment.list.title = My Flight Assignments
+flight-crew-member.flight-assignment.list.draft-mode = draftMode
 
 flight-crew-member.flight-assignment.form.title = Assignment details
 # Labels

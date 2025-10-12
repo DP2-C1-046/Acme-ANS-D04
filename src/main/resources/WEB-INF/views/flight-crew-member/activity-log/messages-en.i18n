@@ -18,3 +18,4 @@ flight-crew-member.activity-log.form.button.delete = Delete
 flight-crew-member.activity-log.form.button.publish = Publish
 
 flight-crew-member.activity-log.form.title = Activity Log
+flight-crew-member.activity-log.list.label.draft-mode = draftMode

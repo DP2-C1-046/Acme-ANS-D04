@@ -23,6 +23,8 @@ acme.validation.flight-assignment.status-confirmed-not-allowed = No puedes crear
 acme.validation.flight-assignment.status-not-publishable = Solo se pueden publicar asignaciones con estado CONFIRMADO o CANCELADO.
 acme.validation.flight-crew-member.assignment.form.error.different-airline = No se te puede asignar a un vuelo de una aerolínea a la que no perteneces.
 acme.validation.flight-crew-member.assignment.form.error.leg-not-published = El tramo seleccionado tiene que estar publicado.
+acme.validation.flight-crew-member.assignment.form.error.leg-already-completed=No se puede actualizar una asignación cuyo tramo ya ha sido completado.
+acme.validation.flight-crew-member.activity-log.validation.create = No puedes crear un registro de actividad para un tramo no completado.
 
 
 
@@ -41,4 +43,10 @@ acme.validation.booking.passengersInDraftMode.message = Una reserva solo se pued
 acme.validation.booking.invalid-passenger.message = Seleccionado un pasajero inválido
 
 acme.validation.passenger.duplicated-passportNumber.message = El número de Pasaporte está duplicado
+
+flight-crew-member.flight-assignment.validation.duty.publish = Un tramo no puede tener más de un piloto o copiloto
+flight-crew-member.flight-assignment.validation.availability-status.publish = Este miembro no está disponible actualmente
+flight-crew-member.flight-assignment.validation.flight-number.publish = Este miembro ya está asignado a este tramo
+flight-crew-member.flight-assignment.validation.overlapping-leg = Este tramo se solapa con otro tramo del mismo miembro
+flight-crew-member.flight-assignment.validation.current-status.publish = No puedes publicar una asignación de vuelo en estado pendiente.
 

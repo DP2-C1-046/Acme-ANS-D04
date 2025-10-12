@@ -36,8 +36,8 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 	@Query("select f.leg from FlightAssignment f where f.flightCrewMember.id = ?1")
 	Collection<Leg> findLegsByFlightCrewMemberId(int memberId);
 
-	@Query("SELECT l FROM Leg l where l.draftMode = false")
-	Collection<Leg> findAllLegs();
+	@Query("SELECT l FROM Leg l WHERE l.draftMode = false AND l.flight.airline.id = :airlineId")
+	Collection<Leg> findLegsByAirlineId(int airlineId);
 
 	@Query("SELECT fcm FROM FlightCrewMember fcm")
 	Collection<FlightCrewMember> findAllFlightCrewMembers();
@@ -53,5 +53,24 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg = :flightAssignmentLeg and fa.flightCrewDuty = :duty")
 	Collection<FlightAssignment> findFlightAssignmentByLegAndDuty(Leg flightAssignmentLeg, FlightCrewDuty duty);
+
+	@Query("""
+		    SELECT DISTINCT f.leg.flight.airline.id
+		    FROM FlightAssignment f
+		    WHERE f.flightCrewMember.id = :memberId
+		""")
+	Integer findAirlineIdByFlightCrewMemberId(int memberId);
+
+	@Query("select l from Leg l where l.scheduledDeparture>:now and l.draftMode = false")
+	Collection<Leg> findUncompletedLegs(Date now);
+
+	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId and fa.draftMode = false")
+	Collection<FlightAssignment> findPublishedFlightAssignmentsByLegId(int legId);
+
+	@Query("select fa from FlightAssignment fa where fa.leg.scheduledArrival > :now and fa.flightCrewMember.id = :flightCrewMemberId and fa.draftMode = false")
+	Collection<FlightAssignment> findPublishedUncompletedFlightAssignmentsByFlightCrewMemberId(Date now, int flightCrewMemberId);
+
+	@Query("select fa from FlightAssignment fa where fa.flightCrewMember.id = :memberId and fa.draftMode = false and fa.leg.scheduledDeparture < :newArrival and fa.leg.scheduledArrival > :newDeparture")
+	Collection<FlightAssignment> findOverlappingPublishedFlightAssignments(int memberId, Date newDeparture, Date newArrival);
 
 }

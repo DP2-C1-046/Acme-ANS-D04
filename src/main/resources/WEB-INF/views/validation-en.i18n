@@ -38,3 +38,13 @@ acme.validation.flight-assignment.status-cancelled-not-allowed = You cannot crea
 acme.validation.flight-assignment.status-confirmed-not-allowed = You cannot create an assignment with status CONFIRMED.
 acme.validation.flight-assignment.status-not-publishable = Only assignments with status CONFIRMED or CANCELLED can be published.
 acme.validation.flight-crew-member.assignment.form.error.different-airline = You cannot be assigned to a flight of an airline you don't belong.
+acme.validation.flight-crew-member.assignment.form.error.leg-already-completed = You cannot update an assignment whose leg has already been completed.
+acme.validation.flight-crew-member.activity-log.validation.create = You cannot create an activity log for an uncompleted leg
+
+flight-crew-member.flight-assignment.validation.duty.publish = There cannot be more than one pilot or co-pilot for the same leg
+flight-crew-member.flight-assignment.validation.availability-status.publish = This crew member is not available
+flight-crew-member.flight-assignment.validation.flight-number.publish = This crew member is already assigned to this leg
+flight-crew-member.flight-assignment.validation.overlapping-leg.publish = This leg overlaps with another leg of the same member
+flight-crew-member.flight-assignment.validation.current-status.publish = You cannot publish a flight assignment in pending status.
+
+flight-crew-member.activity-log.validation.publish = You cannot publish an activity log for an u

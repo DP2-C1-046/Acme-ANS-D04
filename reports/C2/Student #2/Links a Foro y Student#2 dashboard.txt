@@ -1,0 +1,16 @@
+Links a preguntas del foro a incorporar como justificación en documento de Análisis:
+
+Pregunta en foro sobre estructura de carpeta Reports: actualizamos estructura a la indicada
+
+https://ev.us.es/webapps/discussionboard/do/message?action=list_messages&course_id=_89154_1&nav=discussion_board&conf_id=_426211_1&forum_id=_253522_1&message_id=_457927_1
+
+
+Req. 13) Provide a link to your planning dashboard in GitHub to review the tasks, their current status, and your Schedule:
+
+Link al Student#2->rafcarmed Dashboard status on 15May2025 con filtro para los Milestones D02, D03 y D04:
+
+https://github.com/orgs/DP2-C1-046/projects/1/views/1?filterQuery=milestone%3AD02%2CD03%2CD04+rafcarmed
+
+o, link con filtro sólo de Student#2->rafcarmed con las tareas de todos los Milestones o Deliverables, D01 a D04:
+
+https://github.com/orgs/DP2-C1-046/projects/1/views/1?filterQuery=rafcarmed

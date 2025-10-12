@@ -7,7 +7,6 @@ import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activityLogs.ActivityLog;
-import acme.entities.assignments.FlightAssignment;
 import acme.realms.FlightCrewMember;
 
 @GuiService
@@ -19,36 +18,29 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		ActivityLog log;
-		int logId;
-		int memberId;
 		boolean status;
-
-		logId = super.getRequest().getData("id", int.class);
-		log = this.repository.findActivityLogById(logId);
-		memberId = super.getRequest().getPrincipal().getActiveRealm().getId();
-
-		status = log != null && log.getFlightAssignment().getFlightCrewMember().getId() == memberId && log.getDraftMode() && !log.getFlightAssignment().getDraftMode();
+		int masterId;
+		ActivityLog activityLog;
+		masterId = super.getRequest().getData("id", int.class);
+		activityLog = this.repository.findActivityLogById(masterId);
+		status = activityLog != null && activityLog.getDraftMode() && super.getRequest().getPrincipal().hasRealm(activityLog.getFlightAssignment().getFlightCrewMember());
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		ActivityLog log;
+		ActivityLog activityLog;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		log = this.repository.findActivityLogById(id);
-		super.getBuffer().addData(log);
+		activityLog = this.repository.findActivityLogById(id);
+		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
 	public void bind(final ActivityLog log) {
 		super.bindObject(log, "typeOfIndicent", "description", "severityLevel");
 
-		ActivityLog original = this.repository.findActivityLogById(log.getId());
-		log.setFlightAssignment(original.getFlightAssignment());
-		log.setRegistrationMoment(original.getRegistrationMoment());
 	}
 
 	@Override
@@ -65,12 +57,7 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 	public void unbind(final ActivityLog log) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(log, "registrationMoment", "typeOfIndicent", "description", "severityLevel");
-		FlightAssignment assignment = log.getFlightAssignment();
-		String assignmentDescription = String.format("Flight %s - Duty: %s", assignment.getLeg().getFlightNumber(), assignment.getFlightCrewDuty());
-
-		dataset.put("flightAssignmentDescription", assignmentDescription);
-		dataset.put("masterId", super.getRequest().getData("masterId", int.class));
+		dataset = super.unbindObject(log, "typeOfIndicent", "description", "severityLevel", "draftMode");
 
 		super.getResponse().addData(dataset);
 	}

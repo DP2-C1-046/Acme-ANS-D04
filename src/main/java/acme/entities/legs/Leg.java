@@ -76,6 +76,11 @@ public class Leg extends AbstractEntity {
 		return (double) duration.toHours();
 	}
 
+	@Transient
+	public String getLegLabel() {
+		return this.flightNumber + ": " + this.getDepartureAirport().getCity() + " " + this.getScheduledDeparture() + " - " + this.getArrivalAirport().getCity() + " " + this.getScheduledArrival();
+	}
+
 	// Relationships ----------------------------------------------------------
 
 
