@@ -48,3 +48,5 @@ flight-crew-member.flight-assignment.validation.overlapping-leg.publish = This l
 flight-crew-member.flight-assignment.validation.current-status.publish = You cannot publish a flight assignment in pending status.
 
 flight-crew-member.activity-log.validation.publish = You cannot publish an activity log for an u
+
+acme.validation.flightassignment.airline.mismatch = The leg and the member assigned must belong to the same airline.

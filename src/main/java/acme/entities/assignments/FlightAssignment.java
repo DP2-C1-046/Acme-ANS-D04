@@ -18,6 +18,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidFlightAssignment;
 import acme.entities.legs.Leg;
 import acme.realms.FlightCrewMember;
 import lombok.Getter;
@@ -25,6 +26,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@ValidFlightAssignment
 @Entity
 @Table(indexes = {
 	@Index(columnList = "draftMode"), @Index(columnList = "draftMode, leg_id"), @Index(columnList = "assignmentStatus, flight_crew_member_id")

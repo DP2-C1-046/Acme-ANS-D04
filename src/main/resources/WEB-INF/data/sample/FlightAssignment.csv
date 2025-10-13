@@ -15,4 +15,3 @@ flight-assignment-12,PILOT,2024/12/31 23:45,CANCELLED,"Rotation revised due to s
 flight-assignment-13,CABINATTENDANT,2024/12/31 23:30,CANCELLED,"Ultra-long sector crew released per ops.",True,flightCrewMember-00,leg-12
 flight-assignment-14,COPILOT,2024/12/31 23:55,PENDING,"洛伦·伊普森",False,flightCrewMember-00,leg-13
 flight-assignment-15,LEADATTENDANT,2024/05/31 23:59,CONFIRMED,โลเร็ม อิปซัม,False,flightCrewMember-00,leg-18
-flight-assignment-16,COPILOT,2020/08/01 10:00,CONFIRMED,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",True,flightCrewMember-01,leg-08
