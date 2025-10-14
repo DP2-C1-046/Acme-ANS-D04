@@ -34,7 +34,10 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 		else {
 			legId = super.getRequest().getData("leg", int.class);
 			Leg leg = this.repository.findLegById(legId);
-			Collection<Leg> uncompletedLegs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
+			int airlineId;
+			FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+			airlineId = flightCrewMember.getAirline().getId();
+			Collection<Leg> uncompletedLegs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment(), airlineId);
 			status = legId == 0 || uncompletedLegs.contains(leg);
 		}
 
@@ -84,9 +87,11 @@ public class FlightCrewMemberAssignmentCreateService extends AbstractGuiService<
 
 		FlightCrewMember flightCrewMember;
 		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+		int airlineId;
+		airlineId = flightCrewMember.getAirline().getId();
 		Dataset dataset;
 
-		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
+		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment(), airlineId);
 
 		legChoices = SelectChoices.from(legs, "LegLabel", null);
 		dutyChoices = SelectChoices.from(FlightCrewDuty.class, null);

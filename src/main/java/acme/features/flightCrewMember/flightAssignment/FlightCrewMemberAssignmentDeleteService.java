@@ -78,8 +78,9 @@ public class FlightCrewMemberAssignmentDeleteService extends AbstractGuiService<
 		Dataset dataset;
 		FlightCrewMember flightCrewMember;
 		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-
-		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
+		int airlineId;
+		airlineId = flightCrewMember.getAirline().getId();
+		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment(), airlineId);
 
 		if (!legs.contains(assignment.getLeg()))
 			legChoices = SelectChoices.from(legs, "LegLabel", null);

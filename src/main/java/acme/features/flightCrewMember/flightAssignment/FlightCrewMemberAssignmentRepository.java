@@ -54,8 +54,15 @@ public interface FlightCrewMemberAssignmentRepository extends AbstractRepository
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.leg = :flightAssignmentLeg and fa.flightCrewDuty = :duty")
 	Collection<FlightAssignment> findFlightAssignmentByLegAndDuty(Leg flightAssignmentLeg, FlightCrewDuty duty);
 
-	@Query("select l from Leg l where l.scheduledDeparture>:now and l.draftMode = false")
-	Collection<Leg> findUncompletedLegs(Date now);
+	@Query("""
+		select l
+		from Leg l
+		where l.scheduledDeparture > :now
+		  and l.draftMode = false
+		  and l.flight.airline.id = :airlineId
+		order by l.scheduledDeparture asc
+		""")
+	Collection<Leg> findUncompletedLegs(Date now, int airlineId);
 
 	@Query("select fa from FlightAssignment fa where fa.leg.id = :legId and fa.draftMode = false")
 	Collection<FlightAssignment> findPublishedFlightAssignmentsByLegId(int legId);

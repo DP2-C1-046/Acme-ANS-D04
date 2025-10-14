@@ -59,8 +59,9 @@ public class FlightCrewMemberAssignmentShowService extends AbstractGuiService<Fl
 		Dataset dataset;
 		FlightCrewMember flightCrewMember;
 		flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-
-		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment());
+		int airlineId;
+		airlineId = flightCrewMember.getAirline().getId();
+		legs = this.repository.findUncompletedLegs(MomentHelper.getCurrentMoment(), airlineId);
 		if (!flightAssignment.getDraftMode()) {
 			legs = List.of(flightAssignment.getLeg());
 			legChoices = SelectChoices.from(legs, "LegLabel", flightAssignment.getLeg());
